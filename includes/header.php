@@ -13,10 +13,12 @@
 
 <body>
 
+<header>
+<p>header確認用だよ</p>
 
 <img src="ハンバーガーストア-ロゴ" alt="">
 
-
+</header>
 
 
 
