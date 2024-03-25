@@ -13,7 +13,7 @@
 
 <footer>
 <p>footer確認用だよ</p>
-<img src="ハンバーガーストア-ロゴ" alt="">
+<img src="" alt="ハンバーガーストア-ロゴ">
 
 
 
