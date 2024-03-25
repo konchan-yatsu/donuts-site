@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,10 @@
 </head>
 
 <body>
-  <!-- test -->
+トップページ
+ガンダム
+ガンダム
+ガンダム
 </body>
 
 </html>
