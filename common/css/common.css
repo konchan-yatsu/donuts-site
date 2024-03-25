@@ -1,1 +1,298 @@
 @charset "utf-8";
+
+/* ---ナビ作成 共通--- */
+div.nav-icon-bg {
+    position: fixed;
+    right: 4px;
+    top: 4px;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    background: rgba(0, 0, 0, 0.5);
+
+}
+
+nav div.nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 95;
+
+}
+
+nav img {
+    width: 30%;
+    /*111/375= 0.296*/
+
+}
+
+nav input.menu-botan {
+    display: none;
+}
+
+nav label.menu-icon {
+    position: absolute;
+    right: 12px;
+    top: 21px;
+    padding-top: 5px;
+    height: 12px;
+    cursor: pointer;
+}
+
+nav label.menu-icon span.nav-icon {
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: #ffffff;
+
+    position: relative;
+    transition: background .4s ease-out;
+
+}
+
+
+nav label.menu-icon span.nav-icon::before,
+nav label.menu-icon span.nav-icon::after {
+    content: "";
+    display: block;
+    width: 70%;
+    height: 100%;
+    background: #ffffff;
+
+    position: absolute;
+    transition: all .4s ease-out;
+}
+
+nav label.menu-icon span.nav-icon::before {
+    top: -12.5px;
+    margin-left: 4.5px;
+}
+
+nav label.menu-icon span.nav-icon::after {
+    top: 12.5px;
+    margin-left: 4.5px;
+}
+
+nav ul.nav-menu {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    max-height: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: max-height 0.6s;
+    height: 667px;
+
+    text-transform: uppercase;
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: rgba(255, 255, 255, 0.3);
+
+}
+
+nav ul.nav-menu li img {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    max-height: 0;
+}
+
+
+nav ul.nav-menu li:first-of-type {
+    padding-top: 96px;
+}
+
+nav ul.nav-menu li {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+nav ul.nav-menu li a {
+    display: block;
+    padding: 32px 20px;
+    font-style: bold;
+}
+
+nav ul.nav-menu li a:hover {
+    /* ナビメニューの項目にカーソルを合わせたときの設定 */
+    background: rgb(255, 255, 91);
+    color: black;
+}
+
+nav input.menu-botan:checked~ul.nav-menu {
+    /* メニューボタンをチェックした際の設定 */
+    max-height: 667px;
+    /* 最大高さ設定 */
+}
+
+nav input.menu-botan:checked~ul.nav-menu li img {
+    /* メニューボタンをチェックした際の設定 */
+    max-height: 667px;
+    /* 最大高さ設定 */
+}
+
+/* メニューのバツ表示 */
+nav input.menu-botan:checked~label.menu-icon span.nav-icon {
+
+    background: transparent;
+
+}
+
+nav input.menu-botan:checked~label.menu-icon span.nav-icon::before {
+    transform: rotate(-45deg);
+    top: 0;
+    right: 0.5px;
+    width: 99%;
+    /* 40:56.57=70:X 比率の計算 */
+    /* 70*56.57/40=99% */
+}
+
+nav input.menu-botan:checked~label.menu-icon span.nav-icon::after {
+    transform: rotate(45deg);
+    top: 0;
+    right: 0.5px;
+    width: 99%;
+}
+
+@media screen and (min-width: 767px) {
+
+    header div.kasou {
+        padding: 0px;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+
+    }
+
+    header div.kasou img.header-rogo1 {
+        width: 10%;
+        /*140/1366= 0.102*/
+        /* opacity: 45%; */
+        margin: 20px 0 0 20px;
+
+    }
+
+    header div.kasou div {
+        display: block;
+    }
+
+    header div.kasou div img.header-rogo2 {
+        width: 22%;
+        /*  300/1366=0.219 */
+        height: 100%;
+        margin: 38px 0 0 20%;
+        /* margin-top 112-45=67 */
+        /* margin-bottom 167-57.6=109.4 */
+    }
+
+
+    header p {
+        width: 37%;
+        /* 482/1290=0.374 */
+
+        font-size: 20px;
+        margin: 0 20px 0 auto;
+        padding-bottom: 20px;
+    }
+
+
+
+    /* ---ナビ作成 共通--- */
+    div.nav-icon-bg {
+        position: none;
+        width: 0px;
+        height: 0px;
+        border-radius: 0px;
+        background: transparent;
+    }
+
+    nav div.nav {
+        display: none;
+        position: absolute;
+
+        top: 0;
+        right: 6%;
+
+        width: 50%;
+        height: 58px;
+        margin-top: 20px;
+    }
+
+    nav img {
+        display: none;
+
+    }
+
+    nav input.menu-botan {
+        display: none;
+    }
+
+    nav label.menu-icon {
+        position: none;
+        padding-top: 0px;
+        height: 0px;
+        cursor: none;
+    }
+
+    nav label.menu-icon span.nav-icon {
+        display: none;
+        width: 0px;
+        height: 0px;
+        background: #ffffff;
+
+        position: relative;
+        transition: background .4s ease-out;
+
+    }
+
+    nav ul.nav-menu {
+        display: flex;
+        justify-content: right;
+        width: 100%;
+        background: rgba(0, 0, 0, 0);
+        text-align: center;
+        max-height: none;
+        overflow: none;
+        transition: none;
+
+        height: 56px;
+
+        text-transform: uppercase;
+        text-decoration-line: none;
+
+        position: absolute;
+        top: 0px;
+        right: 0px;
+
+        margin-top: 20px;
+    }
+
+    nav ul.nav-menu li img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        max-height: 0;
+    }
+
+
+    nav ul.nav-menu li:first-of-type {
+        padding-top: 0px;
+    }
+
+    nav ul.nav-menu li {
+        color: #FFFFFF;
+        font-size: 24px;
+    }
+
+    nav ul.nav-menu li a {
+        display: block;
+        padding: 16px 20px;
+    }
+}
+
+/* ---ナビ作成 共通--- */
+/* --------------------header-------------------- */
