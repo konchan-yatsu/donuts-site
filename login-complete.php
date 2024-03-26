@@ -1,4 +1,3 @@
-<?php require 'includes/header.php'; ?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -8,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="common/css/reset.css">
+  <link rel="stylesheet" href="common/css/login.css">
   <title>Login completed | donuts-site</title>
 </head>
 
@@ -29,4 +28,3 @@
 </body>
 
 </html>
-<?php require 'includes/footer.php'; ?>
