@@ -12,8 +12,8 @@
 
 
 <footer>
-
-<img src="ハンバーガーストア-ロゴ" alt="">
+<p>footer確認用だよ</p>
+<img src="" alt="ハンバーガーストア-ロゴ">
 
 
 
