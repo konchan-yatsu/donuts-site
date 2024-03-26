@@ -34,6 +34,7 @@ body {
 .philosophy_img {
   max-width: 100%;
   text-align: center;
+  z-index: 100;
 }
 
 
@@ -41,15 +42,36 @@ body {
 h1 {
   font-size: 20px;
   text-align: center;
+  margin-top: 32px;
+  margin-bottom: 80px;
 }
 
+.underline {
+  text-decoration: underline #FFD233;
+}
+
+h5 {
+  width: 10%;
+  height: 10%;
+  background: #E8C2CA;
+  color: #fff;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+
+.ranking_text {
+  margin-top: 20px;
+
+}
 
 .ranking {
   display: grid;
   justify-content: space-around;
   margin: 20px;
   grid-template-columns: 40vw 40vw;
-  grid-template-rows: 60vw 60vw 60vw 60vw 60vw 45vw;
+  grid-template-rows: 70vw 70vw 70vw 70vw 70vw 60vw;
 }
 
 .btn_cart {
@@ -58,4 +80,5 @@ h1 {
   width: 42vw;
   height: 11%;
   text-align: center;
+  margin-top: 20px;
 }

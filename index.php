@@ -39,9 +39,18 @@
     <div class="philosophy_img">
       <img src="common/images/top_cont2_background_sp.png" alt="ドーナッツ">
     </div>
+
+    <div>
+      <div>
+        <p>Philosophy</p>
+        <p>私たちの信念</p>
+        <p>"Creating Connections"</p>
+        <p>ドーナツでつながる</p>
+      </div>
+    </div>
   </section>
   <section>
-    <h1>人気ランキング</h1>
+    <h1 class="underline">人気ランキング</h1>
     <!-- <div class="ranking">
       <div class="ranking_item">
         <h5></h5>
@@ -96,18 +105,23 @@
     $name = ['CCドーナツ 当店オリジナル(5個入り)', 'フルーツドーナツセット(12個入り)', 'フルーツドーナツセット(14個入り)', 'チョコレートデライト(5個入り)', 'ベストセレクションボックス(4個入り)', 'ストロベ リークラッ
 シュ（5個入り)'];
     $price = ['税込 ￥1,500', '税込 ￥3,500', '税込 ￥4,000', '税込 ￥1,600', '税込 ￥1,200', '税込 ￥1,800'];
+$number=[1,2,3,4,5,6];
 
-    foreach (array_map(null,$img,$name,$price) as[$i,$n,$p] ) {
+    foreach (array_map(null,$img,$name,$price) as $key=>[$i,$n,$p] ) {
+      $num=1;
+      $num+=$key;
       echo <<< END
       <div class="ranking_item">
-      <h5></h5>
+      <div class="ranking_h5">
+      <h5>{$num}</h5></div>
       <p><img src="common/images/{$i}" alt="商品画像"></p>
-      <p>{$n}</p>
-      <p>{$p}</p>
+      <p class="ranking_text">{$n}</p> 
+      <p class="ranking_text">{$p}</p>
       <button class="btn_cart"><a href="#">カートに入れる</a></button>
 </div>
 
 END;
+// var_dump($key);
     }
 
     ?>
