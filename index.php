@@ -42,7 +42,7 @@
   </section>
   <section>
     <h1>人気ランキング</h1>
-    <div class="ranking">
+    <!-- <div class="ranking">
       <div class="ranking_item">
         <h5></h5>
         <p><img src="common/images/top_cont3_No1_sp.png" alt="商品画像"></p>
@@ -86,19 +86,33 @@
         <p>税込 ￥1,800</p>
         <button class="btn_cart"><a href="#">カートに入れる</a></button>
       </div>
-    </div>
-
+    </div> -->
+<div class="ranking">
     <?php
-//     $img = [
-//       'top_cont3_No1_sp.png', 'top_cont3_No2_sp.png', 'top_cont3_No3_sp.png',
-//       'top_cont3_No4_sp.png', 'top_cont3_No5_sp.png', 'top_cont3_No6_sp.png'
-//     ];
-//     $name = ['CCドーナツ 当店オリジナル(5個入り)', 'フルーツドーナツセット(12個入り)', 'フルーツドーナツセット(14個入り)', 'チョコレートデライト(5個入り)', 'ベストセレクションボックス(4個入り)', 'ストロベ リークラッ
-// シュ（5個入り)'];
-//     $price = ['税込 ￥1,500', '税込 ￥3,500', '税込 ￥4,000', '税込 ￥1,600', '税込 ￥1,200', '税込 ￥1,800'];
+    $img = [
+      'top_cont3_No1_sp.png', 'top_cont3_No2_sp.png', 'top_cont3_No3_sp.png',
+      'top_cont3_No4_sp.png', 'top_cont3_No5_sp.png', 'top_cont3_No6_sp.png'
+    ];
+    $name = ['CCドーナツ 当店オリジナル(5個入り)', 'フルーツドーナツセット(12個入り)', 'フルーツドーナツセット(14個入り)', 'チョコレートデライト(5個入り)', 'ベストセレクションボックス(4個入り)', 'ストロベ リークラッ
+シュ（5個入り)'];
+    $price = ['税込 ￥1,500', '税込 ￥3,500', '税込 ￥4,000', '税込 ￥1,600', '税込 ￥1,200', '税込 ￥1,800'];
 
+    foreach (array_map(null,$img,$name,$price) as[$i,$n,$p] ) {
+      echo <<< END
+      <div class="ranking_item">
+      <h5></h5>
+      <p><img src="common/images/{$i}" alt="商品画像"></p>
+      <p>{$n}</p>
+      <p>{$p}</p>
+      <button class="btn_cart"><a href="#">カートに入れる</a></button>
+</div>
+
+END;
+    }
 
     ?>
+</div>
+
   </section>
   テストテスト
 </body>

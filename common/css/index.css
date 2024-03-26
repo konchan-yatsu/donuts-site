@@ -55,4 +55,7 @@ h1 {
 .btn_cart {
   background: #7F5539;
   color: #fff;
+  width: 42vw;
+  height: 11%;
+  text-align: center;
 }
