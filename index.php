@@ -4,34 +4,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="common/css/reset.css">
+  <link rel="stylesheet" href="common/css/index.css">
+  <title>index|donuts-site</title>
 </head>
 
 <body>
   <!-- test -->
   <section>
-    <img src="#" alt="top">
+    <img src="common/images/top_hero_sp.png" alt="top" class="hero_img
+    ">
   </section>
   <section>
-    <div>
-      <div>
-        <img src="" alt="サマーシストラス">
+    <div class="dounts-content">
+      <div class="dounts-img01">
+        <img src="common/images/top_cont1_summercitrus_sp.png" alt="サマーシストラス">
       </div>
-      <div>
-        <img src="" alt="ドーナッツのある生活">
+      <div class="dounts-img02">
+        <img src="common/images/top_cont1_donutslife_sp.png" alt="ドーナッツのある生活">
       </div>
     </div>
-    <img src="" href="" alt="商品一覧">
+    <div class="product_img">
+      <img src="common/images/top_cont1_donutslist_sp.png" href="" alt="商品一覧">
+    </div>
   </section>
 
   <section>
-    <img src="" alt="ドーナッツ">
+    <div class="philosophy_img">
+      <img src="common/images/top_cont2_background_sp.png" alt="ドーナッツ">
+    </div>
   </section>
   <section>
-    <h5></h5>
-    <img src="" alt="商品画像">
-    <p></p>
-    <button>カートに入れる</button>
+    <h1>人気ランキング</h1>
+    <div class="ranking">
+      <div class="ranking_item">
+        <h5></h5>
+        <p><img src="common/images/top_cont3_No1_sp.png" alt="商品画像"></p>
+        <p>CCドーナツ 当店オリジナル(5個入り)</p>
+        <p>税込 ￥1,500</p>
+        <button class="btn_cart"><a href="#">カートに入れる</a></button>
+      </div>
+      <div class="ranking_item">
+        <h5></h5>
+        <img src="common/images/top_cont3_No2_sp.png" alt="商品画像">
+        <p>フルーツドーナツセット(12個入り)</p>
+        <p>税込 ￥3,500</p>
+        <button class="btn_cart"><a href="#">カートに入れる</a></button>
+      </div>
+      <div class="ranking_item">
+        <h5></h5>
+        <img src="common/images/top_cont3_No3_sp.png" alt="商品画像">
+        <p>フルーツドーナツセット(14個入り)</p>
+        <p>税込 ￥4,000</p>
+        <button class="btn_cart"><a href="#">カートに入れる</a></button>
+      </div>
+      <div class="ranking_item">
+        <h5></h5>
+        <img src="common/images/top_cont3_No4_sp.png" alt="商品画像">
+        <p>チョコレートデライト(5個入り)</p>
+        <p>税込 ￥1,600</p>
+        <button class="btn_cart"><a href="#">カートに入れる</a></button>
+      </div>
+      <div class="ranking_item">
+        <h5></h5>
+        <img src="common/images/top_cont3_No5_sp.png" alt="商品画像">
+        <p>ベストセレクションボックス(4個入り)</p>
+        <p>税込 ￥1,200</p>
+        <button class="btn_cart"><a href="#">カートに入れる</a></button>
+      </div>
+      <div class="ranking_item">
+        <h5></h5>
+        <img src="common/images/top_cont3_No6_sp.png" alt="商品画像">
+        <p>ストロベ リークラッ
+          シュ（5個入り）</p>
+        <p>税込 ￥1,800</p>
+        <button class="btn_cart"><a href="#">カートに入れる</a></button>
+      </div>
+    </div>
+
+    <?php
+//     $img = [
+//       'top_cont3_No1_sp.png', 'top_cont3_No2_sp.png', 'top_cont3_No3_sp.png',
+//       'top_cont3_No4_sp.png', 'top_cont3_No5_sp.png', 'top_cont3_No6_sp.png'
+//     ];
+//     $name = ['CCドーナツ 当店オリジナル(5個入り)', 'フルーツドーナツセット(12個入り)', 'フルーツドーナツセット(14個入り)', 'チョコレートデライト(5個入り)', 'ベストセレクションボックス(4個入り)', 'ストロベ リークラッ
+// シュ（5個入り)'];
+//     $price = ['税込 ￥1,500', '税込 ￥3,500', '税込 ￥4,000', '税込 ￥1,600', '税込 ￥1,200', '税込 ￥1,800'];
+
+
+    ?>
   </section>
   テストテスト
 </body>

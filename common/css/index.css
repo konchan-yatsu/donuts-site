@@ -1,0 +1,58 @@
+@charset "utef-8";
+
+/* 全体設定 */
+body {
+  font-family: Noto sans JP, sans-serif;
+}
+
+/* メインエリア */
+/* TOP画像 */
+.hero_img {
+  width: 100vw;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* 商品紹介 */
+.dounts-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dounts-img01,
+.dounts-img02 {
+  margin: 20px;
+}
+
+.product_img {
+  margin: 20px;
+  text-align: center;
+}
+
+/* 会社理念？ */
+.philosophy_img {
+  max-width: 100%;
+  text-align: center;
+}
+
+
+/* 人気ランキング */
+h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+
+.ranking {
+  display: grid;
+  justify-content: space-around;
+  margin: 20px;
+  grid-template-columns: 40vw 40vw;
+  grid-template-rows: 60vw 60vw 60vw 60vw 60vw 45vw;
+}
+
+.btn_cart {
+  background: #7F5539;
+  color: #fff;
+}
