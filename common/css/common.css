@@ -9,7 +9,7 @@ body {
 
 
 /* -----header----- */
-header {
+header div#header_top {
     width: 100%;
     background-color: #EDE0D4;
 }
@@ -49,8 +49,6 @@ header a.cart img {
 
 
 /* ---ナビ作成 共通--- */
-
-
 nav div.nav {
     position: fixed;
     right: 0;
@@ -216,6 +214,55 @@ nav input.menu-botan:checked~label.menu-icon span.nav-icon::after {
     height: 5px;
 }
 
+/* ---ナビ作成 共通 end--- */
+
+/* ----- search ----- */
+header div#header_search {
+    background-color: #EDE0D4;
+    width: 100%;
+}
+
+header div#header_search ul {
+    width: 100%;
+    list-style: none;
+
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: left; */
+
+    /* padding: 0 12px 12px 12px; */
+
+    padding: 0;
+    margin: 0;
+
+    padding-bottom: 12px;
+}
+
+header div#header_search ul li:first-of-type {
+    margin-left: 12px;
+
+}
+
+header div#header_search ul li button {
+    width: 100%;
+    padding: 7.5px 8px;
+}
+
+
+header div#header_search ul li#text {
+    width: 100%;
+    margin-right: 12px;
+
+}
+
+header div#header_search ul li input {
+    width: 100%;
+    height: 100%;
+
+}
+
+/* ----- search end ----- */
+
 @media screen and (min-width: 767px) {
 
     header a.rogo {
@@ -238,7 +285,7 @@ nav input.menu-botan:checked~label.menu-icon span.nav-icon::after {
         position: absolute;
         right: 187px;
         /* 95+60+32+=187 */
-        top: 50px;
+        top: 30px;
         cursor: pointer;
     }
 
@@ -253,14 +300,19 @@ nav input.menu-botan:checked~label.menu-icon span.nav-icon::after {
         height: 60px;
         position: absolute;
         right: 95px;
-        top: 29px;
+        top: 30px;
         cursor: pointer;
     }
 
     header a.cart img {
         width: 100%;
         height: 60px;
+
+        right: 0;
+        top: 0;
     }
+
+
 
 
     /* ---ナビ作成 共通--- */
@@ -275,7 +327,7 @@ nav input.menu-botan:checked~label.menu-icon span.nav-icon::after {
     nav label.menu-icon {
         position: absolute;
         left: 95px;
-        top: 58.2px;
+        top: 55px;
         padding-top: 5px;
         height: 12px;
         cursor: pointer;
@@ -400,9 +452,61 @@ nav input.menu-botan:checked~label.menu-icon span.nav-icon::after {
         width: 76.4px;
         height: 5px;
     }
+
+    /* ---ナビ作成 共通 end--- */
+
+
+    /* ----- search ----- */
+    header div#header_search {
+        background-color: #B392AC;
+        width: 100%;
+        height: 64px;
+    }
+
+    header div#header_search ul {
+        width: 100%;
+        height: 100%;
+        list-style: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: right;
+
+        /* padding: 0 12px 12px 12px; */
+
+        padding-bottom: 0px;
+    }
+
+    header div#header_search ul li:first-of-type {
+        margin-left: 0px;
+
+    }
+
+    header div#header_search ul li button {
+        width: 100%;
+        padding: 9px 8px;
+    }
+
+
+    header div#header_search ul li#text {
+        width: 23%;
+        /* 320/1366=0.23 */
+        height: 63%;
+        /* 40/64=0.625 */
+        margin-right: 95px;
+
+    }
+
+    header div#header_search ul li input {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    /* ----- search end ----- */
 }
 
-/* ---ナビ作成 共通--- */
+
 /* -----header end----- */
 
 

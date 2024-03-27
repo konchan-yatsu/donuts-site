@@ -10,6 +10,8 @@
 
 <header>
 
+<div id="header_top">
+
 <a class="rogo" href="index.php"><img src="common/images/logo_sp.png" alt="ハンバーガーストア-ロゴ"></a>
 
 
@@ -69,9 +71,27 @@
 
 <a class="cart" href="../index.html"><img src="common/images/icon_cart_sp.svg" alt="カートアイコン"></a>
 
+</div>
+
+<div id="header_search">
+
+<ul>
+<!-- <div id=search_detail> -->
+  <li>
+  <button type="submit"><img src="common/images/icon_search_sp.svg" ></button>
+  </li>
+  <li id=text>
+  <input type="text">
+  </li>
+<!-- </div> -->
+</ul>
+
+</div>
+
 </header>
 
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
 
 
 
