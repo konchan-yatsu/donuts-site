@@ -2,12 +2,10 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-  <link rel="stylesheet" href="">
-
+    <link rel="stylesheet" href="common/css/common.css">
 
 </head>
 
@@ -15,9 +13,8 @@
 
 <header>
 
-<p>header確認用だよ</p>
-試しに入れてます
-<img src="" alt="ハンバーガーストア-ロゴ">
+<a class="rogo" href="../index.html"><img src="common/images/logo_sp.png" alt="ハンバーガーストア-ロゴ"></a>
+
 
 
 
@@ -39,25 +36,57 @@
   <ul class="nav-menu">
 
 
-    <li><img src="common/image/top_logo.svg" alt="TAIWAN画像"></li>
+    <li><img src="common/images/logo_sp.png" alt="C.C.Donuts画像"></li>
 
 
     <!-- メニュー一覧 -->
+    <div>
     <li><a href="#">top</a></li>
-    <li><a href="taipei/index.html">台北</a></li>
-    <li><a href="taichung/index.html">台中</a></li>
-    <li><a href="tainan/index.html">台南</a></li>
+
+    <hr>
+
+    <li><a href="taipei/index.html">商品一覧</a></li>
+
+  <hr>
+
+    <li><a href="taichung/index.html">よくある質問</a></li>
+
+    <hr>
+
+    <li><a href="tainan/index.html">問い合わせ</a></li>
+
+    <hr>
+
+    <li><a href="tainan/index.html">当サイトのポリシー</a></li>
+
+    <hr>
+    
+    </div>
+
   </ul>
 
 </div>
 
+
+
+
 </nav>
+
+<!-- <ul> -->
+<!-- <li><a class="login" href="../index.html"><img src="common/images/icon_login_sp.svg" alt="ログインアイコン"></a></li> -->
+<!-- <li><a class="cart" href="../index.html"><img src="common/images/icon_cart_sp.svg" alt="カートアイコン"></a></li> -->
+<!-- </ul> -->
+
+<a class="login" href="../index.html"><img src="common/images/icon_login_sp.svg" alt="ログインアイコン"></a>
+
+<a class="cart" href="../index.html"><img src="common/images/icon_cart_sp.svg" alt="カートアイコン"></a>
 
 </header>
 
 
 
 
-</body>
-
-</html>
+<p>
+  a<br>
+  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>  a<br>
+</p>

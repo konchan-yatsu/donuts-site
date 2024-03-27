@@ -1,17 +1,50 @@
 @charset "utf-8";
 
-/* ---ナビ作成 共通--- */
-div.nav-icon-bg {
-    position: fixed;
-    right: 4px;
-    top: 4px;
+body {
+    margin: 0;
+}
 
-    width: 48px;
-    height: 48px;
-    border-radius: 24px;
-    background: rgba(0, 0, 0, 0.5);
+header {
+    width: 100%;
+    background-color: #EDE0D4;
+}
+
+
+header a.rogo {
+    display: block;
+    width: 16%;
+    /*60/375= 0.157*/
+    margin: 0 auto;
+    padding: 12px 0 16px 0;
+}
+
+header a.rogo img {
+    width: 100%;
 
 }
+
+header a.login {
+    width: 40px;
+    height: 34px;
+    position: absolute;
+    right: 54px;
+    /* 30+12+*2=54 */
+    top: 24px;
+    cursor: pointer;
+}
+
+header a.cart img {
+    width: 40px;
+    height: 34px;
+    position: absolute;
+    right: 12px;
+    top: 24px;
+    cursor: pointer;
+}
+
+
+/* ---ナビ作成 共通--- */
+
 
 nav div.nav {
     position: fixed;
@@ -22,11 +55,11 @@ nav div.nav {
 
 }
 
-nav img {
-    width: 30%;
-    /*111/375= 0.296*/
-
+header nav img {
+    width: 16%;
+    /*58.95/375= 0.157*/
 }
+
 
 nav input.menu-botan {
     display: none;
@@ -34,8 +67,8 @@ nav input.menu-botan {
 
 nav label.menu-icon {
     position: absolute;
-    right: 12px;
-    top: 21px;
+    left: 12.5px;
+    top: 31px;
     padding-top: 5px;
     height: 12px;
     cursor: pointer;
@@ -43,9 +76,9 @@ nav label.menu-icon {
 
 nav label.menu-icon span.nav-icon {
     display: block;
-    width: 32px;
-    height: 2px;
-    background: #ffffff;
+    width: 24px;
+    height: 3px;
+    background: #7F5539;
 
     position: relative;
     transition: background .4s ease-out;
@@ -57,64 +90,70 @@ nav label.menu-icon span.nav-icon::before,
 nav label.menu-icon span.nav-icon::after {
     content: "";
     display: block;
-    width: 70%;
+    width: 100%;
     height: 100%;
-    background: #ffffff;
+    background: #7F5539;
 
     position: absolute;
     transition: all .4s ease-out;
 }
 
 nav label.menu-icon span.nav-icon::before {
-    top: -12.5px;
-    margin-left: 4.5px;
+    top: -10px;
+
 }
 
 nav label.menu-icon span.nav-icon::after {
-    top: 12.5px;
-    margin-left: 4.5px;
+    top: 10px;
+
 }
 
 nav ul.nav-menu {
-    width: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    text-align: center;
+    list-style: none;
+    background: rgba(127, 85, 57, 0.75);
+    text-align: left;
     max-height: 0;
     margin: 0;
     overflow: hidden;
     transition: max-height 0.6s;
-    height: 667px;
+    height: 768px;
 
     text-transform: uppercase;
-    text-decoration-line: underline;
+    text-decoration-line: none;
     text-decoration-thickness: 3px;
     text-decoration-color: rgba(255, 255, 255, 0.3);
 
 }
 
+nav ul.nav-menu div {
+    width: 93%;
+    /* 351/375=0.93 */
+}
+
 nav ul.nav-menu li img {
     position: absolute;
-    left: 8px;
-    top: 8px;
+    left: 12px;
+    top: 12px;
     max-height: 0;
 }
 
 
 nav ul.nav-menu li:first-of-type {
-    padding-top: 96px;
+    padding-top: 60px;
 }
 
 nav ul.nav-menu li {
     color: #FFFFFF;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
-
 }
 
 nav ul.nav-menu li a {
     display: block;
-    padding: 32px 20px;
+    padding: 16px 12px;
     font-style: bold;
+    color: #FFFFFF;
+    text-decoration-line: none;
 }
 
 nav ul.nav-menu li a:hover {
@@ -136,161 +175,225 @@ nav input.menu-botan:checked~ul.nav-menu li img {
 }
 
 /* メニューのバツ表示 */
+nav input.menu-botan:checked~label {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
 nav input.menu-botan:checked~label.menu-icon span.nav-icon {
 
     background: transparent;
+
+    position: absolute;
+    right: 12px;
+    top: 23px;
+    /* 26-12=42 */
 
 }
 
 nav input.menu-botan:checked~label.menu-icon span.nav-icon::before {
     transform: rotate(-45deg);
     top: 0;
-    right: 0.5px;
-    width: 99%;
-    /* 40:56.57=70:X 比率の計算 */
-    /* 70*56.57/40=99% */
+    right: -8px;
+    width: 36.7px;
+    /* 26*1.4141356=36.7 */
+    background: #ffffff;
+    height: 5px;
 }
 
 nav input.menu-botan:checked~label.menu-icon span.nav-icon::after {
     transform: rotate(45deg);
     top: 0;
-    right: 0.5px;
-    width: 99%;
+    right: -8px;
+    width: 36.7px;
+    background: #ffffff;
+    height: 5px;
 }
 
 @media screen and (min-width: 767px) {
 
-    header div.kasou {
-        padding: 0px;
-        max-width: 1200px;
+    header a.rogo {
+        width: 6%;
+        /*80/1366= 0.058*/
         margin: 0 auto;
-        position: relative;
+        padding: 26px 0 26px 0;
+    }
+
+    header a.rogo img {
+        width: 100%;
 
     }
 
-    header div.kasou img.header-rogo1 {
-        width: 10%;
-        /*140/1366= 0.102*/
-        /* opacity: 45%; */
-        margin: 20px 0 0 20px;
-
+    header a.login {
+        width: 48px;
+        /* 48/1366= */
+        height: 60px;
+        /* 60/1366=0.043 */
+        position: absolute;
+        right: 187px;
+        /* 95+60+32+=187 */
+        top: 50px;
+        cursor: pointer;
     }
 
-    header div.kasou div {
-        display: block;
-    }
-
-    header div.kasou div img.header-rogo2 {
-        width: 22%;
-        /*  300/1366=0.219 */
-        height: 100%;
-        margin: 38px 0 0 20%;
-        /* margin-top 112-45=67 */
-        /* margin-bottom 167-57.6=109.4 */
+    header a.login img {
+        width: 100%;
+        height: 60px;
     }
 
 
-    header p {
-        width: 37%;
-        /* 482/1290=0.374 */
-
-        font-size: 20px;
-        margin: 0 20px 0 auto;
-        padding-bottom: 20px;
+    header a.cart {
+        width: 40px;
+        height: 60px;
+        position: absolute;
+        right: 95px;
+        top: 29px;
+        cursor: pointer;
     }
 
+    header a.cart img {
+        width: 100%;
+        height: 60px;
+    }
 
 
     /* ---ナビ作成 共通--- */
-    div.nav-icon-bg {
-        position: none;
-        width: 0px;
-        height: 0px;
-        border-radius: 0px;
-        background: transparent;
-    }
 
-    nav div.nav {
-        display: none;
-        position: absolute;
 
-        top: 0;
-        right: 6%;
+    header nav img {
+        width: 6%;
+        /*86.93/1366= 0.063*/
 
-        width: 50%;
-        height: 58px;
-        margin-top: 20px;
-    }
-
-    nav img {
-        display: none;
-
-    }
-
-    nav input.menu-botan {
-        display: none;
     }
 
     nav label.menu-icon {
-        position: none;
-        padding-top: 0px;
-        height: 0px;
-        cursor: none;
+        position: absolute;
+        left: 95px;
+        top: 58.2px;
+        padding-top: 5px;
+        height: 12px;
+        cursor: pointer;
     }
 
     nav label.menu-icon span.nav-icon {
-        display: none;
-        width: 0px;
-        height: 0px;
-        background: #ffffff;
+        display: block;
+        width: 48px;
+        height: 3px;
 
-        position: relative;
-        transition: background .4s ease-out;
 
     }
 
+
+    nav label.menu-icon span.nav-icon::before {
+        top: -19.2px;
+
+    }
+
+    nav label.menu-icon span.nav-icon::after {
+        top: 19.2px;
+    }
+
     nav ul.nav-menu {
-        display: flex;
-        justify-content: right;
-        width: 100%;
-        background: rgba(0, 0, 0, 0);
-        text-align: center;
-        max-height: none;
-        overflow: none;
-        transition: none;
+        background: rgba(127, 85, 57, 0.75);
+        max-width: 0;
+        width: 44%;
+        /* 600/1366=0.439 */
+        height: 100vh;
 
-        height: 56px;
+        padding: 0;
+    }
 
-        text-transform: uppercase;
-        text-decoration-line: none;
-
-        position: absolute;
-        top: 0px;
-        right: 0px;
-
-        margin-top: 20px;
+    nav ul.nav-menu div {
+        width: 67%;
+        /* 400/600=0.6666 */
+        margin: 0 auto;
     }
 
     nav ul.nav-menu li img {
         position: absolute;
-        left: 0;
-        top: 0;
-        max-height: 0;
+        left: 8px;
+        top: 8px;
+        max-width: 0;
+
     }
 
 
     nav ul.nav-menu li:first-of-type {
-        padding-top: 0px;
+        padding-top: 100px;
+        /* 120-20=100 */
     }
 
     nav ul.nav-menu li {
         color: #FFFFFF;
         font-size: 24px;
+        font-weight: bold;
+        text-shadow:
+            1px 1px 1px #7F5539,
+            -1px 1px 1px #7F5539,
+            -1px -1px 0 #7F5539,
+            1px -1px 0 #7F5539;
     }
 
     nav ul.nav-menu li a {
         display: block;
-        padding: 16px 20px;
+        padding: 20px 12px;
+        font-style: bold;
+        color: #FFFFFF;
+        text-decoration-line: none;
+    }
+
+    nav ul.nav-menu li a:hover {
+        /* ナビメニューの項目にカーソルを合わせたときの設定 */
+        background: rgb(255, 255, 91);
+        color: black;
+    }
+
+    nav input.menu-botan:checked~ul.nav-menu {
+        /* メニューボタンをチェックした際の設定 */
+        max-width: 44%;
+        /* 最大幅設定 */
+        max-height: 100%;
+
+    }
+
+    nav input.menu-botan:checked~ul.nav-menu li img {
+        /* メニューボタンをチェックした際の設定 */
+        max-width: 44%;
+
+        /* 86.93/1366=0.063
+    = */
+        /* 最大幅設定 */
+    }
+
+    /* メニューのバツ表示 */
+
+    nav input.menu-botan:checked~label.menu-icon span.nav-icon {
+
+        background: transparent;
+
+        position: absolute;
+        left: 34%;
+        /* 534/600=0.439 */
+        top: 42px;
+        /* 54-12=42 */
+    }
+
+    nav input.menu-botan:checked~label.menu-icon span.nav-icon::before {
+        transform: rotate(-45deg);
+        top: 0;
+        right: -8px;
+        width: 76.4px;
+        /* 54*1.4141356=76.36 */
+        height: 5px;
+    }
+
+    nav input.menu-botan:checked~label.menu-icon span.nav-icon::after {
+        transform: rotate(45deg);
+        top: 0;
+        right: -8px;
+        width: 76.4px;
+        height: 5px;
     }
 }
 
