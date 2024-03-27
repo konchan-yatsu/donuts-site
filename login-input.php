@@ -1,60 +1,43 @@
+<?php require 'includes/header.php'; ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ログインページ | </title>
-  <style>
-    body {
-      color: #7F5539;
-    }
-
-    form {
-      border: 1px solid #E8C2CA;
-      width: 295px;
-      padding: 20px 12px;
-    }
-
-    h1 {
-      font-size: 20px;
-      margin-top: 32px;
-      margin-bottom: 60px;
-    }
-
-    h2 {
-      font-size: 12px;
-    }
-
-    input {
-      height: 20px;
-    }
-
-    .loginBtn {
-      font-size: 16px;
-      height: 48px;
-      color: #ffffff;
-      background-color: #7F5539;
-    }
-
-    .non-member {
-      display: inline-block;
-      border-bottom: 1px solid #7F5539;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="common/css/reset.css">
+  <link rel="stylesheet" href="common/css/login.css">
+  <title>Login | donuts-site</title>
 </head>
 
 <body>
+  <main>
+    <p class="user_name">ようこそ&emsp;ゲスト様</p>
+    <h1>ログイン</h1>
+    <div class="content">
+      <div class="content_inner">
+        <form action="" method="post">
+          <h2>メールアドレス</h2>
+          <input type="text" name=""><br>
+          <h2>パスワード</h2>
+          <input type="text" name=""><br>
+          <div class="textalign_center">
+            <input class="login_btn" type="submit" value="ログインする">
+          </div>
+        </form>
+      </div><!-- /content_inner -->
+      <div class="textalign_right">
+        <p class="memo">会員登録がお済みでない方はこちら</p>
+      </div>
+    </div><!-- /content -->
 
-  <p>ようこそ ゲスト様</p>
-  <h1>ログイン</h1>
-  <form action="" method="post" class="loginflame">
-    <h2>メールアドレス<input type="text" name=""><br></h2>
-    <h2>パスワード<input type="text" name=""><br></h2>
-    <input class="loginBtn" type="submit" value="ログインする">
-  </form>
-  <p class="non-member">会員登録がお済みでない方はこちら</p>
-
+  </main>
 </body>
 
 </html>
+
+<?php require 'includes/footer.php'; ?>
