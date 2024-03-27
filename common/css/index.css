@@ -140,10 +140,10 @@ h5 {
   margin-bottom: 20px;
 }
 
-.ranking_text {
+/* .ranking_text {
   margin-top: 20px;
 
-}
+} */
 
 .ranking {
   display: flex;
@@ -154,6 +154,16 @@ h5 {
   grid-template-columns: 40% 40%;
   grid-template-rows: 70% 70% 70% 70% 70% 60%; */
 }
+
+.inner_flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
+
 
 .btn_cart {
   background: #7F5539;

@@ -114,10 +114,14 @@
         echo <<< END
       <div class="ranking_item">
         <div class="ranking_h5">
-        <h5>{$num}</h5></div>
+        <h5>{$num}</h5>
+        </div>
         <p><img src="common/images/{$i}" alt="商品画像"></p>
         <p class="ranking_text">{$n}</p> 
+        <div class="inner_flex">
         <p class="ranking_text">{$p}</p>
+        <p><img src="common/images/heart.svg" alt="heart"></p>
+        </div>
         <button class="btn_cart"><a href="#">カートに入れる</a></button>
       </div>
 
