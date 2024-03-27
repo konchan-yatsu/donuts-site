@@ -12,22 +12,22 @@
 
 <div id="header_top">
 
-<a class="rogo" href="index.php"><img src="common/images/logo_sp.png" alt="ハンバーガーストア-ロゴ"></a>
+<a class="logo" href="index.php"><img src="common/images/logo_sp.png" alt="ハンバーガーストア-ロゴ"></a>
 
 
 <nav>
 
 <!-- メニューボタン -->
 <div class="nav">
-  <div class="nav-icon-bg">
+  <div class="nav_icon_bg">
   </div>
-  <input type="checkbox" class="menu-botan" id="menu-botan">
-  <label for="menu-botan" class="menu-icon">
+  <input type="checkbox" class="menu_botan" id="menu_botan">
+  <label for="menu_botan" class="menu_icon">
 
-    <span class="nav-icon"></span>
+    <span class="nav_icon"></span>
   </label>
 
-  <ul class="nav-menu">
+  <ul class="nav_menu">
 
     <li><img src="common/images/logo_sp.png" alt="C.C.Donuts画像"></li>
 
@@ -75,23 +75,20 @@
 
 <div id="header_search">
 
+
 <ul>
-<!-- <div id=search_detail> -->
   <li>
   <button type="submit"><img src="common/images/icon_search_sp.svg" ></button>
   </li>
   <li id=text>
   <input type="text">
   </li>
-<!-- </div> -->
+
 </ul>
 
 </div>
 
 </header>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br>
 
 
 

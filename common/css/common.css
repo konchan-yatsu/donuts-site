@@ -15,7 +15,7 @@ header div#header_top {
 }
 
 
-header a.rogo {
+header a.logo {
     display: block;
     width: 16%;
     /*60/375= 0.157*/
@@ -23,7 +23,7 @@ header a.rogo {
     padding: 12px 0 16px 0;
 }
 
-header a.rogo img {
+header a.logo img {
     width: 100%;
 
 }
@@ -64,11 +64,11 @@ header nav img {
 }
 
 
-nav input.menu-botan {
+nav input.menu_botan {
     display: none;
 }
 
-nav label.menu-icon {
+nav label.menu_icon {
     position: absolute;
     left: 12.5px;
     top: 31px;
@@ -77,7 +77,7 @@ nav label.menu-icon {
     cursor: pointer;
 }
 
-nav label.menu-icon span.nav-icon {
+nav label.menu_icon span.nav_icon {
     display: block;
     width: 24px;
     height: 3px;
@@ -89,8 +89,8 @@ nav label.menu-icon span.nav-icon {
 }
 
 
-nav label.menu-icon span.nav-icon::before,
-nav label.menu-icon span.nav-icon::after {
+nav label.menu_icon span.nav_icon::before,
+nav label.menu_icon span.nav_icon::after {
     content: "";
     display: block;
     width: 100%;
@@ -101,17 +101,17 @@ nav label.menu-icon span.nav-icon::after {
     transition: all .4s ease-out;
 }
 
-nav label.menu-icon span.nav-icon::before {
+nav label.menu_icon span.nav_icon::before {
     top: -10px;
 
 }
 
-nav label.menu-icon span.nav-icon::after {
+nav label.menu_icon span.nav_icon::after {
     top: 10px;
 
 }
 
-nav ul.nav-menu {
+nav ul.nav_menu {
     list-style: none;
     background: rgba(127, 85, 57, 0.75);
     text-align: left;
@@ -128,12 +128,12 @@ nav ul.nav-menu {
 
 }
 
-nav ul.nav-menu div {
+nav ul.nav_menu div {
     width: 93%;
     /* 351/375=0.93 */
 }
 
-nav ul.nav-menu li img {
+nav ul.nav_menu li img {
     position: absolute;
     left: 12px;
     top: 12px;
@@ -141,17 +141,17 @@ nav ul.nav-menu li img {
 }
 
 
-nav ul.nav-menu li:first-of-type {
+nav ul.nav_menu li:first-of-type {
     padding-top: 60px;
 }
 
-nav ul.nav-menu li {
+nav ul.nav_menu li {
     color: #FFFFFF;
     font-size: 16px;
     font-weight: bold;
 }
 
-nav ul.nav-menu li a {
+nav ul.nav_menu li a {
     display: block;
     padding: 16px 12px;
     font-style: bold;
@@ -159,32 +159,32 @@ nav ul.nav-menu li a {
     text-decoration-line: none;
 }
 
-nav ul.nav-menu li a:hover {
+nav ul.nav_menu li a:hover {
     /* ナビメニューの項目にカーソルを合わせたときの設定 */
     background: rgb(255, 255, 91);
     color: black;
 }
 
-nav input.menu-botan:checked~ul.nav-menu {
+nav input.menu_botan:checked~ul.nav_menu {
     /* メニューボタンをチェックした際の設定 */
     max-height: 667px;
     /* 最大高さ設定 */
 }
 
-nav input.menu-botan:checked~ul.nav-menu li img {
+nav input.menu_botan:checked~ul.nav_menu li img {
     /* メニューボタンをチェックした際の設定 */
     max-height: 667px;
     /* 最大高さ設定 */
 }
 
 /* メニューのバツ表示 */
-nav input.menu-botan:checked~label {
+nav input.menu_botan:checked~label {
     position: absolute;
     right: 0px;
     top: 0px;
 }
 
-nav input.menu-botan:checked~label.menu-icon span.nav-icon {
+nav input.menu_botan:checked~label.menu_icon span.nav_icon {
 
     background: transparent;
 
@@ -195,7 +195,7 @@ nav input.menu-botan:checked~label.menu-icon span.nav-icon {
 
 }
 
-nav input.menu-botan:checked~label.menu-icon span.nav-icon::before {
+nav input.menu_botan:checked~label.menu_icon span.nav_icon::before {
     transform: rotate(-45deg);
     top: 0;
     right: -8px;
@@ -205,7 +205,7 @@ nav input.menu-botan:checked~label.menu-icon span.nav-icon::before {
     height: 5px;
 }
 
-nav input.menu-botan:checked~label.menu-icon span.nav-icon::after {
+nav input.menu_botan:checked~label.menu_icon span.nav_icon::after {
     transform: rotate(45deg);
     top: 0;
     right: -8px;
@@ -265,14 +265,14 @@ header div#header_search ul li input {
 
 @media screen and (min-width: 767px) {
 
-    header a.rogo {
+    header a.logo {
         width: 6%;
         /*80/1366= 0.058*/
         margin: 0 auto;
         padding: 26px 0 26px 0;
     }
 
-    header a.rogo img {
+    header a.logo img {
         width: 100%;
 
     }
@@ -324,7 +324,7 @@ header div#header_search ul li input {
 
     }
 
-    nav label.menu-icon {
+    nav label.menu_icon {
         position: absolute;
         left: 95px;
         top: 55px;
@@ -333,7 +333,7 @@ header div#header_search ul li input {
         cursor: pointer;
     }
 
-    nav label.menu-icon span.nav-icon {
+    nav label.menu_icon span.nav_icon {
         display: block;
         width: 48px;
         height: 3px;
@@ -342,16 +342,16 @@ header div#header_search ul li input {
     }
 
 
-    nav label.menu-icon span.nav-icon::before {
+    nav label.menu_icon span.nav_icon::before {
         top: -19.2px;
 
     }
 
-    nav label.menu-icon span.nav-icon::after {
+    nav label.menu_icon span.nav_icon::after {
         top: 19.2px;
     }
 
-    nav ul.nav-menu {
+    nav ul.nav_menu {
         background: rgba(127, 85, 57, 0.75);
         max-width: 0;
         width: 44%;
@@ -361,13 +361,13 @@ header div#header_search ul li input {
         padding: 0;
     }
 
-    nav ul.nav-menu div {
+    nav ul.nav_menu div {
         width: 67%;
         /* 400/600=0.6666 */
         margin: 0 auto;
     }
 
-    nav ul.nav-menu li img {
+    nav ul.nav_menu li img {
         position: absolute;
         left: 8px;
         top: 8px;
@@ -376,12 +376,12 @@ header div#header_search ul li input {
     }
 
 
-    nav ul.nav-menu li:first-of-type {
+    nav ul.nav_menu li:first-of-type {
         padding-top: 100px;
         /* 120-20=100 */
     }
 
-    nav ul.nav-menu li {
+    nav ul.nav_menu li {
         color: #FFFFFF;
         font-size: 24px;
         font-weight: bold;
@@ -392,7 +392,7 @@ header div#header_search ul li input {
             1px -1px 0 #7F5539;
     }
 
-    nav ul.nav-menu li a {
+    nav ul.nav_menu li a {
         display: block;
         padding: 20px 12px;
         font-style: bold;
@@ -400,13 +400,13 @@ header div#header_search ul li input {
         text-decoration-line: none;
     }
 
-    nav ul.nav-menu li a:hover {
+    nav ul.nav_menu li a:hover {
         /* ナビメニューの項目にカーソルを合わせたときの設定 */
         background: rgb(255, 255, 91);
         color: black;
     }
 
-    nav input.menu-botan:checked~ul.nav-menu {
+    nav input.menu_botan:checked~ul.nav_menu {
         /* メニューボタンをチェックした際の設定 */
         max-width: 44%;
         /* 最大幅設定 */
@@ -414,7 +414,7 @@ header div#header_search ul li input {
 
     }
 
-    nav input.menu-botan:checked~ul.nav-menu li img {
+    nav input.menu_botan:checked~ul.nav_menu li img {
         /* メニューボタンをチェックした際の設定 */
         max-width: 44%;
 
@@ -425,7 +425,7 @@ header div#header_search ul li input {
 
     /* メニューのバツ表示 */
 
-    nav input.menu-botan:checked~label.menu-icon span.nav-icon {
+    nav input.menu_botan:checked~label.menu_icon span.nav_icon {
 
         background: transparent;
 
@@ -436,7 +436,7 @@ header div#header_search ul li input {
         /* 54-12=42 */
     }
 
-    nav input.menu-botan:checked~label.menu-icon span.nav-icon::before {
+    nav input.menu_botan:checked~label.menu_icon span.nav_icon::before {
         transform: rotate(-45deg);
         top: 0;
         right: -8px;
@@ -445,7 +445,7 @@ header div#header_search ul li input {
         height: 5px;
     }
 
-    nav input.menu-botan:checked~label.menu-icon span.nav-icon::after {
+    nav input.menu_botan:checked~label.menu_icon span.nav_icon::after {
         transform: rotate(45deg);
         top: 0;
         right: -8px;
