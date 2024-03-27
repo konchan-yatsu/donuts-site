@@ -75,19 +75,19 @@
 
 <div id="header_search">
 
+
 <ul>
-<!-- <div id=search_detail> -->
   <li>
   <button type="submit"><img src="common/images/icon_search_sp.svg" ></button>
   </li>
   <li id=text>
   <input type="text">
   </li>
-<!-- </div> -->
+
 </ul>
 
 </div>
-ｙｍｇんｆｇら
+
 </header>
 
 
