@@ -13,18 +13,20 @@ $pdo = new PDO(
   'password'
 );
 
-$sql = $pdo->prepare('SELECT * FROM customer WHERE mail=? and password=?');
-$sql->execute([$_REQUEST['mail'], $_REQUEST['password']]);
-foreach ($sql as $row) {
-  $_SESSION['customer'] = [
-    'id' => $row['id'],
-    'name' => $row['name'],
-    'kana' => $row['kana'],
-    'post_code' => $row['post_code'],
-    'address' => $row['address'],
-    'mail' => $row['mail'],
-    'password' => $row['password']
-  ];
+if (isset($_REQUEST['mail']) && isset($_REQUEST['password'])) {
+  $sql = $pdo->prepare('SELECT * FROM customer WHERE mail=? and password=?');
+  $sql->execute([$_REQUEST['mail'], $_REQUEST['password']]);
+  foreach ($sql as $row) {
+    $_SESSION['customer'] = [
+      'id' => $row['id'],
+      'name' => $row['name'],
+      'kana' => $row['kana'],
+      'post_code' => $row['post_code'],
+      'address' => $row['address'],
+      'mail' => $row['mail'],
+      'password' => $row['password']
+    ];
+  }
 }
 ?>
 
@@ -43,6 +45,7 @@ foreach ($sql as $row) {
   <main>
 
     <?php
+
     if (isset($_SESSION['customer'])) {
       echo '<p class="user_name">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p>';
       echo '<div class="content">';
