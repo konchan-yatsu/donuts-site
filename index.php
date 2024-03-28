@@ -23,25 +23,35 @@
   </section>
   <section>
     <div class="dounts-content">
-      <div class="dounts-img01">
+      <p class="dounts-img01">
         <img src="common/images/top_cont1_summercitrus_sp.png" alt="サマーシストラス">
-      </div>
-      <div class="dounts-img02">
+      </p>
+
+      <p class="dounts-img02">
         <img src="common/images/top_cont1_donutslife_sp.png" alt="ドーナッツのある生活">
-      </div>
+
+      </p>
     </div>
-    <div class="product_img">
+    <p class="product_img">
       <img src="common/images/top_cont1_donutslist_sp.png" href="" alt="商品一覧">
-    </div>
+    </p>
   </section>
 
   <section>
-    <div class="philosophy_img">
-      <img src="common/images/top_cont2_background_sp.png" alt="ドーナッツ">
+    <div class="philosophy_content">
+      <p class="philosophy_img">
+        <img src="common/images/top_cont2_background_sp.png" alt="ドーナッツ">
+      </p>
+      <div class="philosophy_text">
+        <p>Philosophy</p>
+        <p>私たちの信念</p>
+        <p>"Creating Connections"</p>
+        <p>ドーナツでつながる</p>
+      </div>
     </div>
   </section>
   <section>
-    <h1>人気ランキング</h1>
+    <h1 class="underline">人気ランキング</h1>
     <!-- <div class="ranking">
       <div class="ranking_item">
         <h5></h5>
@@ -87,34 +97,44 @@
         <button class="btn_cart"><a href="#">カートに入れる</a></button>
       </div>
     </div> -->
-<div class="ranking">
-    <?php
-    $img = [
-      'top_cont3_No1_sp.png', 'top_cont3_No2_sp.png', 'top_cont3_No3_sp.png',
-      'top_cont3_No4_sp.png', 'top_cont3_No5_sp.png', 'top_cont3_No6_sp.png'
-    ];
-    $name = ['CCドーナツ 当店オリジナル(5個入り)', 'フルーツドーナツセット(12個入り)', 'フルーツドーナツセット(14個入り)', 'チョコレートデライト(5個入り)', 'ベストセレクションボックス(4個入り)', 'ストロベ リークラッ
+    <div class="ranking">
+      <?php
+      $img = [
+        'top_cont3_No1_sp.png', 'top_cont3_No2_sp.png', 'top_cont3_No3_sp.png',
+        'top_cont3_No4_sp.png', 'top_cont3_No5_sp.png', 'top_cont3_No6_sp.png'
+      ];
+      $name = ['CCドーナツ 当店オリジナル(5個入り)', 'フルーツドーナツセット(12個入り)', 'フルーツドーナツセット(14個入り)', 'チョコレートデライト(5個入り)', 'ベストセレクションボックス(4個入り)', 'ストロベ リークラッ
 シュ（5個入り)'];
-    $price = ['税込 ￥1,500', '税込 ￥3,500', '税込 ￥4,000', '税込 ￥1,600', '税込 ￥1,200', '税込 ￥1,800'];
+      $price = ['税込 ￥1,500', '税込 ￥3,500', '税込 ￥4,000', '税込 ￥1,600', '税込 ￥1,200', '税込 ￥1,800'];
+      $number = [1, 2, 3, 4, 5, 6];
 
-    foreach (array_map(null,$img,$name,$price) as[$i,$n,$p] ) {
-      echo <<< END
+      foreach (array_map(null, $img, $name, $price) as $key => [$i, $n, $p]) {
+        $num = 1;
+        $num += $key;
+        echo <<< END
       <div class="ranking_item">
-      <h5></h5>
-      <p><img src="common/images/{$i}" alt="商品画像"></p>
-      <p>{$n}</p>
-      <p>{$p}</p>
-      <button class="btn_cart"><a href="#">カートに入れる</a></button>
-</div>
+        <div class="ranking_h5">
+        <h5>{$num}</h5>
+        </div>
+        <p><img src="common/images/{$i}" alt="商品画像"></p>
+        <p class="ranking_text">{$n}</p> 
+        <div class="inner_flex">
+        <p class="ranking_text">{$p}</p>
+        <p><img src="common/images/heart.svg" alt="heart"></p>
+        </div>
+        <button class="btn_cart"><a href="#">カートに入れる</a></button>
+      </div>
+
 
 END;
-    }
+        // var_dump($key);
+      }
 
-    ?>
-</div>
+      ?>
+    </div>
 
   </section>
-  テストテスト
+
 </body>
 
 </html>
