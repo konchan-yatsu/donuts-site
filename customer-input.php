@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -13,6 +12,7 @@
   <link rel="stylesheet" href="common/css/customer.css">
   <title>Customer-input | donuts-site</title>
 </head>
+
 <?php
 $name = $kana = $post_code = $address = $mail = $password = '';
 if (isset($_SESSION['customer'])) {
@@ -43,7 +43,7 @@ if (isset($_SESSION['customer'])) {
 <h2>住所<span class="must">（必須）</span></h2>
 <input type="text" name="address"  value="{$address}" required><br>
 <h2>メールアドレス<span class="must">（必須）</span></h2>
-<input type="mail" name="mail"  value="{$mail}" required><br>
+<input type="email" name="mail"  value="{$mail}" required><br>
 <h2>パスワード<span class="must" required>（必須）</span></h2>
 <p class="caution">A-Z、a-z、0-9を少なくとも各1つは含めて8文字以上で入力してください。</p>
 <input type="password" name="password"  value="{$password}" required><br>
@@ -53,6 +53,7 @@ if (isset($_SESSION['customer'])) {
 </form>
 END;
       ?>
+      
 
     </div><!-- /content -->
   </main>

@@ -12,9 +12,14 @@
   <title>Customer-complete | donuts-site</title>
 </head>
 <?php
-$sql = $pdo->prepare('INSERT INTO customer VALUES(null,?,?,?,?,?,?)');
-$sql->execute([$_REQUEST['name'], $_REQUEST['kana'], $_REQUEST['post_code'], $_REQUEST['address'], $_REQUEST['mail'], $_REQUEST['password']]);
-echo 'お客様情報を登録しました。';
+  $pdo = new PDO(
+    'mysql:host=localhost;dbname=donuts;charset=utf8',
+    'donuts',
+    'password'
+  );
+
+  $sql = $pdo->prepare('INSERT INTO customer VALUES(null,?,?,?,?,?,?)');
+  $sql->execute([$_REQUEST['name'], $_REQUEST['kana'], $_REQUEST['post_code'], $_REQUEST['address'], $_REQUEST['mail'], $_REQUEST['password']]);
 ?>
 
 <body>
@@ -25,7 +30,7 @@ echo 'お客様情報を登録しました。';
       <div class="content_inner complete_content_inner textalign_center">
         <p class="message">会員登録が完了しました</p>
         <div class="textalign_center">
-          <a class="memo" href="">ログイン画面へ進む</a>
+          <a class="memo" href="login-input.php">ログイン画面へ進む</a>
         </div>
       </div><!-- /content_inner -->
     </div><!-- /content -->

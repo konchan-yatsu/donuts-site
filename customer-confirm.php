@@ -31,20 +31,23 @@
     if (isset($_SESSION['customer'])) {
       // true セットされている
       $id = $_SESSION['customer']['id'];
-      $sql = $pdo->prepare('SELECT * FROM customer WHERE id!=? and name!=? and kana!=? and post_code!=? and address!=? and mail!=? and password!=?');
-      $sql->execute([$id, $_REQUEST['name'], $_REQUEST['kana'], $_REQUEST['post_code'], $_REQUEST['address'], $_REQUEST['mail'], $_REQUEST['password'],]);
-      echo 'true';
+      // $sql = $pdo->prepare('SELECT * FROM customer WHERE id!=? and name!=? and kana!=? and post_code!=? and address!=? and mail!=? and password!=?');
+      // $sql->execute([$id, $_REQUEST['name'], $_REQUEST['kana'], $_REQUEST['post_code'], $_REQUEST['address'], $_REQUEST['mail'], $_REQUEST['password']]);
+      $sql = $pdo->prepare('SELECT * FROM customer WHERE id!=? AND mail=? AND password=?');
+      $sql->execute([$id, $_REQUEST['mail'], $_REQUEST['password']]);
+
+      echo 'セッションあり';
     } else {
       // false セットされていない
       $sql = $pdo->prepare('SELECT * FROM customer WHERE mail=?');
       $sql->execute([$_REQUEST['mail']]);
-      echo 'false';
+      echo 'セッションなし';
     }
 
     if (empty($sql->fetchAll())) {
       if (isset($_SESSION['customer'])) {
-        $sql = $pdo->prepare('UPDATE customer SET name=?,kana=?,post_code=?,address=?,mail=?,password=?');
-        $sql->execute($_REQUEST['name'], $_REQUEST['kana'], $_REQUEST['post_code'], $_REQUEST['address'], $_REQUEST['mail'], $_REQUEST['password']);
+        $sql = $pdo->prepare('UPDATE customer SET name=?, kana=?, post_code=?, address=?, mail=?, password=? WHERE id=?');
+        $sql->execute([$_REQUEST['name'], $_REQUEST['kana'], $_REQUEST['post_code'], $_REQUEST['address'], $_REQUEST['mail'], $_REQUEST['password'], $id]);
         $_SESSION['customer'] = [
           'id' => $id,
           'name' => $_REQUEST['name'],
@@ -54,14 +57,18 @@
           'mail' => $_REQUEST['mail'],
           'password' => $_REQUEST['password']
         ];
-        echo '<p class="message">お客様情報を更新しました。</p>';
-      } else {
         echo '<div class="content">';
+        echo '<form action="customer-complete.php" method="post">';
         echo '<h2>お名前</h2>';
         echo '<p class="input_result">', $_REQUEST['name'], '</p>';
         echo '<h2>お名前(フリガナ)</h2>';
         echo '<p class="input_result">', $_REQUEST['kana'], '</p>';
+
         echo '<h2>郵便番号</h2>';
+        // $postcode=$_REQUEST['post_code'];
+        // if (!preg_match('/^[0-9]{7}$/', $postcode)) {
+        //   echo '郵便番号ダメ';
+        // }
         echo '<p class="input_result">', $_REQUEST['post_code'], '</p>';
         echo '<h2>住所</h2>';
         echo '<p class="input_result">', $_REQUEST['address'], '</p>';
@@ -70,12 +77,54 @@
         echo '<h2>パスワード</h2>';
         echo '<p class="input_result">', $_REQUEST['password'], '</p>';
         echo '<div class="textalign_center">';
-        echo '<input class="login_btn" type="submit" value="ご入力内容を確認する">';
+        echo '<div class="textalign_center">';
+        echo '<input class="login_btn" type="submit" value="こちらの内容で更新する">';
         echo '</div>';
+        echo '<input type="hidden" name="name" value="',$_REQUEST['name'],'"</p>';
+        echo '<input type="hidden" name="kana" value="',$_REQUEST['kana'],'"</p>';
+        echo '<input type="hidden" name="post_code" value="',$_REQUEST['post_code'],'"</p>';
+        echo '<input type="hidden" name="address" value="',$_REQUEST['address'],'"</p>';
+        echo '<input type="hidden" name="mail" value="',$_REQUEST['mail'],'"</p>';
+        echo '<input type="hidden" name="password" value="',$_REQUEST['password'],'"</p>';
+        echo '</form>';
+        echo '</div><!-- /content -->';
+      } else {
+        echo '<div class="content">';
+        echo '<form action="customer-complete.php" method="post">';
+        echo '<h2>お名前</h2>';
+        echo '<p class="input_result">', $_REQUEST['name'], '</p>';
+        echo '<h2>お名前(フリガナ)</h2>';
+        echo '<p class="input_result">', $_REQUEST['kana'], '</p>';
+
+        echo '<h2>郵便番号</h2>';
+        // $postcode=$_REQUEST['post_code'];
+        // if (!preg_match('/^[0-9]{7}$/', $postcode)) {
+        //   echo '郵便番号ダメ';
+        // }
+        echo '<p class="input_result">', $_REQUEST['post_code'], '</p>';
+
+        echo '<h2>住所</h2>';
+        echo '<p class="input_result">', $_REQUEST['address'], '</p>';
+        echo '<h2>メールアドレス</h2>';
+        echo '<p class="input_result">', $_REQUEST['mail'], '</p>';
+        echo '<h2>パスワード</h2>';
+        echo '<p class="input_result">', $_REQUEST['password'], '</p>';
+        echo '<div class="textalign_center">';
+        echo '<input class="login_btn" type="submit" value="こちらの内容で登録する">';
+        echo '</div>';
+        echo '<input type="hidden" name="name" value="',$_REQUEST['name'],'"</p>';
+        echo '<input type="hidden" name="kana" value="',$_REQUEST['kana'],'"</p>';
+        echo '<input type="hidden" name="post_code" value="',$_REQUEST['post_code'],'"</p>';
+        echo '<input type="hidden" name="address" value="',$_REQUEST['address'],'"</p>';
+        echo '<input type="hidden" name="mail" value="',$_REQUEST['mail'],'"</p>';
+        echo '<input type="hidden" name="password" value="',$_REQUEST['password'],'"</p>';
+        echo '</form>';
         echo '</div><!-- /content -->';
       }
     } else {
+      echo '<div class="content_inner">';
       echo '<p class="message">このメールアドレスは既に使用されていますので、変更してください。</p>';
+      echo '</div>';
     }
 
     ?>
