@@ -22,16 +22,18 @@
       <div class="content_inner">
         <form action="login-complete.php" method="post">
           <h2>メールアドレス</h2>
-          <input class=""input type="mail" name="mail"><br>
+          <input class="" input type="mail" name="mail"><br>
           <h2>パスワード</h2>
-          <input class=""input type="password" name="password"><br>
+          <input class="" input type="password" name="password"><br>
           <div class="textalign_center">
             <input class="login_btn" type="submit" value="ログインする">
           </div>
         </form>
       </div><!-- /content_inner -->
       <div class="textalign_right">
-        <p class="memo">会員登録がお済みでない方はこちら</p>
+        <a href="customer-input.php">
+          <p class="memo">会員登録がお済みでない方はこちら</p>
+        </a>
       </div>
     </div><!-- /content -->
 
