@@ -18,31 +18,58 @@ body {
 }
 
 /* 商品紹介 */
-.dounts-content {
+.dounts_content {
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
-.dounts-img01,
-.dounts-img02 {
-  margin: 20px;
+/* 158/375 from　フィグマ */
+.dounts_line {
+  position: relative;
+  font-size: 12px;
+  flex-basis: 42%
+}
+/* サマーシトラス画像に文字を固定 */
+.dounts_line p:nth-of-type(2) {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+}
+/* 画像サイズを調整。2カラム。画像に文字固定にするための基準*/
+.dounts_line_2 {
+  position: relative;
+  flex-basis: 42%;
+ 
+}
+/* ドーナッツのある生活画像に文字を固定 */
+.dounts_line_2 p:nth-of-type(2) {
+  position: absolute;
+  top: 100px;
+  right: 20px;
 }
 
-.dounts-img01 img {
+.dounts_img01 {
+  width: 100%;
+}
+
+/* サマーシトラス画像サイズ・幅調整 */
+.dount_img01 img {
   max-width: 100%;
+  margin-top: 20px;
 }
-
-.dounts-img02 img {
+/* ドーナッツのある生活画像サイズ・幅調整 */
+.dounts_img02 img {
   max-width: 100%;
+  margin-top: 20px;
 }
-
+/* 商品一覧の画像・幅・位置調整 */
 .product_img {
   margin: 20px;
   text-align: center;
 }
-
+/* 商品一覧画像size */
 .product_img img {
   max-width: 100%;
 }
@@ -53,25 +80,15 @@ body {
   width: 100%;
 
 }
-
-
-
-.philosophy_img img {
-
+/*  画像size調整*/
+philosophy_img img {
   max-width: 100%;
-
-
 }
-
+/* 画像文字色指定 */
 .philosophy_text {
   color: #fff;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff; */
 }
-
+/* 画像に文字を重ねる　文字列① */
 .philosophy_text p:nth-of-type(1) {
   position: absolute;
   top: 77px;
@@ -83,7 +100,7 @@ body {
   line-height: 1.5;
   text-align: center;
 }
-
+/* 画像に文字を重ねる　文字列②*/
 .philosophy_text p:nth-of-type(2) {
   position: absolute;
   top: 124px;
@@ -93,7 +110,7 @@ body {
   line-height: 1.5;
   font-size: 16px;
 }
-
+ /* 画像に文字を重ねる　文字列③*/ 
 .philosophy_text p:nth-of-type(3) {
   position: absolute;
   top: 213px;
@@ -103,7 +120,7 @@ body {
   line-height: 1.5;
   font-size: 20px;
 }
-
+/* 画像に文字を重ねる　文字列④ */
 .philosophy_text p:last-of-type {
   position: absolute;
   top: 250px;
@@ -123,11 +140,12 @@ h1 {
   margin-top: 32px;
   margin-bottom: 80px;
 }
-
+/*  人気ランキング下線*/
 .underline {
   text-decoration: underline #FFD233;
 }
 
+/* ランキング数字 */
 h5 {
   width: 22%;
   background: #E8C2CA;
@@ -140,19 +158,12 @@ h5 {
   margin-bottom: 20px;
 }
 
-/* .ranking_text {
-  margin-top: 20px;
-
-} */
-
+/* ランキング */
 .ranking {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  /* justify-content: space-around;
-  margin: 20px;
-  grid-template-columns: 40% 40%;
-  grid-template-rows: 70% 70% 70% 70% 70% 60%; */
+  margin-bottom: 80px;
 }
 
 .inner_flex {
