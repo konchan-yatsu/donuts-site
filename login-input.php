@@ -20,11 +20,11 @@
     <h1>ログイン</h1>
     <div class="content">
       <div class="content_inner">
-        <form action="" method="post">
+        <form action="login-complete.php" method="post">
           <h2>メールアドレス</h2>
-          <input type="text" name=""><br>
+          <input class=""input type="mail" name="mail"><br>
           <h2>パスワード</h2>
-          <input type="text" name=""><br>
+          <input class=""input type="password" name="password"><br>
           <div class="textalign_center">
             <input class="login_btn" type="submit" value="ログインする">
           </div>
