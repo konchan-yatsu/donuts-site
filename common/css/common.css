@@ -133,6 +133,7 @@ nav ul.nav_menu div {
 }
 
 nav ul.nav_menu li img {
+    /* 123.91/812=0.153 */
     position: absolute;
     left: 12px;
     top: 12px;
@@ -141,19 +142,21 @@ nav ul.nav_menu li img {
 
 
 nav ul.nav_menu li:first-of-type {
-    padding-top: 60px;
+    padding-top: 15%;
+    /* 123.91/812=0.153 */
+    border-bottom: none;
 }
 
 nav ul.nav_menu li {
+    border-bottom: 1px solid #ffffff;
     color: #FFFFFF;
     font-size: 16px;
-    font-weight: bold;
+    margin: 0 12px;
 }
 
 nav ul.nav_menu li a {
     display: block;
     padding: 16px 12px;
-    font-style: bold;
     color: #FFFFFF;
     text-decoration-line: none;
 }
@@ -395,7 +398,6 @@ header div#header_search ul li input {
     nav ul.nav_menu li {
         color: #FFFFFF;
         font-size: 24px;
-        font-weight: bold;
         text-shadow:
             1px 1px 1px #7F5539,
             -1px 1px 1px #7F5539,
@@ -406,7 +408,6 @@ header div#header_search ul li input {
     nav ul.nav_menu li a {
         display: block;
         padding: 20px 12px;
-        font-style: bold;
         color: #FFFFFF;
         text-decoration-line: none;
     }
@@ -687,20 +688,17 @@ footer div#footer_copyright p {
 /* -----footer end----- */
 
 
-a:hover {
-    /* ナビメニューの項目にカーソルを合わせたときの設定 */
+/* a:hover {
     background: rgb(255, 255, 91);
     color: black;
 }
 
 a p:hover {
-    /* ナビメニューの項目にカーソルを合わせたときの設定 */
     background: rgb(255, 255, 91);
     color: black;
 }
 
 a img:hover {
-    /* ナビメニューの項目にカーソルを合わせたときの設定 */
     background: rgb(255, 255, 91);
     color: black;
-}
+} */
