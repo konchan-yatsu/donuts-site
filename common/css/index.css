@@ -31,25 +31,55 @@ body {
   font-size: 12px;
   flex-basis: 42%
 }
+
 /* サマーシトラス画像に文字を固定 */
 .dounts_line p:nth-of-type(2) {
   position: absolute;
-  top: 100px;
-  right: 20px;
+  top: 156px;
+  right: 3px;
+  font-size: 12px;
+  color: #fff;
 }
+/* 新商品文字と背景の〇は別に作成 */
+.dounts_line p:nth-of-type(3) {
+  position: absolute;
+  top: 38px;
+  left: 10px;
+  color: #fff;
+  z-index: 1;
+ 
+}
+/* 背景の〇と文字を重ねる */
+.dounts_line p:nth-of-type(4) {
+  position: absolute;
+  top: 26px;
+  left: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FF8877;
+
+}
+
+
+
 /* 画像サイズを調整。2カラム。画像に文字固定にするための基準*/
 .dounts_line_2 {
   position: relative;
   flex-basis: 42%;
- 
+
 }
+
 /* ドーナッツのある生活画像に文字を固定 */
 .dounts_line_2 p:nth-of-type(2) {
   position: absolute;
-  top: 100px;
-  right: 20px;
+  top: 157px;
+  right: 7px;
+  font-size: 12px;
+  color: #fff;
 }
 
+/* 画像サイズ指定 */
 .dounts_img01 {
   width: 100%;
 }
@@ -59,19 +89,30 @@ body {
   max-width: 100%;
   margin-top: 20px;
 }
+
 /* ドーナッツのある生活画像サイズ・幅調整 */
 .dounts_img02 img {
   max-width: 100%;
   margin-top: 20px;
 }
+
 /* 商品一覧の画像・幅・位置調整 */
 .product_img {
   margin: 20px;
   text-align: center;
 }
+
 /* 商品一覧画像size */
 .product_img img {
   max-width: 100%;
+}
+
+/* 商品一覧文字位置固定 */
+.dounts_line_3 p:nth-of-type(2){
+  position: absolute;
+  bottom:211px;
+  right: 25px;
+  color: #7F5539;
 }
 
 /* 会社理念？ */
@@ -79,15 +120,19 @@ body {
   position: relative;
   width: 100%;
 
+
 }
+
 /*  画像size調整*/
-philosophy_img img {
+.philosophy_img img {
   max-width: 100%;
 }
+
 /* 画像文字色指定 */
 .philosophy_text {
   color: #fff;
 }
+
 /* 画像に文字を重ねる　文字列① */
 .philosophy_text p:nth-of-type(1) {
   position: absolute;
@@ -100,6 +145,7 @@ philosophy_img img {
   line-height: 1.5;
   text-align: center;
 }
+
 /* 画像に文字を重ねる　文字列②*/
 .philosophy_text p:nth-of-type(2) {
   position: absolute;
@@ -110,7 +156,8 @@ philosophy_img img {
   line-height: 1.5;
   font-size: 16px;
 }
- /* 画像に文字を重ねる　文字列③*/ 
+
+/* 画像に文字を重ねる　文字列③*/
 .philosophy_text p:nth-of-type(3) {
   position: absolute;
   top: 213px;
@@ -120,6 +167,7 @@ philosophy_img img {
   line-height: 1.5;
   font-size: 20px;
 }
+
 /* 画像に文字を重ねる　文字列④ */
 .philosophy_text p:last-of-type {
   position: absolute;
@@ -140,6 +188,7 @@ h1 {
   margin-top: 32px;
   margin-bottom: 80px;
 }
+
 /*  人気ランキング下線*/
 .underline {
   text-decoration: underline #FFD233;
@@ -166,6 +215,7 @@ h5 {
   margin-bottom: 80px;
 }
 
+/* 商品紹介を２カラムに */
 .inner_flex {
   display: flex;
   justify-content: space-between;
@@ -173,10 +223,8 @@ h5 {
   margin-top: 20px;
 }
 
-
-
-
-.btn_cart {
+/* カートボタン作成・調整 */
+btn_cart {
   background: #7F5539;
   color: #fff;
   width: 100%;
@@ -185,17 +233,18 @@ h5 {
   margin-top: 20px;
 }
 
+/* 商品紹介サイズ調整 */
 .ranking_item {
   flex-basis: 42%;
   margin-top: 80px;
 }
 
+/* ランキング１位色指定 */
 .ranking_item:nth-of-type(1) h5 {
   background: #FFD233;
 }
 
-
-
+/* ランキング画像のサイズ調整 */
 .ranking_item p img {
   max-width: 100%;
 }

@@ -33,6 +33,8 @@
           <img src="common/images/top_cont1_summercitrus_sp.png" alt="サマーシストラス">
         </p>
         <p>サマーシトラス</p>
+        <p>新商品</p>
+        <p></p>
       </div>
       <div class="dounts_line_2">
         <p class="dounts_img02">
@@ -42,9 +44,12 @@
       </div>
 
     </div>
-    <p class="product_img">
-      <img src="common/images/top_cont1_donutslist_sp.png" href="" alt="商品一覧">
-    </p>
+    <div class="dounts_line_3">
+      <p class="product_img">
+        <img src="common/images/top_cont1_donutslist_sp.png" href="" alt="商品一覧">
+      <p>商品一覧</p>
+      </p>
+    </div>
   </section>
 
   <section>
