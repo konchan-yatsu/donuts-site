@@ -15,22 +15,32 @@
   <title>index|donuts-site</title>
 </head>
 
+
 <body>
-  <!-- test -->
+
+  <?php require 'includes/header.php'; ?>
+
+
+
   <section>
     <img src="common/images/top_hero_sp.png" alt="top" class="hero_img
     ">
   </section>
   <section>
-    <div class="dounts-content">
-      <p class="dounts-img01">
-        <img src="common/images/top_cont1_summercitrus_sp.png" alt="サマーシストラス">
-      </p>
+    <div class="dounts_content">
+      <div class="dounts_line">
+        <p class="dount_img01">
+          <img src="common/images/top_cont1_summercitrus_sp.png" alt="サマーシストラス">
+        </p>
+        <p>サマーシトラス</p>
+      </div>
+      <div class="dounts_line_2">
+        <p class="dounts_img02">
+          <img src="common/images/top_cont1_donutslife_sp.png" alt="ドーナッツのある生活">
+        </p>
+        <p>ドーナッツのある生活</p>
+      </div>
 
-      <p class="dounts-img02">
-        <img src="common/images/top_cont1_donutslife_sp.png" alt="ドーナッツのある生活">
-
-      </p>
     </div>
     <p class="product_img">
       <img src="common/images/top_cont1_donutslist_sp.png" href="" alt="商品一覧">
@@ -134,7 +144,7 @@ END;
     </div>
 
   </section>
-
+  <?php require 'includes/footer.php'; ?>
 </body>
 
 </html>
