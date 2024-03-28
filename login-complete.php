@@ -1,26 +1,29 @@
-<?php session_start();?>
+<?php session_start(); ?>
+<?php require 'includes/header.php'; ?>
 
 <!DOCTYPE html>
 <html lang="ja">
 
 <?php
-UNSET($_SESSION['customer']);
+unset($_SESSION['customer']);
+
 $pdo = new PDO(
   'mysql:host=localhost;dbname=donuts;charset=utf8',
   'donuts',
   'password'
 );
-$sql=$pdo->prepare('SELECT * FROM customer WHERE mail=? and password=?');
-$sql->execute([$_REQUEST['mail'],$_REQUEST['password']]);
-foreach($sql as $row){
-  $_SESSION['customer']=[
-  'id'=>$row['id'],
-  'name'=>$row['name'],
-  'kana'=>$row['kana'],
-  'post_code'=>$row['post_code'],
-  'address'=>$row['address'],
-  'mail'=>$row['mail'],
-  'password'=>$row['password']
+
+$sql = $pdo->prepare('SELECT * FROM customer WHERE mail=? and password=?');
+$sql->execute([$_REQUEST['mail'], $_REQUEST['password']]);
+foreach ($sql as $row) {
+  $_SESSION['customer'] = [
+    'id' => $row['id'],
+    'name' => $row['name'],
+    'kana' => $row['kana'],
+    'post_code' => $row['post_code'],
+    'address' => $row['address'],
+    'mail' => $row['mail'],
+    'password' => $row['password']
   ];
 }
 ?>
@@ -38,19 +41,37 @@ foreach($sql as $row){
 
 <body>
   <main>
+
     <?php
-    echo '<p class="user_name">ようこそ&emsp;',$_SESSION['customer']['name'],'様</p>';
+    if (isset($_SESSION['customer'])) {
+      echo '<p class="user_name">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p>';
+      echo '<div class="content">';
+      echo '<h1>ログイン完了</h1>';
+      echo '<div class="content_inner complete_content_inner textalign_center">';
+      echo '<p class="message">ログインが完了しました。</p>';
+      echo '</div><!-- /content_inner -->';
+      echo '<div class="textalign_right">';
+      echo '<a href="index.php" class="memo">TOPページへ戻る</a>';
+      echo '</div>';
+      echo '</div><!-- /content -->';
+    } else {
+      echo '<p class="user_name">ようこそ&emsp;ゲスト様</p>';
+      echo '<h1>ログイン失敗</h1>';
+      echo '<div class="content">';
+      echo '<div class="content_inner complete_content_inner textalign_center">';
+      echo '<p class="message">メールアドレスまたはパスワードが違います</p>';
+      echo '</div><!-- /content_inner -->';
+      echo '<div class="textalign_right">';
+      echo '<a href="login-input.php" class="memo">ログインページへ戻る</a>';
+      echo '</div>';
+      echo '</div><!-- /content -->';
+    }
+
     ?>
-    <h1>ログイン完了</h1>
-    <div class="content">
-      <div class="content_inner complete_content_inner textalign_center">
-        <p class="message">ログインが完了しました</p>
-      </div><!-- /content_inner -->
-      <div class="textalign_right">
-        <a href="#" class="memo">TOPページへ戻る</a>
-      </div>
+
     </div><!-- /content -->
   </main>
 </body>
 
 </html>
+<?php require 'includes/footer.php'; ?>
