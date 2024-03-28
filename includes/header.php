@@ -1,10 +1,20 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="ja">
 
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="common/css/reset.css">
     <link rel="stylesheet" href="common/css/common.css">
+  
+    <!-- <title>header確認</title> -->
 
 </head>
+
+
 
 <body>
 
@@ -34,28 +44,22 @@
       <li><img src="common/images/logo_sp.png" alt="C.C.Donuts画像"></li>
   
       <!-- メニュー一覧 -->
-      <div>
+      
       <li><a href="index.php">top</a></li>
   
-      <hr>
   
       <li><a href="product.php">商品一覧</a></li>
   
-    <hr>
   
       <li><a href="#">よくある質問</a></li>
   
-      <hr>
   
       <li><a href="#">問い合わせ</a></li>
   
-      <hr>
   
       <li><a href="#">当サイトのポリシー</a></li>
   
-      <hr>
   
-      </div>
     </ul>
   </div>
   
@@ -79,7 +83,7 @@
   
   <ul>
     <li>
-    <button type="submit"><img src="common/images/icon_search_sp.svg" ></button>
+    <button type="submit"><img src="common/images/icon_search_sp.svg" alt="🔍"></button>
     </li>
     <li id=text>
     <input type="text">
@@ -87,11 +91,12 @@
   
   </ul>
   
+  </div>
  
 
 
 </header>
 
-
-
+</body>
+</html>
 
