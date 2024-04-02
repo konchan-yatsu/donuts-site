@@ -1,4 +1,4 @@
-
+<body>
 <footer>
 
 
@@ -12,7 +12,7 @@
         <ul id=footer_sns>
            <li><a href="#"><img src="common/images/footer_Instagram2_sp.png" alt="インスタンス"></a></li>
             <li><a href="#"><img src="common/images/footer_facebook_sp.png" alt="フェイスブック"></a></li>
-            <li><a href="#"><img id="x" src="common/images/footer_twitterX_sp.png" alt="エックス"></li></a>
+            <li><a href="#"><img id="x" src="common/images/footer_twitterX_sp.png" alt="エックス"></a></li>
         </ul>
 
         <div id=footer_logo>
@@ -28,6 +28,8 @@
 
 
 </footer>
-    
+
+
+
 </body>
 </html>

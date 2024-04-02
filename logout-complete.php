@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -14,16 +16,24 @@
 
 <body>
   <main>
-    <p class="user_name">ようこそ&emsp;ゲスト様</p>
-    <h1>ログアウト完了</h1>
-    <div class="content">
-      <div class="content_inner complete_content_inner textalign_center">
-        <p class="message">ログアウトが完了しました</p>
-      </div><!-- /content_inner -->
-      <div class="textalign_right">
-        <a href="#" class="memo">TOPページへ戻る</a>
-      </div>
-    </div><!-- /content -->
+
+    <?php
+    if (isset($_SESSION['customer'])) {
+      unset($_SESSION['customer']);
+      echo '<p class="user_name">ようこそ&emsp;ゲスト様</p>';
+      echo '<h1>ログアウト完了</h1>';
+      echo '<div class="content">';
+      echo '<div class="content_inner complete_content_inner textalign_center">';
+      echo '<p class="message">ログアウトが完了しました</p>';
+      echo '</div><!-- /content_inner -->';
+      echo '<div class="textalign_right">';
+      echo '<a href="#" class="memo">TOPページへ戻る</a>';
+      echo '</div>';
+      echo '</div><!-- /content -->';
+    } else {
+      echo 'すでにログアウトしています。';
+    }
+    ?>
 
   </main>
 </body>

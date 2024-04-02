@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -14,7 +16,7 @@
 
 <body>
   <main>
-    <img src="common/images/logo_sp.png" alt="ロゴ">
+    <!-- <img src="common/images/logo_sp.png" alt="ロゴ">
     <h1>ご購入確認</h1>
     <div class="content">
       <div class="content_inner">
@@ -40,10 +42,46 @@
           </div>
         </form>
       </div><!-- /content_inner -->
-      <div class="textalign_right">
+    <!-- <div class="textalign_right">
         <a href="#" class="memo">会員登録がお済みでない方はこちら</a>
       </div>
-    </div><!-- /content -->
+    </div>/content  -->
+    <img src="common/images/logo_sp.png" alt="ロゴ">
+    <h1>ご購入確認</h1>
+    <div class="content">
+      <div class="content_inner">
+        <?php
+        if (!isset($_SESSION['customer'])) {
+          echo '購入手続きを行うにはログインしてください。';
+        } else 
+          if (empty($_SESSION['product'])) {
+          echo 'カートに商品がありません。';
+        } else {
+          echo '<h2>ご購入商品</h2>';
+          echo '<hr>';
+          require 'cart.php';
+          echo '<hr>';
+        }
+        ?>
+      </div>
+
+      <!-- クレジットカード有無判定、empty(fetchallで判定　P284参照 -->
+      <?php
+      // 仕掛中
+      require 'includes/database.php';
+
+      echo '<div class="textalign_center">';
+      echo '<input class="login_btn" type="submit" value="ご購入を確定する">';
+
+      echo '<input class="login_btn" type="submit" value="カード情報を登録する">';
+      echo '</div>';
+      echo '</form>';
+
+      ?>
+
+    </div>
+
+
 
   </main>
 </body>
