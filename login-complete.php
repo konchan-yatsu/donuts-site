@@ -1,18 +1,9 @@
 <?php session_start(); ?>
 <?php require 'includes/header.php'; ?>
-
-<!DOCTYPE html>
-<html lang="ja">
+<?php require 'includes/database.php'; ?>
 
 <?php
 unset($_SESSION['customer']);
-
-$pdo = new PDO(
-  'mysql:host=localhost;dbname=donuts;charset=utf8',
-  'donuts',
-  'password'
-);
-
 if (isset($_REQUEST['mail']) && isset($_REQUEST['password'])) {
   $sql = $pdo->prepare('SELECT * FROM customer WHERE mail=? and password=?');
   $sql->execute([$_REQUEST['mail'], $_REQUEST['password']]);
