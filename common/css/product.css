@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+* {
+  outline: 1px solid #e3343a;
+}
+
+body {
+  font-family: Noto sans JP, sans-serif;
+}
+
+/* 商品画像を2カラムに*/
+
+.flex_content,
+.flex_content2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+/*  アイテムサイズ指定*/
+.flex_item {
+  flex-basis: 42%;
+}
+
+/* 画像size調整 */
+.flex_item p img {
+  max-width: 100%;
+}
+/* priceとお気に入りを横並び */
+.inner_flex {
+  display: flex;
+}
