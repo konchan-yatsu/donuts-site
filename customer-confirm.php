@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php require 'includes/database.php'; ?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -19,12 +20,6 @@
   <main>
 
     <?php
-    $pdo = new PDO(
-      'mysql:host=localhost;dbname=donuts;charset=utf8',
-      'donuts',
-      'password'
-    );
-
     echo '<img src="common/images/logo_sp.png" alt="ロゴ">';
     echo '<h1>ご入力内容の確認</h1>';
 

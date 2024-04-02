@@ -1,18 +1,13 @@
 <?php session_start(); ?>
 
 <?php require 'includes/header.php'; ?>
+<?php require 'includes/database.php'; ?>
 
 <link rel="stylesheet" href="common/css/logout.css">
 <title>Logout | donuts-site</title>
 
 <main>
   <?php
-  $pdo = new PDO(
-    'mysql:host=localhost;dbname=donuts;charset=utf8',
-    'donuts',
-    'password'
-  );
-
   if (isset($_REQUEST['mail']) && isset($_REQUEST['password'])) {
     $sql = $pdo->prepare('SELECT * FROM customer WHERE mail=? and password=?');
     $sql->execute([$_REQUEST['mail'], $_REQUEST['password']]);
@@ -31,7 +26,6 @@
   ?>
 
   <?php
-
   if (isset($_SESSION['customer'])) {
     echo '<p class="user_name">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p>';
     echo '<hr>';

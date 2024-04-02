@@ -11,15 +11,11 @@
   <link rel="stylesheet" href="common/css/customer.css">
   <title>Customer-complete | donuts-site</title>
 </head>
-<?php
-  $pdo = new PDO(
-    'mysql:host=localhost;dbname=donuts;charset=utf8',
-    'donuts',
-    'password'
-  );
 
-  $sql = $pdo->prepare('INSERT INTO customer VALUES(null,?,?,?,?,?,?)');
-  $sql->execute([$_REQUEST['name'], $_REQUEST['kana'], $_REQUEST['post_code'], $_REQUEST['address'], $_REQUEST['mail'], $_REQUEST['password']]);
+<?php require 'includes/database.php'; ?>
+<?php
+$sql = $pdo->prepare('INSERT INTO customer VALUES(null,?,?,?,?,?,?)');
+$sql->execute([$_REQUEST['name'], $_REQUEST['kana'], $_REQUEST['post_code'], $_REQUEST['address'], $_REQUEST['mail'], $_REQUEST['password']]);
 ?>
 
 <body>
