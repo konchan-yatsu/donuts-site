@@ -30,21 +30,26 @@
     <div class="dounts_content">
       <div class="dounts_line">
         <p class="dount_img01">
-          <img src="common/images/top_cont1_summercitrus_sp.png" alt="サマーシストラス">
+          <img src="common/images/top_cont1_summercitrus_pc.png" alt="サマーシストラス">
         </p>
         <p>サマーシトラス</p>
+        <p>新商品</p>
+        <p></p>
       </div>
       <div class="dounts_line_2">
         <p class="dounts_img02">
-          <img src="common/images/top_cont1_donutslife_sp.png" alt="ドーナッツのある生活">
+          <img src="common/images/top_cont1_donutslife_pc.png" alt="ドーナッツのある生活">
         </p>
         <p>ドーナッツのある生活</p>
       </div>
 
     </div>
-    <p class="product_img">
-      <img src="common/images/top_cont1_donutslist_sp.png" href="" alt="商品一覧">
-    </p>
+    <div class="dounts_line_3">
+      <p class="product_img">
+        <img src="common/images/top_cont1_donutslist_sp.png" href="" alt="商品一覧">
+      <p>商品一覧</p>
+      </p>
+    </div>
   </section>
 
   <section>
