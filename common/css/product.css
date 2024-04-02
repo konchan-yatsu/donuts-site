@@ -16,16 +16,50 @@ body {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
 /*  アイテムサイズ指定*/
 .flex_item {
   flex-basis: 42%;
+  margin-top: 80px;
 }
 
 /* 画像size調整 */
 .flex_item p img {
   max-width: 100%;
 }
+
+/*説明文上部に余白  */
+.flex_name {
+  margin-top: 20px;
+}
+
 /* priceとお気に入りを横並び */
 .inner_flex {
   display: flex;
+  color: #BF0000;
+  margin: 20px 0;
+}
+
+h1 {
+  font-size: 20px;
+  text-align: center;
+  text-decoration: underline 4px #FFD233;
+  margin-top: 32px;
+  padding-top: 48px;
+  margin-bottom: 48px;
+}
+
+/* カートボタン作成・調整 */
+.btn_cart {
+  background: #7F5539;
+  color: #fff;
+  width: 100%;
+  height: 11%;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.inner_heart {
+  margin-left: auto;
 }

@@ -184,6 +184,7 @@ h1 {
   font-size: 20px;
   text-align: center;
   margin-top: 32px;
+  padding-top: 48px;
   margin-bottom: 80px;
 }
 
@@ -229,6 +230,7 @@ h5 {
   height: 11%;
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 80px;
 }
 
 /* 商品紹介サイズ調整 */

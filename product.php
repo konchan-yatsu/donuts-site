@@ -40,12 +40,13 @@
     foreach (array_map(null, $img1, $name1, $price1) as $key => [$col1, $n, $p]) {
       $id = $key + 1;
       echo <<<END
+    
       <div class="flex_item">
-  <p><img src="common/images/{$col1}" alt="商品画像"></p>
-<p>{$n}</p>
+  <p><a href="detail-1.php?id={$id}"><img src="common/images/{$col1}" alt="商品画像"></a></p>
+<p class="flex_name"><a href="detail-1.php?id={$id}">{$n}</a></p>
 <div class="inner_flex">
-<p>{$p}</p>
-<p><img src="common/images/heart.svg" alt="heart"></p>
+<p><a href="detail-1.php?id={$id}">{$p}</a></p>
+<p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
 </div>
 <button class="btn_cart"><a href="#">カートに入れる</a></button>
 </div>
@@ -67,10 +68,12 @@ END;
 
 
     <div class="flex_item">
-      <p><img src="common/images/{$col3}" alt="商品画像"></p>
-      <p>{$n2}</p>  
-      <p>{$p2}</p>
-      <p><img src="common/images/heart.svg" alt="heart"></p>
+      <p><a href="detail-1.php?id={$id}"><img src="common/images/{$col3}" alt="商品画像"></a></p>
+      <p class="flex_name"><a href="detail-1.php?id={$id}">{$n2}</a></p>  
+      <div class="inner_flex">
+      <p><a href="detail-1.php?id={$id}">{$p2}</a></p>
+      <p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
+      </div>
       <button class="btn_cart"><a href="#">カートに入れる</a></button>
     </div>
 END;
