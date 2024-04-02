@@ -48,6 +48,7 @@ if (isset($_REQUEST['mail']) && isset($_REQUEST['password'])) {
 
     if (isset($_SESSION['customer'])) {
       echo '<p class="user_name">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p>';
+      echo '<hr>';
       echo '<div class="content">';
       echo '<h1>ログイン完了</h1>';
       echo '<div class="content_inner complete_content_inner textalign_center">';
@@ -59,6 +60,7 @@ if (isset($_REQUEST['mail']) && isset($_REQUEST['password'])) {
       echo '</div><!-- /content -->';
     } else {
       echo '<p class="user_name">ようこそ&emsp;ゲスト様</p>';
+      echo '<hr>';
       echo '<h1>ログイン失敗</h1>';
       echo '<div class="content">';
       echo '<div class="content_inner complete_content_inner textalign_center">';

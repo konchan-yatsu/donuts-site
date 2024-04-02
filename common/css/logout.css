@@ -9,6 +9,12 @@ body {
   font-style: normal;
 }
 
+.user_name {
+  margin-left: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
 /* 見出しの設定 */
 h1 {
   font-size: 20px;
@@ -23,6 +29,7 @@ h1 {
   width: 295px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 80px;
 }
 
 /* 内容：フォーム内の設定 */
@@ -50,14 +57,14 @@ h1 {
 }
 
 /* 内容：ログインボタンの設定 */
-.login_btn {
+.logout_btn {
   width: 80%;
   font-size: 16px;
   height: 48px;
   color: #ffffff;
   background-color: #7F5539;
   margin-top: 20px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 /* 内容：メモの設定 */
@@ -66,6 +73,7 @@ h1 {
   margin-top: 24px;
   display: inline-block;
   border-bottom: 1px solid #7F5539;
+  margin-bottom: 80px;
 }
 
 .textalign_right {
