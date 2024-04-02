@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="common/css/reset.css">
+  <link rel="stylesheet" href="common/css/common.css">
   <link rel="stylesheet" href="common/css/customer.css">
   <title>Customer-confirm | donuts-site</title>
 </head>
@@ -30,161 +31,101 @@
     // もしセッションcustomerがセットされていたら
     if (isset($_SESSION['customer'])) {
       // true セットされている=ログイン中だったら
-      echo 'セッションあり';
+      echo 'ログイン中です。';
+      echo 'ログアウトしてから新規登録をお願いいたします。';
+      echo '<a href="logout.php">ログアウトする</a>';
       $id = $_SESSION['customer']['id'];
-
-      // 条件：メールアドレスとパスワードが一致するデータを取得するSQL
-      $sql = $pdo->prepare('SELECT * FROM customer WHERE id!=? AND mail=? AND password=?');
-      $sql->execute([$id, $_REQUEST['mail'], $_REQUEST['password']]);
     } else {
       // false セットされていない＝ログインしてない
       echo 'セッションなし';
       // 条件：メールアドレスが一致するデータを取得するSQL
       $sql = $pdo->prepare('SELECT * FROM customer WHERE mail=?');
-      $sql->execute([$_REQUEST['mail']]);
+      $sql->execute([htmlspecialchars($_REQUEST['mail'])]);
     }
+    $name = htmlspecialchars(mb_convert_kana($_REQUEST['name']));
+    $kana = htmlspecialchars(mb_convert_kana($_REQUEST['kana']));
+    $postcode = htmlspecialchars(str_replace($hyphen = array('-', 'ー', '－'), '', mb_convert_kana($_REQUEST['post_code'], 'na')));
+    $address =  htmlspecialchars(mb_convert_kana($_REQUEST['address'], 'a'));
+    $mail = htmlspecialchars(mb_convert_kana($_REQUEST['mail']));
 
-    // SQLの結果が空だったら、（ログインしてない時はメールアドレスが一致するデータがなかったら）
+
     if (empty($sql->fetchAll())) {
-      // SQLの結果が空で⇒ログイン中だったら    
-      if (isset($_SESSION['customer'])) {
-        $sql = $pdo->prepare('UPDATE customer SET name=?, kana=?, post_code=?, address=?, mail=?, password=? WHERE id=?');
-        $sql->execute([$_REQUEST['name'], $_REQUEST['kana'], $_REQUEST['post_code'], $_REQUEST['address'], $_REQUEST['mail'], $_REQUEST['password'], $id]);
-        $_SESSION['customer'] = [
-          'id' => $id,
-          'name' => $_REQUEST['name'],
-          'kana' => $_REQUEST['kana'],
-          'post_code' => $_REQUEST['post_code'],
-          'address' => $_REQUEST['address'],
-          'mail' => $_REQUEST['mail'],
-          'password' => $_REQUEST['password']
-        ];
-        echo '<div class="content">';
-        echo '<form action="customer-complete.php" method="post">';
-        echo '<h2>お名前</h2>';
-        echo '<p class="input_result">', $_REQUEST['name'], '</p>';
-        echo '<h2>お名前(フリガナ)</h2>';
-        echo '<p class="input_result">', $_REQUEST['kana'], '</p>';
-
-        echo '<h2>郵便番号</h2>';
-        $postcode = $_REQUEST['post_code'];
-        if (!preg_match('/^[0-9]{7}$/', $postcode)) {
-          echo '郵便番号ダメ';
-        }
-        echo '<p class="input_result">', $_REQUEST['post_code'], '</p>';
-        echo '<h2>住所</h2>';
-        echo '<p class="input_result">', $_REQUEST['address'], '</p>';
-        echo '<h2>メールアドレス</h2>';
-        echo '<p class="input_result">', $_REQUEST['mail'], '</p>';
-        echo '<h2>パスワード</h2>';
-        if (preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/', $_REQUEST['password'])) {
-          echo '<p class="input_result">', $_REQUEST['password'], '</p>';
-        } else {
-          echo 'パスワードが適切ではありません。';
-        }
-
-        echo '<div class="textalign_center">';
-        echo '<div class="textalign_center">';
-        echo '<input class="login_btn" type="submit" value="こちらの内容で更新する">';
-        echo '</div>';
-        echo '<input type="hidden" name="name" value="', $_REQUEST['name'], '"</p>';
-        echo '<input type="hidden" name="kana" value="', $_REQUEST['kana'], '"</p>';
-        echo '<input type="hidden" name="post_code" value="', $_REQUEST['post_code'], '"</p>';
-        echo '<input type="hidden" name="address" value="', $_REQUEST['address'], '"</p>';
-        echo '<input type="hidden" name="mail" value="', $_REQUEST['mail'], '"</p>';
-        echo '<input type="hidden" name="password" value="', $_REQUEST['password'], '"</p>';
-        echo '</form>';
-        echo '</div><!-- /content -->';
-      } else {
-        echo '<div class="content">';
-        echo '<form action="customer-complete.php" method="post">';
-        echo '<h2>お名前</h2>';
-        echo '<p class="input_result">', $_REQUEST['name'], '</p>';
-        echo '<h2>お名前(フリガナ)</h2>';
-        echo '<p class="input_result">', $_REQUEST['kana'], '</p>';
-
-        echo '<h2>郵便番号</h2>';
-        // $postcode=$_REQUEST['post_code'];
-        // if (!preg_match('/^[0-9]{7}$/', $postcode)) {
-        //   echo '郵便番号ダメ';
-        // }
-        echo '<p class="input_result">', $_REQUEST['post_code'], '</p>';
-
-        echo '<h2>住所</h2>';
-        echo '<p class="input_result">', $_REQUEST['address'], '</p>';
-        echo '<h2>メールアドレス</h2>';
-        echo '<p class="input_result">', $_REQUEST['mail'], '</p>';
-        echo '<h2>パスワード</h2>';
-        echo '<p class="input_result">', $_REQUEST['password'], '</p>';
-        echo '<div class="textalign_center">';
-        echo '<input class="login_btn" type="submit" value="こちらの内容で登録する">';
-        echo '</div>';
-        echo '<input type="hidden" name="name" value="', $_REQUEST['name'], '"</p>';
-        echo '<input type="hidden" name="kana" value="', $_REQUEST['kana'], '"</p>';
-        echo '<input type="hidden" name="post_code" value="', $_REQUEST['post_code'], '"</p>';
-        echo '<input type="hidden" name="address" value="', $_REQUEST['address'], '"</p>';
-        echo '<input type="hidden" name="mail" value="', $_REQUEST['mail'], '"</p>';
-        echo '<input type="hidden" name="password" value="', $_REQUEST['password'], '"</p>';
-        echo '</form>';
-        echo '</div><!-- /content -->';
-      }
-
-      // メールアドレス被りなし：新規登録用ここから
-      $sql = $pdo->prepare('SELECT * FROM customer WHERE id!=? and name!=? and kana!=? and post_code!=? and address!=? and mail!=? and password!=?');
-      $sql->execute([$id, $_REQUEST['name'], $_REQUEST['kana'], $_REQUEST['post_code'], $_REQUEST['address'], $_REQUEST['mail'], $_REQUEST['password']]);
+      // true 入力されたメールアドレスと一致するデータがなかった場合➡新規登録する*********  
       echo '<div class="content">';
-      echo '<form action="customer-complete.php" method="post">';
-      // 1.お名前
+      echo '<form id="customerForm" action="customer-complete.php" method="post">';
+      // １．名前
       echo '<h2>お名前</h2>';
-      if (empty($_REQUEST['name'])) {
-        echo '<p class="input_result error">正しく入力してください。</p>';
+      echo '<p class="input_result">',  $name, '</p>';
+
+      // ２．名前(カナ)
+      echo '<h2>お名前(フリガナ)</h2>';
+      echo '<p class="input_result">', $kana, '</p>';
+
+      // ３．郵便暗号
+      if (!preg_match('/^[0-9]{7}$/', $postcode)) {
+        echo '<h2>郵便番号&emsp;<span class="caution">※適切な郵便番号ではありません</span></h2>';
+        echo '<p class="input_result input_error">', $postcode, '</p>';
       } else {
-        echo '<p class="input_result">', $_REQUEST['name'], '</p>';
+        echo '<h2>郵便番号</h2>';
+        echo '<p class="input_result">', $postcode, '</p>';
       }
-      // 2.お名前(フリガナ)
-      if (isset($_REQUEST['kana'])) {
-        echo '<h2>お名前(フリガナ)</h2>';
-        echo '<p class="input_result error">正しく入力してください。</p>';
+      // ４．住所
+      echo '<h2>住所</h2>';
+      echo '<p class="input_result">', $address, '</p>';
+
+      // ５．メールアドレス
+      echo '<h2>メールアドレス</h2>';
+      echo '<p class="input_result">', $mail, '</p>';
+
+      // ６．パスワード
+      $password = htmlspecialchars($_REQUEST['password']);
+      $maskedPassword = str_repeat('●', strlen($password));
+      if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/', $password)) {
+        echo '<h2>パスワード&emsp;<span class="caution">※適切なパスワードではありません</span></h2>';
+        echo '<p class="input_result input_error" id="password">', $password, '</p>';
       } else {
-        echo '<p class="input_result">', $_REQUEST['kana'], '</p>';
+        echo '<h2>パスワード&emsp;<button type="button" class="display_btn" onclick="toggleDisplay();">表示する</button></h2>';
+        echo '<p class="input_result password" id="maskoff">', $maskedPassword, '</p>';
+        echo '<p class="input_result mask_off pass_display" id="password">', $password, '</p>';
       }
 
-      echo '<h2>郵便番号</h2>';
-      echo '<p class="input_result">', $_REQUEST['post_code'], '</p>';
-      echo '<h2>住所</h2>';
-      echo '<p class="input_result">', $_REQUEST['address'], '</p>';
-      echo '<h2>メールアドレス</h2>';
-      echo '<p class="input_result">', $_REQUEST['mail'], '</p>';
-      echo '<h2>パスワード</h2>';
-      echo '<p class="input_result">', $_REQUEST['password'], '</p>';
+      // ボタン
       echo '<div class="textalign_center">';
-      echo '<input class="login_btn" type="submit" value="こちらの内容で登録する">';
-      echo '</div>';
-      echo '<input type="hidden" name="name" value="', $_REQUEST['name'], '"</p>';
-      echo '<input type="hidden" name="kana" value="', $_REQUEST['kana'], '"</p>';
-      echo '<input type="hidden" name="post_code" value="', $_REQUEST['post_code'], '"</p>';
-      echo '<input type="hidden" name="address" value="', $_REQUEST['address'], '"</p>';
-      echo '<input type="hidden" name="mail" value="', $_REQUEST['mail'], '"</p>';
-      echo '<input type="hidden" name="password" value="', $_REQUEST['password'], '"</p>';
+      // 郵便番号またはパスワードが適切でない場合に戻る、適切な場合は登録ボタンを表示
+      if (!preg_match('/^[0-9]{7}$/', $postcode) || !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/', $password)) {
+        echo '<button class="login_btn back_btn" type="button" onclick="history.back()">戻る</button>';
+      } else {
+        echo '<input class="login_btn" type="submit" value="こちらの内容で登録する">';
+      }
+
+      echo '<input type="hidden" name="name" value="', $name, '"</p>';
+      echo '<input type="hidden" name="kana" value="', $kana, '"</p>';
+      echo '<input type="hidden" name="post_code" value="', $postcode, '"</p>';
+      echo '<input type="hidden" name="address" value="', $address, '"</p>';
+      echo '<input type="hidden" name="mail" value="', $mail, '"</p>';
+      echo '<input type="hidden" name="password" value="', $password, '"</p>';
       echo '</form>';
       echo '</div><!-- /content -->';
-      // メールアドレス被りなし：新規登録用ここまで
-
-    } else {
-      echo '<div class="content_inner">';
-      echo '<p class="message">このメールアドレスは既に使用されていますので、変更してください。</p>';
+    }
+    // 入力されたメールアドレスが既に登録されていた場合********************************      
+    else {
+      echo '<div class="content">';
+      echo '<div class="content_inner complete_content_inner textalign_center">';
+      echo '<p class="message">このメールアドレスは<br>既に使用されていますので、<br>登録できません。</p>';
+      echo '<button class="login_btn confirm_back_btn" type="button" onclick="history.back()">戻る</button>';
+      echo '</div>';
       echo '</div>';
     }
-
-    if (isset($_REQUEST['kana'])) {
-      echo '<p class="input_result error">空：正しく入力してください。</p>';
-    } else {
-      echo '<p class="input_result">空じゃない', $_REQUEST['name'], '</p>';
-    }
-
-
-
     ?>
+
+    <script>
+      function toggleDisplay() {
+        var password = document.querySelector('.password');
+        var password2 = document.querySelector('.mask_off');
+        password.classList.toggle('pass_display');
+        password2.classList.toggle('pass_display');
+      }
+    </script>
 
   </main>
 </body>
