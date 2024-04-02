@@ -16,69 +16,104 @@
 
 <body>
   <main>
-    <!-- <img src="common/images/logo_sp.png" alt="ロゴ">
-    <h1>ご購入確認</h1>
-    <div class="content">
-      <div class="content_inner">
-        <form action="" method="post">
-          <h2>ご購入商品</h2>
-          <p>商品名</p>
-          <p>数量</p>
-          <p>小計</p>
-          <p>合計</p>
-
-          <h2>お届け先</h2>
-          <p>お名前</p>
-          <p>住所</p>
-
-          <h2>お支払方法</h2>
-          <p>お支払方法</p>
-          <p>カード種類</p>
-          <p>カード番号</p>
-          <p>お支払い方法が登録されていません。 クレジットカード情報を登録してください。</p>
-          <div class="textalign_center">
-            <input class="login_btn" type="submit" value="ご購入を確定する">
-            <input class="login_btn" type="submit" value="カード情報を登録する">
-          </div>
-        </form>
-      </div><!-- /content_inner -->
-    <!-- <div class="textalign_right">
-        <a href="#" class="memo">会員登録がお済みでない方はこちら</a>
-      </div>
-    </div>/content  -->
     <img src="common/images/logo_sp.png" alt="ロゴ">
     <h1>ご購入確認</h1>
     <div class="content">
-      <div class="content_inner">
-        <?php
-        if (!isset($_SESSION['customer'])) {
-          echo '購入手続きを行うにはログインしてください。';
-        } else 
+
+      <?php
+      if (!isset($_SESSION['customer'])) {
+        echo '購入手続きを行うにはログインしてください。';
+      } else 
           if (empty($_SESSION['product'])) {
-          echo 'カートに商品がありません。';
-        } else {
-          echo '<h2>ご購入商品</h2>';
-          echo '<hr>';
-          require 'cart.php';
-          echo '<hr>';
+        echo 'カートに商品がありません。';
+      } else {
+        echo '<h2>ご購入商品</h2>';
+        echo '<hr>';
+        // $\SESSION['product']の情報から引用する、CSS装飾も必要なため、要素設定も考える必要あり
+        $total = 0;
+        foreach ($_SESSION['product'] as $id => $product) {
+          echo <<<END
+            <table>
+<tr><td>商品名</td><td>{$product['name']}</td></tr>
+<tr><td>数量</td><td>{$product['count']}</td></tr>
+<tr><td>小計</td><td>{$product['count']}*{$product['price']}</td></tr>
+</table>
+END;
+          $total += $product['count'] * $product['price'];
         }
-        ?>
-      </div>
+
+        echo <<<END
+<tr><td>合計</td><td>$total</td></tr>
+
+
+END;
+        echo '<hr>';
+
+
+
+        echo '<h2>お届け先</h2>';
+        echo '<hr>';
+        // $\SESSION['customer']の情報から引用する、CSS装飾も必要なため、要素設定も考える必要あり
+        echo <<<END
+          <table>
+        <tr><td>お名前</td><td>{$_SESSION['customer']['name']}<td></tr>
+        <tr><td>住所</td><td>{$_SESSION['customer']['address']}<td></tr>
+        </table>
+   END;
+        echo '<hr>';
+      }
+      ?>
 
       <!-- クレジットカード有無判定、empty(fetchallで判定　P284参照 -->
       <?php
-      // 仕掛中
+      // ログインしていて、カートにデータがある場合にクレジットカードを判定する
       require 'includes/database.php';
+      // if (isset($_SESSION['customer']) && !empty($_SESSION['product'])) {
+      if (isset($_SESSION['customer'])) {
 
-      echo '<div class="textalign_center">';
-      echo '<input class="login_btn" type="submit" value="ご購入を確定する">';
 
-      echo '<input class="login_btn" type="submit" value="カード情報を登録する">';
-      echo '</div>';
-      echo '</form>';
+        $id = $_SESSION['customer']['id'];
+        $sql = $pdo->prepare('select * from card where id=?');
+        $sql->execute([$id]);
+
+        if (empty($sql->fetchAll())) {
+          echo <<<END
+          <h2>お支払方法</h2>
+          <p>お支払方法が登録されていません<br>
+          クレジットカード情報を登録してください</p>
+
+            <form action="card-input.php" method="post">
+            <input class="login_btn" type="submit" value="カード情報を登録する">
+            </form>
+
+      END;
+        } else {
+          echo <<<END
+          <h2>お支払方法</h2>
+          <table>
+          <tr><td>お支払い</td><td>クレジットカード</td></tr>
+    END;
+          $sql = $pdo->prepare('select * from card where id=?');
+          $sql->execute([$id]);
+          foreach ($sql as $row) {
+            echo <<<END
+                <tr><td>カード種類</td><td>{$row['card_type']}</td></tr>
+                <tr><td>カード番号</td><td>{$row['card_no']}</td></tr>
+                </table>
+          END;
+          }
+
+          echo <<<END
+            <form action="purchase-complete.php" method="post">
+            <input class="login_btn" type="submit" value="ご購入を確定する">
+            </form>
+         END;
+        }
+      } else {
+      }
+
 
       ?>
-
     </div>
 
 
