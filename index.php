@@ -121,8 +121,10 @@ if (isset($_SESSION['customer'])) {
 シュ（5個入り)'];
       $price = ['税込 ￥1,500', '税込 ￥3,500', '税込 ￥4,000', '税込 ￥1,600', '税込 ￥1,200', '税込 ￥1,800'];
       $number = [1, 2, 3, 4, 5, 6];
+      $id = [1, 7, 8, 2, 9, 6];
 
-      foreach (array_map(null, $img, $name, $price) as $key => [$i, $n, $p]) {
+
+      foreach (array_map(null, $img, $name, $price, $id) as $key => [$i, $n, $p, $id]) {
         $num = 1;
         $num += $key;
         echo <<< END
@@ -136,8 +138,9 @@ if (isset($_SESSION['customer'])) {
         <p class="ranking_text price">{$p}</p>
         <p><img src="common/images/heart.svg" alt="heart"></p>
         </div>
-        <form action="cart-input.php">
-          <input class="btn_cart" type="submit" value="カートに入れる ">
+        <form action="cart-input.php?id={$id}" class="btn_cart">
+        <input type="hidden" name="count" value=1>
+          <input  type="submit" value="カートに入れる ">
         </form>
       </div>
 
