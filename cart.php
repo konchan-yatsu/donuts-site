@@ -23,7 +23,7 @@ $total+=$subtotal;
 
 echo <<< END
 <div id="merchandise">
-        <img src="common/images/goodslist_cont1_no1_sp.png" alt="商品画像">
+        <img src="common/images/top_cont3_No{$id}_pc.png" alt="商品画像">
     
         <div id="detail">
             <p id="name">ＣＣドーナッツ{$product['name']}</p>
@@ -41,9 +41,6 @@ END;
 
 
 }
-
-
-
 
 echo <<< END
 

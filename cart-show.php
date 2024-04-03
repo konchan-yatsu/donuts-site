@@ -2,6 +2,7 @@
 
 <?php session_start(); ?>
 
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -21,6 +22,10 @@
 
 <!-- 内容の表示 -->
 <body>
+    
+
+
+
 <main>
 
     <ul>
@@ -45,15 +50,14 @@
 
 
 <?php
-
-
 require 'cart.php';
-
-
-
-
 ?>
+
+
 </main>
+
+
+
 </body>
 </html>
 
