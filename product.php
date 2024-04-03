@@ -68,10 +68,10 @@ END;
 
 
     <div class="flex_item">
-      <p><a href="detail-1.php?id={$id}"><img src="common/images/{$col3}" alt="商品画像"></a></p>
-      <p class="flex_name"><a href="detail-1.php?id={$id}">{$n2}</a></p>  
+      <p><a href="detail-2.php?id={$id}"><img src="common/images/{$col3}" alt="商品画像"></a></p>
+      <p class="flex_name"><a href="detail-2.php?id={$id}">{$n2}</a></p>  
       <div class="inner_flex">
-      <p><a href="detail-1.php?id={$id}">{$p2}</a></p>
+      <p><a href="detail-2.php?id={$id}">{$p2}</a></p>
       <p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
       </div>
       <button class="btn_cart"><a href="#">カートに入れる</a></button>
