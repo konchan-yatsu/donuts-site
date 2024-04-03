@@ -25,8 +25,8 @@
 
 <?php
 
-// 商品idを入手
-// $id=$_REQUEST['id'];
+
+$id=$_REQUEST['id'];
 
 
 // セッションにproductがセットされているか判定
@@ -41,7 +41,7 @@ $_REQUEST['product']=[];
 $count=0;
 
 // データベースとidが同じ商品がセッションのproductに入っているか確認
-if(isset($id)){
+if(isset($_SESSION['product'][$id])){
 // 同じidの商品が入っている場合
 
 // セッションのproduct内　idとリンクする個数のデータを$countに登録
@@ -50,16 +50,12 @@ $count=$_SESSION['product'][$id]['count'];
 }
 
 // セッションのproductにカートにつかする情報を登録
-
 $_SESSION['product'][$id]=['name'=>$_REQUEST['name'],'price'=>$_REQUEST['price'],'count'=>$count+$_REQUEST['count']];
 
 
 echo '<p>カートに追加しました。</p>';
 
-echo '<p>',$_SESSION['product']['name'],'</p>';
-echo '<p>',$_SESSION['product']['price'],'</p>';
-echo '<p>',$description,'</p>';
-echo '<p>',$name,'</p>';
+// echo '<p>',$_SESSION['product'][$id],'</p>';
 
 echo '<main>';
 require 'cart.php';

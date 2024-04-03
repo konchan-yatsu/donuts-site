@@ -49,6 +49,13 @@ echo '</form>';
 echo '</div>';
 echo '</div><!-- /content -->';
 echo '</main>';
+
+
+
+echo '越川確認用';
+echo $_SESSION['product'];
+echo $_SESSION['product']['name'];
+
 ?>
 
 <?php require 'includes/footer.php'; ?>
