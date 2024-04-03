@@ -47,4 +47,5 @@ foreach ($sql as $row) {
   echo '</main>';
 }
 ?>
+
 <?php require 'includes/footer.php'; ?>
