@@ -41,7 +41,11 @@
 <p><a href="detail-1.php?id={$row['id']}">税込&nbsp;￥{$row['price']}</a></p>
 <p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
 </div>
-<button class="btn_cart"><a href="#">カートに入れる</a></button>
+<form action="cart-input.php?id={$row['id']}" method="post" class="btn_cart" >
+<input type="hidden" name=1>
+<input type="submit" value="カートに入れる">
+</form>
+
 </div>
 END;
       }
@@ -77,7 +81,10 @@ END;
 <p><a href="detail-2.php?id={$row['id']}">税込&nbsp;￥{$row['price']}</a></p>
 <p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
 </div>
-<button class="btn_cart"><a href="#">カートに入れる</a></button>
+<form action="cart-input.php?id={$row['id']}" method="post" class="btn_cart" >
+<input type="hidden" name=1>
+<input type="submit" value="カートに入れる">
+</form>
 </div>
 END;
       }
