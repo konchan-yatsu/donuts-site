@@ -12,6 +12,10 @@ body {
 
 }
 
+.pc_only {
+  display: none;
+}
+
 .content {
   padding: 20px 20px 80px 20px;
 }
@@ -69,6 +73,7 @@ main img {
   height: 36px;
   border: 1px solid #7F5539;
   margin-right: 4px;
+  text-align: center;
 }
 
 .bottom_align {
@@ -91,6 +96,14 @@ main img {
 }
 
 @media screen and (min-width: 768px) {
+  .sp_only {
+    display: none;
+  }
+
+  .pc_only {
+    display: block;
+  }
+
   .content {
     font-size: min(2vw, 24px);
     padding: 80px min(6.7083vw, 80.5px) 172.8px min(6.625vw, 79.5px);
@@ -99,13 +112,15 @@ main img {
   }
 
   .group_left {
-    width: min(55.93869%, 584px);
-    padding-right: min(3.6666vw, 44px);
+    /* width: min(55.93869%, 584px); */
+    width: min(51.8%, 540px);
+    /* padding-right: min(3.6666vw, 44px); */
   }
 
   .group_right {
-    width: 44.0631%;
-    /* width: 460px; */
+    /* width: 44.0631%; */
+    width: 48.2%;
+    padding-left: min(3.6666vw, 44px);
   }
 
   /* パンくずメニュー */
@@ -156,8 +171,8 @@ main img {
 
   /* 個数 */
   .product_count {
-    width: min(6.6666, 80px);
-    height: min(4.3333vw, 52px);
+    width: min(6.67vw, 80px);
+    height: min(4.34vw, 52px);
     margin-right: 8px;
   }
 
