@@ -5,10 +5,10 @@
 <?php require 'includes/header.php'; ?>
 <?php require 'includes/database.php'; ?>
 <?php
-$id = $_REQUEST['id'];
+// $id = $_REQUEST['id'];
 
-$sql = $pdo->prepare('SELECT * FROM product WHERE id=:id');
-$sql->execute(['id' => $_REQUEST['id']]);
+$sql = $pdo->prepare('select * from product where id=?');
+$sql->execute([$_REQUEST['id']]);
 foreach ($sql as $row) {
   echo '<p class="breadcrumb">&nbsp;TOP&nbsp;&gt;&nbsp;商品一覧&nbsp;&gt;&nbsp;', $row['name'], '</p>';
   echo '<hr>';
