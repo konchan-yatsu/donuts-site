@@ -60,7 +60,7 @@ echo <<< END
     <p id="continue"> <a  href="card-input.php">買い物を続ける</a></p>
 END;
 
-END;
+
 
 }else{
 
