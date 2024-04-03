@@ -15,10 +15,11 @@
 
 <body>
   <h1>商品一覧</h1>
+
+
+
+
   <div class="flex_content">
-
-
-
     <?php
     $img1 = ['goodslist_cont1_no1_pc.png', 'goodslist_cont1_no2_pc.png', 'goodslist_cont1_no3_pc.png', 'goodslist_cont1_no4_pc.png', 'goodslist_cont1_no5_pc.png', 'goodslist_cont1_no6_pc.png'];
 
@@ -85,12 +86,5 @@ END;
 </body>
 
 </html>
-
-
-
-
-
-
-
 
 <?php require 'includes/footer.php'; ?>
