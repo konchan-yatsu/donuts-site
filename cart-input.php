@@ -50,8 +50,24 @@ $count=$_SESSION['product'][$id]['count'];
 }
 
 // セッションのproductにカートにつかする情報を登録
-$_SESSION['product'][$id]=['name'=>$_REQUEST['name'],'price'=>$_REQUEST['price'],'count'=>$count+$_REQUEST['count']];
+$_SESSION['product'][$id]=['count'=>$count+$_REQUEST['count']];
 
+ require 'includes/database.php';
+
+$sql=$pdo->prepare('select * from product where name=? price=? count=?');
+$sql->execute([$_REQUEST['id']]);
+
+foreach ($sql as $cart1) {
+
+  $_SESSION['product'][$id]=['name'=>$cart['name']];
+
+
+  $sql=$pdo->prepare('select * from product where price=?');
+$sql->execute([$_REQUEST['id']]);
+
+
+
+}
 
 echo '<p>カートに追加しました。</p>';
 
