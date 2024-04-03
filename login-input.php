@@ -10,7 +10,6 @@
     echo '<p class="user_name">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p>';
     echo '<hr>';
     echo '<div class="content">';
-    echo '<p>セッションあり</p>';
     echo '<h1>ログイン中</h1>';
     echo '<div class="content_inner complete_content_inner textalign_center">';
     echo '<p class="message">すでにログインしています。</p>';
@@ -26,7 +25,6 @@
     echo '<p class="user_name">ようこそ&emsp;ゲスト様</p>';
     echo '<hr>';
     echo '<div class="content">';
-    echo '<p>セッションなし</p>';
     echo '<h1>ログイン</h1>';
     echo '<div class="content_inner">';
     echo '<form action="login-complete.php" method="post">';

@@ -15,10 +15,11 @@
 
 <body>
   <h1>商品一覧</h1>
+
+
+
+
   <div class="flex_content">
-
-
-
     <?php
     $img1 = ['goodslist_cont1_no1_pc.png', 'goodslist_cont1_no2_pc.png', 'goodslist_cont1_no3_pc.png', 'goodslist_cont1_no4_pc.png', 'goodslist_cont1_no5_pc.png', 'goodslist_cont1_no6_pc.png'];
 
@@ -68,10 +69,10 @@ END;
 
 
     <div class="flex_item">
-      <p><a href="detail-1.php?id={$id}"><img src="common/images/{$col3}" alt="商品画像"></a></p>
-      <p class="flex_name"><a href="detail-1.php?id={$id}">{$n2}</a></p>  
+      <p><a href="detail-2.php?id={$id}"><img src="common/images/{$col3}" alt="商品画像"></a></p>
+      <p class="flex_name"><a href="detail-2.php?id={$id}">{$n2}</a></p>  
       <div class="inner_flex">
-      <p><a href="detail-1.php?id={$id}">{$p2}</a></p>
+      <p><a href="detail-2.php?id={$id}">{$p2}</a></p>
       <p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
       </div>
       <button class="btn_cart"><a href="#">カートに入れる</a></button>
@@ -85,12 +86,5 @@ END;
 </body>
 
 </html>
-
-
-
-
-
-
-
 
 <?php require 'includes/footer.php'; ?>
