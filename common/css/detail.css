@@ -180,6 +180,7 @@ main img {
     font-weight: 500;
     line-height: 2;
     vertical-align: text-bottom;
+    transform: translate(0, 5px);
   }
 
   /* カートに入れるボタン */
