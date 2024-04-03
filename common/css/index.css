@@ -6,6 +6,10 @@ body {
   color: #7F5539;
 }
 
+.pc_only {
+  display: none;
+}
+
 /* ようこそ部分 */
 .user_name {
   font-size: 12px;
@@ -22,6 +26,7 @@ body {
   margin-left: auto;
 }
 
+/********** cont-1（SP） ********** /
 /* 商品紹介 */
 .dounts_content {
   display: flex;
@@ -69,13 +74,10 @@ body {
 
 }
 
-
-
 /* 画像サイズを調整。2カラム。画像に文字固定にするための基準*/
 .dounts_line_2 {
   position: relative;
   flex-basis: 42%;
-
 }
 
 /* ドーナッツのある生活画像に文字を固定 */
@@ -94,13 +96,13 @@ body {
 
 /* サマーシトラス画像サイズ・幅調整 */
 .dount_img01 img {
-  max-width: 100%;
+  /* max-width: 100%; */
   margin-top: 20px;
 }
 
 /* ドーナッツのある生活画像サイズ・幅調整 */
 .dounts_img02 img {
-  max-width: 100%;
+  /* max-width: 100%; */
   margin-top: 20px;
 }
 
@@ -112,7 +114,7 @@ body {
 
 /* 商品一覧画像size */
 .product_img img {
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 /* 商品一覧文字位置固定 */
@@ -123,12 +125,11 @@ body {
   color: #7F5539;
 }
 
+/********** cont-2（SP） ********** /
 /* 会社理念？ */
 .philosophy_content {
   position: relative;
   width: 100%;
-
-
 }
 
 /*  画像size調整*/
@@ -187,8 +188,7 @@ body {
   font-size: 16px;
 }
 
-
-
+/********** cont-3（SP） ********** /
 /* 人気ランキング */
 .ranking_title {
   text-align: center;
@@ -206,14 +206,7 @@ h1 {
   margin-right: auto;
   padding: 0 6px 8px 6px;
   border-bottom: 4px solid #FFD233;
-
-
 }
-
-/*  人気ランキング下線*/
-/* .underline {
-  text-decoration: underline #FFD233;
-} */
 
 /* ランキング数字 */
 h5 {
@@ -295,32 +288,52 @@ h5 {
 
 @media screen and (min-width:768px) {
 
-  * {
+  /* * {
     outline: 1px solid #c00c0c;
+  } */
+
+  .pc_only {
+    display: block;
   }
 
+  .sp_only {
+    display: none;
+  }
+
+  /* メインエリア */
+  /* TOP画像 */
   .hero_img {
-    max-height: 593px;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    width: 100%;
+    /* height: 593px; */
+    /* padding-top: 80px; */
+    /* padding-bottom: 80px; */
   }
 
+  /********** cont-1（PC） **********/
   .cont-1 {
-    max-width: 1040px;
-    padding: 80px auto;
-    margin: 0 auto;
+    width: min(86.6666vw, 1040px);
+    margin: 80px auto;
   }
 
-  .dounts_img {
-    width: 500px;
+  .dount_img01 img {
+    width: min(41.6666vw, 500px);
+    margin-top: 0px;
+    margin-right: min(1.6666vw, 20px);
   }
 
-  .dount_img01 {
-    padding-right: 20px;
+  .dounts_img02 img {
+    width: min(41.6666vw, 500px);
+    margin-top: 0px;
+    margin-left: min(1.6666vw, 20px);
   }
 
-  .dount_img02 {
-    padding-left: 20px;
+  .product_img {
+    margin: 0;
+  }
+
+  .product_img img {
+    width: min(86.6666vw, 1040px);
+    margin: 40px auto 0 auto;
   }
 
   .dounts_line {
@@ -341,6 +354,43 @@ h5 {
     right: 3px;
 
   }
+
+  /********** cont-3 (PC)********** /
+/* ランキング */
+  .ranking {
+    /* display: block; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  /* 商品紹介サイズ調整 */
+  .ranking_item {
+    flex-basis: 29.6296%;
+    margin-bottom: 80px;
+  }
+
+  /* 人気ランキング */
+  h1 {
+    font-size: 32px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 0 8px 12px 8px;
+    border-bottom: 8px solid #FFD233;
+  }
+
+  /* カートボタン作成・調整 */
+  .btn_cart {
+    width: min(21.6666vw, 260px);
+    height: 36px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+
 }
 
 @media screen and (min-width: 1200px) {}

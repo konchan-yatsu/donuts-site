@@ -18,8 +18,8 @@ if (isset($_SESSION['customer'])) {
 
 <body>
   <section>
-    <img src="common/images/top_hero_sp.png" alt="top" class="hero_img
-    ">
+    <img class="sp_only hero_img" src="common/images/top_hero_sp.png" alt="top">
+    <img class="pc_only hero_img" src="common/images/top_hero_pc.png" alt="top">
   </section>
   <section class="cont-1">
     <div class="dounts_content">
@@ -34,7 +34,7 @@ if (isset($_SESSION['customer'])) {
 
       <div class="dounts_line_2">
         <p class="dounts_img02">
-          <img class="dounts_img" src="common/images/top_cont1_donutslife_pc.png" alt="ドーナッツのある生活">
+          <img src="common/images/top_cont1_donutslife_pc.png" alt="ドーナッツのある生活">
         </p>
         <p>ドーナッツのある生活</p>
       </div> <!-- dounts_line_2 -->
@@ -42,7 +42,8 @@ if (isset($_SESSION['customer'])) {
 
     <div class="dounts_line_3">
       <p class="product_img">
-        <img src="common/images/top_cont1_donutslist_sp.png" href="product.php" alt="商品一覧">
+        <img class="sp_only" src="common/images/top_cont1_donutslist_sp.png" href="product.php" alt="商品一覧">
+        <img class="pc_only" src="common/images/top_cont1_donutslist_pc.png" href="product.php" alt="商品一覧">
       <p>商品一覧</p>
       </p>
     </div> <!-- dounts_line_3 -->
@@ -51,7 +52,8 @@ if (isset($_SESSION['customer'])) {
   <section>
     <div class="philosophy_content">
       <p class="philosophy_img">
-        <img src="common/images/top_cont2_background_sp.png" alt="ドーナッツ">
+        <img class="sp_only" src="common/images/top_cont2_background_sp.png" alt="ドーナッツ">
+        <img class="pc_only" src="common/images/top_cont2_background_pc.png" alt="ドーナッツ">
       </p>
       <div class="philosophy_text">
         <p>Philosophy</p>
@@ -65,52 +67,7 @@ if (isset($_SESSION['customer'])) {
   <section>
     <div class="ranking_title">
       <h1>人気ランキング</h1>
-    </div>
-    <!-- <div class="ranking">
-      <div class="ranking_item">
-        <h5></h5>
-        <p><img src="common/images/top_cont3_No1_sp.png" alt="商品画像"></p>
-        <p>CCドーナツ 当店オリジナル(5個入り)</p>
-        <p>税込 ￥1,500</p>
-        <button class="btn_cart"><a href="#">カートに入れる</a></button>
-      </div>
-      <div class="ranking_item">
-        <h5></h5>
-        <img src="common/images/top_cont3_No2_sp.png" alt="商品画像">
-        <p>フルーツドーナツセット(12個入り)</p>
-        <p>税込 ￥3,500</p>
-        <button class="btn_cart"><a href="#">カートに入れる</a></button>
-      </div>
-      <div class="ranking_item">
-        <h5></h5>
-        <img src="common/images/top_cont3_No3_sp.png" alt="商品画像">
-        <p>フルーツドーナツセット(14個入り)</p>
-        <p>税込 ￥4,000</p>
-        <button class="btn_cart"><a href="#">カートに入れる</a></button>
-      </div>
-      <div class="ranking_item">
-        <h5></h5>
-        <img src="common/images/top_cont3_No4_sp.png" alt="商品画像">
-        <p>チョコレートデライト(5個入り)</p>
-        <p>税込 ￥1,600</p>
-        <button class="btn_cart"><a href="#">カートに入れる</a></button>
-      </div>
-      <div class="ranking_item">
-        <h5></h5>
-        <img src="common/images/top_cont3_No5_sp.png" alt="商品画像">
-        <p>ベストセレクションボックス(4個入り)</p>
-        <p>税込 ￥1,200</p>
-        <button class="btn_cart"><a href="#">カートに入れる</a></button>
-      </div>
-      <div class="ranking_item">
-        <h5></h5>
-        <img src="common/images/top_cont3_No6_sp.png" alt="商品画像">
-        <p>ストロベ リークラッ
-          シュ（5個入り）</p>
-        <p>税込 ￥1,800</p>
-        <button class="btn_cart"><a href="#">カートに入れる</a></button>
-      </div>
-    </div> -->
+    </div><!-- ranking_title -->
     <div class="ranking">
       <?php
       $img = [
