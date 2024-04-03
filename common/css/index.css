@@ -3,6 +3,15 @@
 /* 全体設定 */
 body {
   font-family: Noto sans JP, sans-serif;
+  color: #7F5539;
+}
+
+/* ようこそ部分 */
+.user_name {
+  font-size: 12px;
+  line-height: 3;
+  padding-left: 20px;
+  font-weight: 500;
 }
 
 /* メインエリア */
@@ -34,6 +43,7 @@ body {
   top: 156px;
   right: 3px;
   font-size: 12px;
+  font-weight: 700;
   color: #fff;
 }
 
@@ -180,18 +190,30 @@ body {
 
 
 /* 人気ランキング */
+.ranking_title {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 h1 {
+  display: inline-block;
   font-size: 20px;
   text-align: center;
   margin-top: 32px;
-  padding-top: 48px;
-  margin-bottom: 80px;
+  margin-bottom: 72px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 6px 8px 6px;
+  border-bottom: 4px solid #FFD233;
+
+
 }
 
 /*  人気ランキング下線*/
-.underline {
+/* .underline {
   text-decoration: underline #FFD233;
-}
+} */
 
 /* ランキング数字 */
 h5 {
@@ -211,7 +233,21 @@ h5 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-bottom: 80px;
+}
+
+.product_photo {
+  margin-bottom: 20px;
+}
+
+.ranking_text {
+  line-height: 1.6;
+}
+
+/* 金額 */
+.price {
+  color: #BF0000;
+  margin-top: 20px;
+  margin-bottom: 24px;
 }
 
 /* 商品紹介を２カラムに */
@@ -220,6 +256,7 @@ h5 {
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
+  height: 20px;
 }
 
 /* カートボタン作成・調整 */
@@ -227,16 +264,16 @@ h5 {
   background: #7F5539;
   color: #fff;
   width: 100%;
-  height: 11%;
+  height: 36px;
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
 }
 
 /* 商品紹介サイズ調整 */
 .ranking_item {
   flex-basis: 42%;
-  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 /* ランキング１位色指定 */
@@ -256,10 +293,34 @@ h5 {
 /////////////////////////////////////////////////////////////////////////////// */
 
 
-@media screen and (min-width:768px) and (max-width:1200px) {
+@media screen and (min-width:768px) {
 
   * {
     outline: 1px solid #c00c0c;
+  }
+
+  .hero_img {
+    max-height: 593px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .cont-1 {
+    max-width: 1040px;
+    padding: 80px auto;
+    margin: 0 auto;
+  }
+
+  .dounts_img {
+    width: 500px;
+  }
+
+  .dount_img01 {
+    padding-right: 20px;
+  }
+
+  .dount_img02 {
+    padding-left: 20px;
   }
 
   .dounts_line {
@@ -271,7 +332,7 @@ h5 {
   }
 
   .dounts_img01 {
-  width: 100%;
+    width: 100%;
   }
 
   dounts_line p:nth-of-type(2) {
@@ -281,3 +342,5 @@ h5 {
 
   }
 }
+
+@media screen and (min-width: 1200px) {}
