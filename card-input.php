@@ -31,8 +31,8 @@
         <input class="input_wide" type="text" name="card_no" required><br>
         <h2>有効期限<span class="must">（必須）</span></h2>
         <div class="expiration_wrap">
-          <div><input class="input_mini" type="text" name="card_month" required>月<br></div>
-          <div><input class="input_mini" type="text" name="card_year" required>年<br></div>
+          <input class="input_mini" type="text" name="card_month" required>月<br>
+          <input class="input_mini" type="text" name="card_year" required>年<br>
         </div>
         <h2>セキュリティコード<span class="must">（必須）</span></h2>
         <div class="security_code_wrap">

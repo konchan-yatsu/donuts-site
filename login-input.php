@@ -1,45 +1,52 @@
+<?php session_start(); ?>
 <?php require 'includes/header.php'; ?>
 
-<!DOCTYPE html>
-<html lang="ja">
+<link rel="stylesheet" href="common/css/login.css">
+<title>Login | donuts-site</title>
+<main>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="common/css/reset.css">
-  <link rel="stylesheet" href="common/css/login.css">
-  <title>Login | donuts-site</title>
-</head>
+  <?php
+  if (isset($_SESSION['customer'])) {
+    echo '<p class="user_name">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p>';
+    echo '<hr>';
+    echo '<div class="content">';
+    echo '<h1>ログイン中</h1>';
+    echo '<div class="content_inner complete_content_inner textalign_center">';
+    echo '<p class="message">すでにログインしています。</p>';
+    // echo '<div class="textalign_center">';
+    echo '<a class="flamein_memo textalign_center" href="logout-input.php">ログアウト画面へ進む</a>';
+    // echo '</div>';
+    echo '</div><!-- /content_inner -->';
+    echo '<div class="textalign_right">';
+    echo '<a href="index.php" class="memo">TOPページへ戻る</a>';
+    echo '</div>';
+    echo '</div><!-- /content -->';
+  } else {
+    echo '<p class="user_name">ようこそ&emsp;ゲスト様</p>';
+    echo '<hr>';
+    echo '<div class="content">';
+    echo '<h1>ログイン</h1>';
+    echo '<div class="content_inner">';
+    echo '<form action="login-complete.php" method="post">';
+    echo '<h2>メールアドレス</h2>';
+    echo '<input class="" input type="mail" name="mail"><br>';
+    echo '<h2>パスワード</h2>';
+    echo '<input class="" input type="password" name="password"><br>';
+    echo '<div class="textalign_center">';
+    echo '<input class="login_btn" type="submit" value="ログインする">';
+    echo '</div>';
+    echo '</form>';
+    echo '</div><!-- /content_inner -->';
+    echo '<div class="textalign_right">';
+    echo '<a href="customer-input.php">';
+    echo '<p class="memo">会員登録がお済みでない方はこちら</p>';
+    echo '</a>';
+    echo '</div>';
+    echo '</div><!-- /content -->';
+  }
+  ?>
 
-<body>
-  <main>
-    <p class="user_name">ようこそ&emsp;ゲスト様</p>
-    <h1>ログイン</h1>
-    <div class="content">
-      <div class="content_inner">
-        <form action="login-complete.php" method="post">
-          <h2>メールアドレス</h2>
-          <input class="" input type="mail" name="mail"><br>
-          <h2>パスワード</h2>
-          <input class="" input type="password" name="password"><br>
-          <div class="textalign_center">
-            <input class="login_btn" type="submit" value="ログインする">
-          </div>
-        </form>
-      </div><!-- /content_inner -->
-      <div class="textalign_right">
-        <a href="customer-input.php">
-          <p class="memo">会員登録がお済みでない方はこちら</p>
-        </a>
-      </div>
-    </div><!-- /content -->
+</main>
 
-  </main>
-</body>
-
-</html>
 
 <?php require 'includes/footer.php'; ?>
