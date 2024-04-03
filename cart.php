@@ -23,14 +23,14 @@ $total+=$subtotal;
 
 echo <<< END
 <div id="merchandise">
-        <img src="common/images/top_cont3_No{$id}_pc.png" alt="商品画像">
+        <img src="common/images/top_cont3_No{$product}_pc.png" alt="商品画像">
     
         <div id="detail">
-            <p id="name">ＣＣドーナッツ{$product['name']}</p>
+            <p id="name">{$_SESSION['product']['name']}</p>
 
             <div id="price">
-                <p id="price">税込　￥{$product['price']}</p>
-                <p  id="count">個数　　 {$product['count']}個</p>
+                <p id="price">税込　￥{$_SESSION['product']['price']}</p>
+                <p  id="count">個数　　 {$_SESSION['product']['count']}個</p>
             </div>
             <div id="delete">
                 <a href="cart-delete.php">削除する</a>

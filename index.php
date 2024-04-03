@@ -1,55 +1,51 @@
-<!DOCTYPE html>
-<html lang="ja">
+<?php session_start(); ?>
+<?php require 'includes/header.php'; ?>
+<?php require 'includes/database.php'; ?>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/index.css">
-  <title>index|donuts-site</title>
+  <title>index | donuts-site</title>
 </head>
-
+<?php
+if (isset($_SESSION['customer'])) {
+  // ログインしてる
+  echo '<p class="user_name">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p>';
+} else {
+  // ログインしてない
+  echo '<p class="user_name">ようこそ&emsp;ゲスト様</p>';
+}
+?>
 
 <body>
-
-  <?php require 'includes/header.php'; ?>
-
-
-
   <section>
     <img src="common/images/top_hero_sp.png" alt="top" class="hero_img
     ">
   </section>
-  <section>
+  <section class="cont-1">
     <div class="dounts_content">
       <div class="dounts_line">
         <p class="dount_img01">
-          <img src="common/images/top_cont1_summercitrus_pc.png" alt="サマーシストラス">
+          <img class="dounts_img" src="common/images/top_cont1_summercitrus_pc.png" alt="サマーシストラス">
         </p>
         <p>サマーシトラス</p>
         <p>新商品</p>
         <p></p>
-      </div>
+      </div><!-- dounts_line_1 -->
+
       <div class="dounts_line_2">
         <p class="dounts_img02">
-          <img src="common/images/top_cont1_donutslife_pc.png" alt="ドーナッツのある生活">
+          <img class="dounts_img" src="common/images/top_cont1_donutslife_pc.png" alt="ドーナッツのある生活">
         </p>
         <p>ドーナッツのある生活</p>
-      </div>
+      </div> <!-- dounts_line_2 -->
+    </div> <!-- dounts_content -->
 
-    </div>
     <div class="dounts_line_3">
       <p class="product_img">
-        <img src="common/images/top_cont1_donutslist_sp.png" href="" alt="商品一覧">
+        <img src="common/images/top_cont1_donutslist_sp.png" href="product.php" alt="商品一覧">
       <p>商品一覧</p>
       </p>
-    </div>
+    </div> <!-- dounts_line_3 -->
   </section>
 
   <section>
@@ -63,10 +59,13 @@
         <p>"Creating Connections"</p>
         <p>ドーナツでつながる</p>
       </div>
-    </div>
+    </div> <!-- philosophy_content -->
   </section>
+
   <section>
-    <h1 class="underline">人気ランキング</h1>
+    <div class="ranking_title">
+      <h1>人気ランキング</h1>
+    </div>
     <!-- <div class="ranking">
       <div class="ranking_item">
         <h5></h5>
@@ -131,13 +130,15 @@
         <div class="ranking_h5">
         <h5>{$num}</h5>
         </div>
-        <p><img src="common/images/{$i}" alt="商品画像"></p>
+        <p><img class="product_photo" src="common/images/{$i}" alt="商品画像"></p>
         <p class="ranking_text">{$n}</p> 
         <div class="inner_flex">
-        <p class="ranking_text">{$p}</p>
+        <p class="ranking_text price">{$p}</p>
         <p><img src="common/images/heart.svg" alt="heart"></p>
         </div>
-        <button class="btn_cart"><a href="#">カートに入れる</a></button>
+        <form action="cart-input.php">
+          <input class="btn_cart" type="submit" value="カートに入れる ">
+        </form>
       </div>
 
 
