@@ -125,6 +125,7 @@ input[type="radio"] {
   color: #ffffff;
   background-color: #7F5539;
   margin: 20px auto;
+  text-align: center;
   /* margin-top: 20px; */
   /* margin-bottom: 20px; */
 }
