@@ -1,38 +1,35 @@
-
 <!-- サーバーの登録商品データを読み取る -->
+
 <?php
 
 // データベースのカート内を確認
-if(isset($_SESSION['product'])){
+if (!empty($_SESSION['product'])) {
 
-// 商品データがある場合
+    // 商品データがある場合
 
-// 合計金額計算用の変数設定
-$total=0;
+    // 合計金額計算用の変数設定
+    $total = 0;
 
-// データベースのカート内情報を呼び出し
-// productテーブル内の各商品データの変数$idを変数$productに変更(他のデータと重複しないため)
-foreach ($_SESSION['product'] as $id => $product) {
+    // データベースのカート内情報を呼び出し
+    // productテーブル内の各商品データの変数$idを変数$productに変更(他のデータと重複しないため)
+    foreach ($_SESSION['product'] as $id => $product) {
 
-    // 各商品データごとに　価格×個数を変数に保管
-    $subtotal=$product['price']*$product['count'];
-    
-var_dump($product['price']);
-var_dump($product['count']);
+        // 各商品データごとに　価格×個数を変数に保管
+        $subtotal = $product['price'] * $product['count'];
 
-//合計金額
-$total+=$subtotal;
+        //合計金額
+        $total += $subtotal;
 
-echo <<< END
+        echo <<< END
 <div id="merchandise">
-        <img src="common/images/top_cont3_No{$product}_pc.png" alt="商品画像">
+        <img src="common/images/top_cont3_No{$id}_pc.png" alt="商品画像">
     
         <div id="detail">
-            <p id="name">{$_SESSION['product']['name']}</p>
+            <p id="name">{$product['name']}</p>
 
             <div id="price">
-                <p id="price">税込　￥{$_SESSION['product']['price']}</p>
-                <p  id="count">個数　　 {$_SESSION['product']['count']}個</p>
+                <p id="price">税込　￥{$product['price']}</p>
+                <p  id="count">個数　　 {$product['count']}個</p>
             </div>
             <div id="delete">
                 <a href="cart-delete.php">削除する</a>
@@ -40,11 +37,9 @@ echo <<< END
         </div>
 </div>
 END;
+    }
 
-
-}
-
-echo <<< END
+    echo <<< END
 
 <div id="total">
         <ul>
@@ -58,17 +53,11 @@ echo <<< END
    
     <p id="continue"> <a  href="card-input.php">買い物を続ける</a></p>
 END;
-
-
-
-}else{
+} else {
 
     // 商品データがない場合
-echo 'カートに商品がありません。';
-
-
-
-
+    echo 'カートに商品がありません。';
 }
+var_dump($_SESSION['product']);
 
 ?>

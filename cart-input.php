@@ -55,26 +55,16 @@
   $sql = $pdo->prepare('select * from product where id=?');
   $sql->execute([$_REQUEST['id']]);
 
-  foreach ($sql as $cart1) {
+  foreach ($sql as $cart) {
 
-    $_SESSION['product'][$id] = ['name' => $cart['name']];
-
-  // $_SESSION['product'][$id]=['name'=>$cart['name'],'price'=>$cart['price']];
-  echo $cart['name'];
-
-    // $sql = $pdo->prepare('select * from product where price=?');
-    // $sql->execute([$_REQUEST['id']]);
+    $_SESSION['product'][$id] = [
+      'name' => $cart['name'],
+      'price' => $cart['price'],
+      'count' => $count + $_REQUEST['count']
+    ];
   }
 
-<<<<<<< HEAD
-}
-// var_dump(['price']);
-// var_dump(['count']);
-=======
   echo '<p>カートに追加しました。</p>';
->>>>>>> 5ffb0530826e25941a9775ab81e7f5c5a9bba19f
-
-  // echo '<p>',$_SESSION['product'][$id],'</p>';
 
   echo '<main>';
   require 'cart.php';
