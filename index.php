@@ -27,7 +27,7 @@ if (isset($_SESSION['customer'])) {
           <img class="dounts_img" src="common/images/top_cont1_summercitrus_pc.png" alt="サマーシストラス">
         </p>
         <p>サマーシトラス</p>
-        <p>新商品</p>
+        <p class="new">新商品</p>
         <p></p>
       </div><!-- dounts_line_1 -->
 
@@ -85,6 +85,7 @@ if (isset($_SESSION['customer'])) {
         $num += $key;
         echo <<< END
       <div class="ranking_item">
+      <div class="ranking_wrap">
         <div class="ranking_h5">
         <h5>{$num}</h5>
         </div>
@@ -99,6 +100,7 @@ if (isset($_SESSION['customer'])) {
         <input type="hidden" name="count" value=1>
           <input  type="submit" value="カートに入れる ">
         </form>
+        </div>
       </div>
 
 
