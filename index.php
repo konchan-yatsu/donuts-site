@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php require 'includes/header.php'; ?>
 <?php require 'includes/database.php'; ?>
 
@@ -138,7 +137,8 @@ if (isset($_SESSION['customer'])) {
         <p class="ranking_text price">{$p}</p>
         <p><img src="common/images/heart.svg" alt="heart"></p>
         </div>
-        <form action="cart-input.php?id={$id}" class="btn_cart">
+        <form action="cart-input.php" class="btn_cart">
+        <input type="hidden" name="id" value="{$id}">
         <input type="hidden" name="count" value=1>
           <input  type="submit" value="カートに入れる ">
         </form>
