@@ -5,10 +5,10 @@
 <?php require 'includes/header.php'; ?>
 <?php require 'includes/database.php'; ?>
 <?php
-$id = $_REQUEST['id'];
+// $id = $_REQUEST['id'];
 
-$sql = $pdo->prepare('SELECT * FROM product WHERE id=:id');
-$sql->execute(['id' => $_REQUEST['id']]);
+$sql = $pdo->prepare('select * from product where id=?');
+$sql->execute([$_REQUEST['id']]);
 foreach ($sql as $row) {
   echo '<p class="breadcrumb">&nbsp;TOP&nbsp;&gt;&nbsp;商品一覧&nbsp;&gt;&nbsp;', $row['name'], '</p>';
   echo '<hr>';
@@ -37,7 +37,8 @@ foreach ($sql as $row) {
   echo '<p class="product_name">', $row['name'], '</p>';
   echo '<p class="product_info">', $row['description'], '</p>';
   echo '<p class="price">税込&emsp;&yen;', number_format($row['price']), '&emsp;<button><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></button></p>';
-  echo '<form action="cart-input.php" method="post">';
+  echo '<form action="cart-input.php"  method="post">';
+  echo '<input type="hidden" name="id" value =" ', $row['id'], ' " >';
   echo '<input class="product_count" type="number" min="0" max="99" name="count"  required>';
   echo '<span class="bottom_align">個</span>';
   echo '<input class="cartin_btn" type="submit" value="カートに入れる ">';

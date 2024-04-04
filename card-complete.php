@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -14,7 +16,9 @@
 
 <body>
   <main>
+    <p class="img_logo">
     <img src="common/images/logo_sp.png" alt="ロゴ">
+    </p>
     <h1>カード情報登録完了</h1>
     <div class="content">
       <div class="content_inner complete_content_inner textalign_center">
@@ -24,7 +28,16 @@
         </div>
       </div><!-- /content_inner -->
     </div><!-- /content -->
+    <?php
 
+    // ログインの確認
+    if (isset($_SESSION['cusutomer'])) {
+      require 'includes/database.php';
+      $sql = $pdo->prepare('insert into card values(?,?,?,?,?,?,?)');
+      $sql->execute([$_SESSION['id'], $_REQUEST['card_name'], $_REQUEST['card_type'], $_REQUEST['card_no'], $_REQUEST['card_month'], $_REQUEST['card_year'], $_REQUEST['security_code_wrap']]);
+    }
+
+    ?>
   </main>
 </body>
 

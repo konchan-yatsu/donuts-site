@@ -16,72 +16,84 @@
 <body>
   <h1>商品一覧</h1>
 
-
-
-
+  <!-- donuts単体グループの表示 -->
   <div class="flex_content">
-    <?php
+    <?php require  'includes/database.php';
+
     $img1 = ['goodslist_cont1_no1_pc.png', 'goodslist_cont1_no2_pc.png', 'goodslist_cont1_no3_pc.png', 'goodslist_cont1_no4_pc.png', 'goodslist_cont1_no5_pc.png', 'goodslist_cont1_no6_pc.png'];
 
     $img2 = ['goodslist_cont2_no1_pc.png', 'goodslist_cont2_no2_pc.png', 'goodslist_cont2_no3_pc.png', 'goodslist_cont2_no4_pc.png', 'goodslist_cont2_no5_pc.png', 'goodslist_cont2_no6_pc.png'];
 
-    $name1 = ['CCドーナツ 当店オリジナル（5個入り）', 'チョコレートデライト（5個入り）', 'キャラメルクリーム（5個入り）', 'プレーンクラシック
-  （5個入り）', '【新作】サマーシトラス（5個入り）', 'ストロベリークラッ
-  シュ（5個入り）'];
 
-    $name2 = ['フルーツドーナツセット（12個入り）', 'フルーツドーナツセット（14個入り）', 'ベストセレクションボックス（4個入り）', 'チョコクラッシュボックス（7個入り）', 'クリームボックス（4
-  個入り）', 'クリームボックス（9
-  個入り）'];
+    for ($i = 1; $i < 7; $i++) {
+      // imgパス用の番号を配列用に調整
+      $imgId = $i - 1;
 
-    $price1 = ['税込  ￥1,500', '税込  ￥1,600',  '税込  ￥1,600', '税込  ￥1,500', '税込  ￥1,600', '税込  ￥1,800'];
+      $sql = $pdo->prepare('select * from product where id=?');
+      $sql->execute([$i]);
 
-    $price2 = ['税込  ￥3,500', '税込 ￥4,000', '税込 ￥1,200', '税込  ￥2,400', '税込  ￥1,400', '税込  ￥2,800'];
-
-    // 商品一覧の１つ
-    foreach (array_map(null, $img1, $name1, $price1) as $key => [$col1, $n, $p]) {
-      $id = $key + 1;
-      echo <<<END
-    
-      <div class="flex_item">
-  <p><a href="detail-1.php?id={$id}"><img src="common/images/{$col1}" alt="商品画像"></a></p>
-<p class="flex_name"><a href="detail-1.php?id={$id}">{$n}</a></p>
+      foreach ($sql as $row) {
+        echo <<<END
+<div class="flex_item">
+  <p><a href="detail-1.php?id={$row['id']}"><img src="common/images/{$img1[$imgId]}" alt="商品画像"></a></p>
+<p class="flex_name"><a href="detail-1.php?id={$row['id']}">{$row['name']}</a></p>
 <div class="inner_flex">
-<p><a href="detail-1.php?id={$id}">{$p}</a></p>
+<p><a href="detail-1.php?id={$row['id']}">税込&nbsp;￥{$row['price']}</a></p>
 <p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
 </div>
-<button class="btn_cart"><a href="#">カートに入れる</a></button>
+<form action="cart-input.php" method="post" class="btn_cart" >
+<input type="hidden" name="id" value =" {$row['id']} " >
+<input type="hidden" name="count" value=1>
+<input type="submit" value="カートに入れる">
+</form>
+
 </div>
 END;
+      }
     }
     ?>
-
   </div>
-
 
   <h1>バラエティセット</h1>
+
+  <!-- donutsセットグループの表示 -->
   <div class="flex_content2">
+    <?php require  'includes/database.php';
 
-    <?php
-    // 商品一覧の２つ目
-    foreach (array_map(null, $img2, $name2, $price2) as $key => [$col3, $n2, $p2]) {
-      $id = $key + 7;
-      echo <<<END
+    $img1 = ['goodslist_cont1_no1_pc.png', 'goodslist_cont1_no2_pc.png', 'goodslist_cont1_no3_pc.png', 'goodslist_cont1_no4_pc.png', 'goodslist_cont1_no5_pc.png', 'goodslist_cont1_no6_pc.png'];
+
+    $img2 = ['goodslist_cont2_no1_pc.png', 'goodslist_cont2_no2_pc.png', 'goodslist_cont2_no3_pc.png', 'goodslist_cont2_no4_pc.png', 'goodslist_cont2_no5_pc.png', 'goodslist_cont2_no6_pc.png'];
 
 
-    <div class="flex_item">
-      <p><a href="detail-2.php?id={$id}"><img src="common/images/{$col3}" alt="商品画像"></a></p>
-      <p class="flex_name"><a href="detail-2.php?id={$id}">{$n2}</a></p>  
-      <div class="inner_flex">
-      <p><a href="detail-2.php?id={$id}">{$p2}</a></p>
-      <p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
-      </div>
-      <button class="btn_cart"><a href="#">カートに入れる</a></button>
-    </div>
+    // 途中からの7番目から出力
+    for ($i = 7; $i < 13; $i++) {
+      // imgパス用の番号を配列用に調整
+      $imgId = $i - 7;
+
+      $sql = $pdo->prepare('select * from product where id=?');
+      $sql->execute([$i]);
+
+      foreach ($sql as $row) {
+        echo <<<END
+<div class="flex_item">
+  <p><a href="detail-2.php?id={$row['id']}"><img src="common/images/{$img2[$imgId]}" alt="商品画像"></a></p>
+<p class="flex_name"><a href="detail-2.php?id={$row['id']}">{$row['name']}</a></p>
+<div class="inner_flex">
+<p><a href="detail-2.php?id={$row['id']}">税込&nbsp;￥{$row['price']}</a></p>
+<p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
+</div>
+<form action="cart-input.php" method="post" class="btn_cart" >
+<input type="hidden" name="id" value =" {$row['id']} " >
+<input type="hidden" name="count" value=1>
+<input type="submit" value="カートに入れる">
+</form>
+</div>
 END;
+      }
     }
-    // var_dump($key);
     ?>
   </div>
+
 
 </body>
 

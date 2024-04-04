@@ -32,11 +32,12 @@
         // $\SESSION['product']の情報から引用する、CSS装飾も必要なため、要素設定も考える必要あり
         $total = 0;
         foreach ($_SESSION['product'] as $id => $product) {
+          $subtotal = $product['count'] * $product['price'];
           echo <<<END
             <table>
 <tr><td>商品名</td><td>{$product['name']}</td></tr>
 <tr><td>数量</td><td>{$product['count']}</td></tr>
-<tr><td>小計</td><td>{$product['count']}*{$product['price']}</td></tr>
+<tr><td>小計</td><td>{$subtotal}</td></tr>
 </table>
 END;
           $total += $product['count'] * $product['price'];
@@ -68,8 +69,8 @@ END;
       <?php
       // ログインしていて、カートにデータがある場合にクレジットカードを判定する
       require 'includes/database.php';
-      // if (isset($_SESSION['customer']) && !empty($_SESSION['product'])) {
-      if (isset($_SESSION['customer'])) {
+      if (isset($_SESSION['customer']) && !empty($_SESSION['product'])) {
+        // if (isset($_SESSION['customer'])) {
 
 
         $id = $_SESSION['customer']['id'];
