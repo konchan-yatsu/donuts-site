@@ -37,7 +37,8 @@ foreach ($sql as $row) {
   echo '<p class="product_name">', $row['name'], '</p>';
   echo '<p class="product_info">', $row['description'], '</p>';
   echo '<p class="price">税込&emsp;&yen;', number_format($row['price']), '&emsp;<button><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></button></p>';
-  echo '<form action="cart-input.php?id=" ', $row['id'], ' " method="post">';
+  echo '<form action="cart-input.php"  method="post">';
+  echo '<input type="hidden" name="id" value =" ', $row['id'], ' " >';
   echo '<input class="product_count" type="number" min="0" max="99" name="count"  required>';
   echo '<span class="bottom_align">個</span>';
   echo '<input class="cartin_btn" type="submit" value="カートに入れる ">';
