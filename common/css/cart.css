@@ -23,7 +23,7 @@ main ul {
   color: #7F5539;
 }
 
-main p {
+main p#id_name {
   margin: 12px 0 12px 20px;
 }
 
@@ -124,7 +124,7 @@ main p#continue a {
 
   p#input_delete {
     font-weight: medium;
-    margin: 24px 0px 60px 102px;
+    margin: 24px 0px 60px 103px;
   }
 
   /* 1200px以上に適用（PC固定用） */
@@ -134,6 +134,13 @@ main p#continue a {
     padding: 0;
   }
 
+  main ul {
+    margin: 12px 0 12px 103px;
+  }
+
+  main p#id_name {
+    margin: 12px 0 12px 103px;
+  }
 
   main div#merchandise {
     width: 76%;

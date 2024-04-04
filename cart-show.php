@@ -37,15 +37,20 @@
 
 <hr>
 
-<!-- php -->
+<?php
 
-<!-- echo ' -->
-<p>ようこそ　',$name,'様</p>
-<!-- '; -->
-
-<!-- ?> -->
+if (isset($_SESSION['customer'])) {
+// ログインしている
 
 
+    echo '<p>ようこそ　',$_SESSION['customer']['name'],'様</p> ';
+}else{
+
+    echo '<p id="id_name">ようこそ　ゲスト様</p> ';
+}
+
+
+?>
     <hr>
 
 

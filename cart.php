@@ -56,7 +56,7 @@ echo <<< END
        <p> <a href="card-input.php">ご購入確認へ進む</a></p>
 </div>
    
-    <p id="continue"> <a  href="card-input.php">買い物を続ける</a></p>
+    <p id="continue"> <a  href="product.php">買い物を続ける</a></p>
 END;
 
 

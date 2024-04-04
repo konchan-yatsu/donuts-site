@@ -27,14 +27,42 @@
 <?php
 
 // 指定idの勝因をカートから削除
-unset($_SESSION['product'][$_REQUEST['id']]);
+// unset($_SESSION['product'][$_REQUEST['id']]);
 
-echo'<main>';
+echo <<<END
+
+<main>
+
+<ul>
+<li><a href="index.php">top</a></li>
+<li>></li>
+<li>カート</li>
+</ul>
+
+<hr>
+END;
+
+
+
+if (isset($_SESSION['customer'])) {
+// ログインしている
+
+echo '<p>ようこそ　',$_SESSION['customer']['name'],'様</p> ';
+
+
+}else{
+  // ログアウトしている
+echo '<p id="id_name">ようこそ　ゲスト様</p> ';
+}
+
+echo '<hr>';
+
 echo '<p id="input_delete">カートから商品を削除しました。</p>';
 
 
 require 'cart.php';
-echo'</main>';
+
+echo '</main>';
 
 ?>
 
