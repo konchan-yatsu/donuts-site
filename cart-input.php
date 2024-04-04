@@ -24,6 +24,31 @@
 
 
   <?php
+echo <<<END
+<main>
+
+<ul>
+<li><a href="index.php">top</a></li>
+<li>></li>
+<li>カート</li>
+</ul>
+
+<hr>
+END;
+
+if (isset($_SESSION['customer'])) {
+// ログインしている
+
+echo '<p>ようこそ　',$_SESSION['customer']['name'],'様</p> ';
+
+}else{
+  // ログアウトしている
+echo '<p id="id_name">ようこそ　ゲスト様</p> ';
+}
+
+echo '<hr>';
+
+
 
 
   $id = $_REQUEST['id'];
@@ -64,16 +89,7 @@
     ];
   }
 
-<<<<<<< HEAD
-
-// var_dump(['price']);
-// var_dump(['count']);
   echo '<p>カートに追加しました。</p>';
-
-  // echo '<p>',$_SESSION['product'][$id],'</p>';
-=======
-  echo '<p>カートに追加しました。</p>';
->>>>>>> 1650789a2097c82435bfcd7a42143127a72bfb50
 
   echo '<main>';
   require 'cart.php';

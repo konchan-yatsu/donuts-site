@@ -20,9 +20,16 @@ if (!empty($_SESSION['product'])) {
         //合計金額
         $total += $subtotal;
 
+        // var_dump($id);
+
+        $id_number=intval($id);
+        // var_dump($id_number);
+
+        $id_kana=mb_convert_kana($id_number,'A');
+
         echo <<< END
 <div id="merchandise">
-        <img src="common/images/top_cont3_No{$id}_pc.png" alt="商品画像">
+        <img src="common/images/top_cont3_No{$id_number}_pc.png" alt="商品画像">
     
         <div id="detail">
             <p id="name">{$product['name']}</p>
@@ -32,11 +39,14 @@ if (!empty($_SESSION['product'])) {
                 <p  id="count">個数　　 {$product['count']}個</p>
             </div>
             <div id="delete">
-                <a href="cart-delete.php">削除する</a>
+                <a href="cart-delete.php?id={$id_kana}">削除する</a>
             </div>
         </div>
 </div>
 END;
+
+var_dump($id);
+var_dump($id_number);
     }
 
     echo <<< END

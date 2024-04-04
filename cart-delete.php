@@ -25,12 +25,7 @@
 <?php session_start();?>
 
 <?php
-
-// 指定idの勝因をカートから削除
-// unset($_SESSION['product'][$_REQUEST['id']]);
-
 echo <<<END
-
 <main>
 
 <ul>
@@ -42,13 +37,10 @@ echo <<<END
 <hr>
 END;
 
-
-
 if (isset($_SESSION['customer'])) {
 // ログインしている
 
 echo '<p>ようこそ　',$_SESSION['customer']['name'],'様</p> ';
-
 
 }else{
   // ログアウトしている
@@ -56,6 +48,21 @@ echo '<p id="id_name">ようこそ　ゲスト様</p> ';
 }
 
 echo '<hr>';
+
+
+
+
+
+// var_dump($_REQUEST['id']);
+// $id=intval($_REQUEST['id']);
+// $id=strval($_REQUEST['id']);
+// var_dump($id);
+
+// 指定idの勝因をカートから削除
+unset($_SESSION['product'][$_REQUEST['id']]);
+
+var_dump ($_SESSION['product']);
+var_dump ($_REQUEST['id']);
 
 echo '<p id="input_delete">カートから商品を削除しました。</p>';
 
