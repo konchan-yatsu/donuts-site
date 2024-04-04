@@ -66,13 +66,10 @@
     // $sql->execute([$_REQUEST['id']]);
   }
 
-<<<<<<< HEAD
-}
+
 // var_dump(['price']);
 // var_dump(['count']);
-=======
   echo '<p>カートに追加しました。</p>';
->>>>>>> 5ffb0530826e25941a9775ab81e7f5c5a9bba19f
 
   // echo '<p>',$_SESSION['product'][$id],'</p>';
 
