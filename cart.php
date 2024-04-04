@@ -1,6 +1,5 @@
 
 <!-- サーバーの登録商品データを読み取る -->
-
 <?php
 
 // データベースのカート内を確認
@@ -18,6 +17,9 @@ foreach ($_SESSION['product'] as $id => $product) {
     // 各商品データごとに　価格×個数を変数に保管
     $subtotal=$product['price']*$product['count'];
     
+var_dump($product['price']);
+var_dump($product['count']);
+
 //合計金額
 $total+=$subtotal;
 

@@ -11,6 +11,11 @@ body {
 
 }
 
+p#input_delete {
+  color: #333333;
+  margin: 24px 20px;
+}
+
 main ul {
   display: flex;
   margin: 12px 0 12px 20px;
@@ -21,6 +26,7 @@ main ul {
 main p {
   margin: 12px 0 12px 20px;
 }
+
 
 
 main div#merchandise {
@@ -114,7 +120,12 @@ main p#continue a {
 
 
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 734px) {
+
+  p#input_delete {
+    font-weight: medium;
+    margin: 24px 0px 60px 102px;
+  }
 
   /* 1200px以上に適用（PC固定用） */
   main {

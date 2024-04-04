@@ -1,5 +1,6 @@
 <?php require 'includes/header.php'; ?>
 
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -13,19 +14,29 @@
   <link rel="stylesheet" href="common/css/reset.css">
     <link rel="stylesheet" href="common/css/cart.css">
 
-    <title>Cart-Product list page</title>
+    <title>Cart-Delete page</title>
 
 </head>
+
 <!-- カートの商品の削除ボタンを押した際に削除される仕組み -->
 
 <html>
 <body>
+<?php session_start();?>
+
+<?php
+
+// 指定idの勝因をカートから削除
+unset($_SESSION['product'][$_REQUEST['id']]);
+
+echo'<main>';
+echo '<p id="input_delete">カートから商品を削除しました。</p>';
 
 
+require 'cart.php';
+echo'</main>';
 
-
-
-
+?>
 
 </body>
 </html>
