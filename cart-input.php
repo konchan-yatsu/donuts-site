@@ -24,6 +24,31 @@
 
 
   <?php
+echo <<<END
+<main>
+
+<ul>
+<li><a href="index.php">top</a></li>
+<li>></li>
+<li>カート</li>
+</ul>
+
+<hr>
+END;
+
+if (isset($_SESSION['customer'])) {
+// ログインしている
+
+echo '<p>ようこそ　',$_SESSION['customer']['name'],'様</p> ';
+
+}else{
+  // ログアウトしている
+echo '<p id="id_name">ようこそ　ゲスト様</p> ';
+}
+
+echo '<hr>';
+
+
 
 
   $id = $_REQUEST['id'];

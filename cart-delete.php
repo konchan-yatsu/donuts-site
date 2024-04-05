@@ -25,16 +25,51 @@
 <?php session_start();?>
 
 <?php
+echo <<<END
+<main>
+
+<ul>
+<li><a href="index.php">top</a></li>
+<li>></li>
+<li>カート</li>
+</ul>
+
+<hr>
+END;
+
+if (isset($_SESSION['customer'])) {
+// ログインしている
+
+echo '<p>ようこそ　',$_SESSION['customer']['name'],'様</p> ';
+
+}else{
+  // ログアウトしている
+echo '<p id="id_name">ようこそ　ゲスト様</p> ';
+}
+
+echo '<hr>';
+
+
+
+
+
+// var_dump($_REQUEST['id']);
+// $id=intval($_REQUEST['id']);
+// $id=strval($_REQUEST['id']);
+// var_dump($id);
 
 // 指定idの勝因をカートから削除
 unset($_SESSION['product'][$_REQUEST['id']]);
 
-echo'<main>';
+var_dump ($_SESSION['product']);
+var_dump ($_REQUEST['id']);
+
 echo '<p id="input_delete">カートから商品を削除しました。</p>';
 
 
 require 'cart.php';
-echo'</main>';
+
+echo '</main>';
 
 ?>
 
