@@ -9,13 +9,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="common/css/reset.css">
+  <link rel="stylesheet" href="common/css/common.css">
   <link rel="stylesheet" href="common/css/product.css">
   <title>商品一覧</title>
 </head>
 
 <body>
   <main>
-    <!-- しだちゃんハロー -->
+    <div id="stalker"></div>
     <ul>
       <li><a href="index.php">top</a></li>
       <li>></li>
@@ -29,7 +30,7 @@
       // ログインしている
 
 
-      echo '<p>ようこそ　', $_SESSION['customer']['name'], '様</p> ';
+      echo '<p class="id_name_no_cart" >ようこそ　', $_SESSION['customer']['name'], '様</p> ';
     } else {
 
       echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
@@ -63,7 +64,7 @@
         foreach ($sql as $row) {
           echo <<<END
 
-<div class="flex_item">
+<div class="flex_item slideIn">
 
   <p>
     <a href="detail-1.php?id={$row['id']}"><img src="common/images/{$img1[$imgId]}" alt="商品画像"></a>
@@ -120,7 +121,7 @@ END;
         foreach ($sql as $row) {
           echo <<<END
 
-<div class="flex_item">
+<div class="flex_item slideIn">
   <p><a href="detail-2.php?id={$row['id']}"><img src="common/images/{$img2[$imgId]}" alt="商品画像"></a></p>
 <p class="flex_name"><a href="detail-2.php?id={$row['id']}">{$row['name']}</a></p>
 <div class="inner_flex">
@@ -141,6 +142,7 @@ END;
     </div>
 
   </main>
+  <script src="common/js/common.js"> </script>
 </body>
 
 </html>
