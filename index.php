@@ -2,6 +2,8 @@
 <?php require 'includes/database.php'; ?>
 
 <head>
+  <link rel="stylesheet" href="common/css/reset.css">
+  <link rel="stylesheet" href="common/css/common.css">
   <link rel="stylesheet" href="common/css/index.css">
   <title>index | donuts-site</title>
 </head>
@@ -16,6 +18,7 @@ if (isset($_SESSION['customer'])) {
 ?>
 
 <body>
+  <div id="stalker"></div>
   <section>
     <img class="sp_only hero_img" src="common/images/top_hero_sp.png" alt="top">
     <img class="pc_only hero_img" src="common/images/top_hero_pc.png" alt="top">
@@ -89,7 +92,7 @@ if (isset($_SESSION['customer'])) {
         $num = 1;
         $num += $key;
         echo <<< END
-      <div class="ranking_item">
+      <div class="ranking_item slideIn">
       <div class="ranking_wrap">
         <div class="ranking_h5">
         <h5>{$num}</h5>
@@ -118,6 +121,8 @@ END;
 
   </section>
   <?php require 'includes/footer.php'; ?>
+  <script src="common/js/common.js"> </script>
+
 </body>
 
 </html>
