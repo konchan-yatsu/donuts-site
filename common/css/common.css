@@ -90,6 +90,8 @@ nav label.menu_icon {
     padding-top: 5px;
     height: 12px;
     cursor: pointer;
+
+    padding: 10px 0 10px 0;
 }
 
 nav label.menu_icon span.nav_icon {
@@ -200,7 +202,11 @@ nav input.menu_botan:checked~label {
     position: absolute;
     right: 0px;
     top: 0px;
+
 }
+
+
+
 
 nav input.menu_botan:checked~label.menu_icon span.nav_icon {
 
@@ -211,11 +217,13 @@ nav input.menu_botan:checked~label.menu_icon span.nav_icon {
     top: 23px;
     /* 26-12=42 */
 
+    padding: 12.5px 0 12.5px 0;
+    /* background: rgba(255, 255, 255, 0.5); */
 }
 
 nav input.menu_botan:checked~label.menu_icon span.nav_icon::before {
     transform: rotate(-45deg);
-    top: 0;
+    top: 10px;
     right: -8px;
     width: 36.7px;
     /* 26*1.4141356=36.7 */
@@ -225,7 +233,7 @@ nav input.menu_botan:checked~label.menu_icon span.nav_icon::before {
 
 nav input.menu_botan:checked~label.menu_icon span.nav_icon::after {
     transform: rotate(45deg);
-    top: 0;
+    /* top: 0; */
     right: -8px;
     width: 36.7px;
     background: #ffffff;
@@ -359,25 +367,25 @@ header div#header_search ul li input {
     nav label.menu_icon {
         position: absolute;
         left: 95px;
-        top: 55px;
+        top: 30px;
         padding-top: 5px;
         height: 12px;
         cursor: pointer;
-        position: relative;
+        padding: 25px 0 25px 0;
+
     }
 
     nav label.menu_icon span.nav_icon {
         display: block;
         width: 48px;
         height: 3px;
-        position: relative;
+        /* position: relative; */
 
     }
 
 
     nav label.menu_icon span.nav_icon::before {
         top: -19.2px;
-
     }
 
     nav label.menu_icon span.nav_icon::after {

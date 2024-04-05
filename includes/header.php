@@ -69,12 +69,7 @@
         </div>
 
 
-        <!-- <ul> -->
-        <!-- <li><a class="login" href="../index.html"><img src="common/images/icon_login_sp.svg" alt="ログインアイコン"></a></li> -->
-        <!-- <li><a class="cart" href="../index.html"><img src="common/images/icon_cart_sp.svg" alt="カートアイコン"></a></li> -->
-        <!-- </ul> -->
-
-
+        
         <?php
         if (isset($_SESSION['customer'])) {
           // ログインしてる
