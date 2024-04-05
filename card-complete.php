@@ -17,7 +17,7 @@
 <body>
   <main>
     <p class="img_logo">
-    <img src="common/images/logo_sp.png" alt="ロゴ">
+      <img src="common/images/logo_sp.png" alt="ロゴ">
     </p>
     <h1>カード情報登録完了</h1>
     <div class="content">
@@ -34,10 +34,14 @@
     if (isset($_SESSION['cusutomer'])) {
       require 'includes/database.php';
       $sql = $pdo->prepare('insert into card values(?,?,?,?,?,?,?)');
-      $sql->execute([$_SESSION['id'], $_REQUEST['card_name'], $_REQUEST['card_type'], $_REQUEST['card_no'], $_REQUEST['card_month'], $_REQUEST['card_year'], $_REQUEST['security_code_wrap']]);
+      $sql->execute([$_SESSION['customer']['id'], $_REQUEST['card_name'], $_REQUEST['card_type'], $_REQUEST['card_no'], $_REQUEST['card_month'], $_REQUEST['card_year'], $_REQUEST['card_security_code']]);
+      echo '追加成功しました。';
     }
-
+    echo <<< END
+    {$_SESSION['customer']['id']},{$_REQUEST['card_name']},{$_REQUEST['card_type']}, {$_REQUEST['card_no']},{$_REQUEST['card_month']},{$_REQUEST['card_year']},{$_REQUEST['card_security_code']}
+END;
     ?>
+
   </main>
 </body>
 

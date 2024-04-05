@@ -17,7 +17,7 @@
 <body>
   <main>
 
-<?php
+    <?php
     // echo '<img src="common/images/logo_sp.png" alt="ロゴ">';
     // echo '<h1>ご入力内容の確認</h1>';
     // echo '<div class="content">';
@@ -67,18 +67,19 @@
 <p class="input_result">{$card_security_code}</p>
 
 <form action="card-complete.php" method="post">
-<input type="hidden" name="name" value="$card_name">
-<input type="hidden" name="" value="$card_type">
-<input type="hidden" name="" value="$card_no">
-<input type="hidden" name="" value="$card_month"/"$card_year">
-<input type="hidden" name="" value="$card_security_code">
+<input type="hidden" name="card_name" value="$card_name">
+<input type="hidden" name="card_type" value="$card_type">
+<input type="hidden" name="card_no" value="$card_no">
+<input type="hidden" name="card_month" value="$card_month">
+<input type="hidden" name="card_year" value="$card_year">
+<input type="hidden" name="card_security_code" value="$card_security_code">
 <input class="login_btn" type="submit" value="この内容で登録する">
 </form>
 </div>
 END;
 
     ?>
-    
+
 
   </main>
 </body>
