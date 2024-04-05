@@ -104,6 +104,7 @@
 
 
 
+/* header****************************************** */
 
 
 body {
@@ -117,7 +118,7 @@ body {
 
 
 
-/* -----header----- */
+/* ---------------header--------------- */
 header {
     background-color: #EDE0D4;
 }
@@ -148,7 +149,7 @@ header a.logo img {
 
 }
 
-header a.login {
+header a.login img {
     width: 40px;
     height: 34px;
     position: absolute;
@@ -168,7 +169,7 @@ header a.cart img {
 }
 
 
-/* ---ナビ作成 共通--- */
+/* ------------ナビ作成 共通------------ */
 header nav div.nav {
     position: fixed;
     top: 0;
