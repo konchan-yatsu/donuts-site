@@ -22,8 +22,8 @@
 <body>
 
 
-  <?php
-echo <<<END
+
+
 <main>
 
 <ul>
@@ -33,8 +33,8 @@ echo <<<END
 </ul>
 
 <hr>
-END;
 
+<?php
 if (isset($_SESSION['customer'])) {
 // ログインしている
 
