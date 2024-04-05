@@ -14,54 +14,54 @@
 </head>
 
 <body>
-<main>
-
+  <main>
+    <!-- しだちゃんハロー -->
     <ul>
-        <li><a href="index.php">top</a></li>
-        <li>></li>
-        <li>カート</li>
+      <li><a href="index.php">top</a></li>
+      <li>></li>
+      <li>カート</li>
     </ul>
 
-<hr>
-<?php
+    <hr>
+    <?php
 
-if (isset($_SESSION['customer'])) {
-// ログインしている
-
-
-    echo '<p>ようこそ　',$_SESSION['customer']['name'],'様</p> ';
-}else{
-
-    echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
-}
+    if (isset($_SESSION['customer'])) {
+      // ログインしている
 
 
-?>
+      echo '<p>ようこそ　', $_SESSION['customer']['name'], '様</p> ';
+    } else {
+
+      echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
+    }
+
+
+    ?>
     <hr>
 
-  <h1>商品一覧</h1>
+    <h1>商品一覧</h1>
 
-  <!-- donuts単体グループの表示 -->
-  <div class="flex_content">
-    <?php require  'includes/database.php';
+    <!-- donuts単体グループの表示 -->
+    <div class="flex_content">
+      <?php require  'includes/database.php';
 
-    $img1 = ['goodslist_cont1_no1_pc.png', 'goodslist_cont1_no2_pc.png', 'goodslist_cont1_no3_pc.png', 'goodslist_cont1_no4_pc.png', 'goodslist_cont1_no5_pc.png', 'goodslist_cont1_no6_pc.png'];
+      $img1 = ['goodslist_cont1_no1_pc.png', 'goodslist_cont1_no2_pc.png', 'goodslist_cont1_no3_pc.png', 'goodslist_cont1_no4_pc.png', 'goodslist_cont1_no5_pc.png', 'goodslist_cont1_no6_pc.png'];
 
-    $img2 = ['goodslist_cont2_no1_pc.png', 'goodslist_cont2_no2_pc.png', 'goodslist_cont2_no3_pc.png', 'goodslist_cont2_no4_pc.png', 'goodslist_cont2_no5_pc.png', 'goodslist_cont2_no6_pc.png'];
-
-
-    for ($i = 1; $i < 7; $i++) {
-      // imgパス用の番号を配列用に調整
-      $imgId = $i - 1;
+      $img2 = ['goodslist_cont2_no1_pc.png', 'goodslist_cont2_no2_pc.png', 'goodslist_cont2_no3_pc.png', 'goodslist_cont2_no4_pc.png', 'goodslist_cont2_no5_pc.png', 'goodslist_cont2_no6_pc.png'];
 
 
-      $sql = $pdo->prepare('select * from product where id=?');
-      $sql->execute([$i]);
+      for ($i = 1; $i < 7; $i++) {
+        // imgパス用の番号を配列用に調整
+        $imgId = $i - 1;
+
+
+        $sql = $pdo->prepare('select * from product where id=?');
+        $sql->execute([$i]);
 
 
 
-      foreach ($sql as $row) {
-        echo <<<END
+        foreach ($sql as $row) {
+          echo <<<END
 
 <div class="flex_item">
 
@@ -92,33 +92,33 @@ if (isset($_SESSION['customer'])) {
 </div>
 
 END;
+        }
       }
-    }
-    ?>
-  </div>
+      ?>
+    </div>
 
-  <h1>バラエティセット</h1>
+    <h1>バラエティセット</h1>
 
-  <!-- donutsセットグループの表示 -->
-  <div class="flex_content2">
-    <?php require  'includes/database.php';
+    <!-- donutsセットグループの表示 -->
+    <div class="flex_content2">
+      <?php require  'includes/database.php';
 
-    $img1 = ['goodslist_cont1_no1_pc.png', 'goodslist_cont1_no2_pc.png', 'goodslist_cont1_no3_pc.png', 'goodslist_cont1_no4_pc.png', 'goodslist_cont1_no5_pc.png', 'goodslist_cont1_no6_pc.png'];
+      $img1 = ['goodslist_cont1_no1_pc.png', 'goodslist_cont1_no2_pc.png', 'goodslist_cont1_no3_pc.png', 'goodslist_cont1_no4_pc.png', 'goodslist_cont1_no5_pc.png', 'goodslist_cont1_no6_pc.png'];
 
-    $img2 = ['goodslist_cont2_no1_pc.png', 'goodslist_cont2_no2_pc.png', 'goodslist_cont2_no3_pc.png', 'goodslist_cont2_no4_pc.png', 'goodslist_cont2_no5_pc.png', 'goodslist_cont2_no6_pc.png'];
-
-
-    // 途中からの7番目から出力
-    for ($i = 7; $i < 13; $i++) {
-      // imgパス用の番号を配列用に調整
-      $imgId = $i - 7;
-
-      $sql = $pdo->prepare('select * from product where id=?');
-      $sql->execute([$i]);
+      $img2 = ['goodslist_cont2_no1_pc.png', 'goodslist_cont2_no2_pc.png', 'goodslist_cont2_no3_pc.png', 'goodslist_cont2_no4_pc.png', 'goodslist_cont2_no5_pc.png', 'goodslist_cont2_no6_pc.png'];
 
 
-      foreach ($sql as $row) {
-        echo <<<END
+      // 途中からの7番目から出力
+      for ($i = 7; $i < 13; $i++) {
+        // imgパス用の番号を配列用に調整
+        $imgId = $i - 7;
+
+        $sql = $pdo->prepare('select * from product where id=?');
+        $sql->execute([$i]);
+
+
+        foreach ($sql as $row) {
+          echo <<<END
 
 <div class="flex_item">
   <p><a href="detail-2.php?id={$row['id']}"><img src="common/images/{$img2[$imgId]}" alt="商品画像"></a></p>
@@ -135,12 +135,10 @@ END;
 </div>
 
 END;
-
-
+        }
       }
-    }
-    ?>
-  </div>
+      ?>
+    </div>
 
   </main>
 </body>
