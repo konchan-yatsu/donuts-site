@@ -39,7 +39,7 @@ if (!empty($_SESSION['product'])) {
                 <p  id="count">個数　　 {$product['count']}個</p>
             </div>
             <div id="delete">
-                <a href="cart-delete.php?id={$id}">削除する</a>
+                <a href="cart-delete.php?id={$id_number}">削除する</a>
             </div>
         </div>
 </div>

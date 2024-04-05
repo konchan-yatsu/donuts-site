@@ -42,7 +42,7 @@
 <p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
 </div>
 <form action="cart-input.php" method="post" class="btn_cart" >
-<input type="hidden" name="id" value =" {$row['id']} " >
+<input type="hidden" name="id" value ="{$row['id']}">
 <input type="hidden" name="count" value=1>
 <input type="submit" value="カートに入れる">
 </form>
@@ -83,7 +83,7 @@ END;
 <p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
 </div>
 <form action="cart-input.php" method="post" class="btn_cart" >
-<input type="hidden" name="id" value =" {$row['id']} " >
+<input type="hidden" name="id" value ="{$row['id']}">
 <input type="hidden" name="count" value=1>
 <input type="submit" value="カートに入れる">
 </form>
