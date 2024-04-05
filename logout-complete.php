@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <?php require 'includes/header.php'; ?>
 
 <link rel="stylesheet" href="common/css/logout.css">

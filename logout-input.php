@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <?php require 'includes/header.php'; ?>
 <?php require 'includes/database.php'; ?>
 
@@ -30,7 +28,6 @@
     echo '<p class="user_name">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p>';
     echo '<hr>';
     echo '<div class="content">';
-    echo '<p>セッションあり</p>';
     echo '<h1>ログアウト</h1>';
     echo '<div class="content_inner complete_content_inner textalign_center">';
     echo '<p class="message">ログアウトしますか？</p>';

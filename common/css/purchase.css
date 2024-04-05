@@ -21,12 +21,11 @@ img {
 h1 {
   font-size: 20px;
   text-align: center;
-  margin-top: 32px;
-  margin-bottom: 60px;
+  margin-top: 60px;
+  margin-bottom: 72px;
 }
 
 /* 内容部分の設定 */
-/* メールアドレス・パスワード・ボタン・メモ */
 .content {
   width: 295px;
   margin-left: auto;
@@ -42,41 +41,63 @@ h1 {
   padding-right: 12px;
 }
 
-/* 内容：項目名の設定 */
+/* セクション（購入・お届け先・お支払方法）共通設定 */
+section {}
+
+/*セクション名の設定 */
 h2 {
   text-align: center;
   font-size: 12px;
+  padding-bottom: 20px;
 }
 
-/* 内容：必須の設定 */
-.must {
-  color: #BF0000;
-}
-
-/* 内容：入力値の表示設定 */
-.input_result {
-  width: 100%;
-  height: 20px;
-  border-left-style: 1px solid #7F5539;
-  margin-top: 8px;
+table {
+  border-top: 1px solid #E8C2CA;
+  border-bottom: 1px solid #E8C2CA;
   margin-bottom: 20px;
-  padding-left: 5px;
+  width: 335px;
+
 }
 
-/* 内容：テキストの設定 */
-.message {
-  font-size: 12px;
+td,
+th {
+  /* border: 1px solid #E8C2CA; */
+
+  margin-top: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* テーブルの見出し */
+th {
+  width: 56px;
+  padding-left: 4px;
+  font-weight: 400;
+}
+
+td span {
+  border-left: 2px solid #E8C2CA;
   color: #333333;
-  margin-bottom: 20px;
+  padding-left: 12px;
 }
 
-.sub-message {
-  font-size: 12px;
+.bold {
+  font-weight: 700;
+}
+
+.red {
+  color: #BF0000;
+  text-align: center;
 }
 
 .caution {
-  font-size: 8px;
-  color: #BF0000;
+  line-height: 1.5;
+  padding-top: 16px;
+  padding-bottom: 20px;
+}
+
+form {
+  text-align: center;
 }
 
 /* 内容：ログインボタンの設定 */
@@ -86,16 +107,11 @@ h2 {
   height: 48px;
   color: #ffffff;
   background-color: #7F5539;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-/* 内容：メモの設定 */
-.memo {
-  font-size: 12px;
-  margin-top: 12px;
-  display: inline-block;
-  border-bottom: 1px solid #7F5539;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .textalign_right {
@@ -104,12 +120,6 @@ h2 {
 
 .textalign_center {
   text-align: center;
-}
-
-/* 完了画面時の設定 */
-.complete_content_inner {
-  padding-top: 24px;
-  padding-bottom: 24px;
 }
 
 

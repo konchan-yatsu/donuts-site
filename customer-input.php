@@ -31,6 +31,19 @@ if (isset($_SESSION['customer'])) {
   <main>
     <img src="common/images/logo_sp.png" alt="ロゴ">
     <?php
+    $animals = array(
+      1 => 'tiger',
+      2 => 'camel',
+      3 => 'pig'
+    );
+    foreach ($animals as $key => $value) {
+      echo $key . ':' . $value . '<br>';
+    }
+    for ($i = 1; $i <= 3; $i++) {
+      echo $i . ':' . $animals[$i] . '<br>';
+    }
+    ?>
+    <?php
     if (isset($_SESSION['customer'])) {
       // true セットされている=ログイン中だったら
       echo '<h1>ログイン中です</h1>';
