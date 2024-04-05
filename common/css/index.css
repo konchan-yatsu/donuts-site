@@ -45,21 +45,18 @@ body {
   flex-basis: 42%
 }
 
-/* サマーシトラス画像に文字を固定 */
-.dounts_line p:nth-of-type(2) {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #fff;
+/* サマーシトラス画像サイズ・幅調整 */
+.dount_img01 img {
+  width: max(42.1333vw, 158px);
+  margin-top: 20px;
 }
 
 /* 新商品文字と背景の〇は別に作成 */
 .dounts_line p:nth-of-type(3) {
+  font-size: clamp(12px, 3.2vw, 20px);
   position: absolute;
-  top: 38px;
-  left: 10px;
+  top: clamp(38px, 10.1333vw, 48px);
+  left: clamp(10px, 2.666vw, 12px);
   color: #fff;
   z-index: 1;
 }
@@ -69,10 +66,20 @@ body {
   position: absolute;
   top: 26px;
   left: 8px;
-  width: 40px;
-  height: 40px;
+  width: max(10.6666vw, 40px);
+  height: max(10.6666vw, 40px);
   border-radius: 50%;
   background: #FF8877;
+}
+
+/* サマーシトラス画像に文字を固定 */
+.dounts_line p:nth-of-type(2) {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: max(3.2vw, 12px);
+  font-weight: 700;
+  color: #fff;
 }
 
 /* 画像サイズを調整。2カラム。画像に文字固定にするための基準*/
@@ -81,12 +88,13 @@ body {
   flex-basis: 42%;
 }
 
+
 /* ドーナッツのある生活画像に文字を固定 */
 .dounts_line_2 p:nth-of-type(2) {
   position: absolute;
   bottom: 5px;
   right: 5px;
-  font-size: 12px;
+  font-size: max(3.2vw, 12px);
   font-weight: 700;
   color: #fff;
 }
@@ -96,12 +104,7 @@ body {
   width: 100%;
 }
 
-/* サマーシトラス画像サイズ・幅調整 */
-.dount_img01 img {
-  width: max(42.1333vw, 158px);
-  /* max-width: 100%; */
-  margin-top: 20px;
-}
+
 
 /* ドーナッツのある生活画像サイズ・幅調整 */
 .dounts_img02 img {
@@ -136,7 +139,7 @@ body {
   position: absolute;
   bottom: 5px;
   right: 5px;
-  font-size: 12px;
+  font-size: max(3.2vw, 12px);
   font-weight: 700;
   color: #7F5539;
 }
@@ -161,11 +164,11 @@ body {
 /* 画像に文字を重ねる　文字列① */
 .philosophy_text p:nth-of-type(1) {
   position: absolute;
-  top: 100px;
+  top: max(26.6666vw, 100px);
   right: 0;
   left: 0;
   margin: 0 auto;
-  font-size: 24px;
+  font-size: max(6.4vw, 24px);
   font-weight: 900;
   line-height: 1.5;
   text-align: center;
@@ -174,34 +177,34 @@ body {
 /* 画像に文字を重ねる　文字列②*/
 .philosophy_text p:nth-of-type(2) {
   position: absolute;
-  top: 144px;
+  top: max(38.4vw, 144px);
   right: 0;
   left: 0;
   text-align: center;
   line-height: 1.5;
-  font-size: 16px;
+  font-size: max(4.2666vw, 16px);
 }
 
 /* 画像に文字を重ねる　文字列③*/
 .philosophy_text p:nth-of-type(3) {
   position: absolute;
-  top: 220px;
+  top: max(58.6666vw, 220px);
   right: 0;
   left: 0;
   text-align: center;
   line-height: 1.5;
-  font-size: 20px;
+  font-size: max(5.3333vw, 20px);
 }
 
 /* 画像に文字を重ねる　文字列④ */
 .philosophy_text p:last-of-type {
   position: absolute;
-  top: 252px;
+  top: max(67.2vw, 252px);
   right: 0;
   left: 0;
   text-align: center;
   line-height: 1.5;
-  font-size: 16px;
+  font-size: max(4.2666vw, 16px);
 }
 
 /********** cont-3（SP） ********** /
@@ -210,6 +213,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding-left: 20px;
+  padding-right: 10px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -224,6 +229,8 @@ body {
   flex-basis: 42%;
   flex-grow: 1;
   margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ranking_wrap {
@@ -284,8 +291,8 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   height: 20px;
-  padding-left: 5px;
-  padding-right: 5px;
+  /* padding-left: 5px;
+  padding-right: 5px; */
 }
 
 /* 金額 */
@@ -295,10 +302,10 @@ h1 {
   margin-bottom: 24px;
 }
 
-f
+
 
 /* カートボタン作成・調整 */
-.btn_cart {
+.ranking .ranking_item .btn_cart[type="submit"] {
   background: #7F5539;
   color: #fff;
   width: 100%;
@@ -306,17 +313,16 @@ f
   font-size: 12px;
   text-align: center;
   margin-top: 20px;
-  /* margin-bottom: 80px; */
 }
-
-
 
 /* ランキング１位色指定 */
 .ranking_item:nth-of-type(1) h5 {
   background: #FFD233;
 }
 
-
+.ranking a {
+  cursor: pointer;
+}
 
 /* ///////////////////////////////////////////////////////////////////////////////
 
@@ -354,10 +360,45 @@ f
     margin: 80px auto;
   }
 
+  /* １. サマーシトラス部分 (左上)dounts_line */
+  .dounts_line {
+    flex-basis: 36%
+  }
+
+  /* ・サマーシトラス画像 */
   .dount_img01 img {
     width: min(41.6666vw, 500px);
     margin-top: 0px;
-    margin-right: min(1.6666vw, 20px);
+  }
+
+  /* ・新商品文字設定 */
+  .dounts_line p:nth-of-type(3) {
+    font-size: clamp(20px, 2.666vw, 32px);
+    top: clamp(48px, 5.5558vw, 66.67px);
+    left: clamp(12px, 2.7775vw, 33.33px);
+    font-weight: 500;
+  }
+
+  /* 新商品の背景の〇設定 */
+  .dounts_line p:nth-of-type(4) {
+    position: absolute;
+    top: 10.42px;
+    left: 10.42px;
+    width: clamp(80px, 12.1525vw, 145.83px);
+    height: clamp(80px, 12.1525vw, 145.83px);
+  }
+
+  /* ・サマーシトラス文字設定 */
+  .dounts_line_2 p:nth-of-type(2),
+  .dounts_line p:nth-of-type(2) {
+    bottom: 10.42px;
+    right: min(1.6666vw, 10.42px);
+    font-size: clamp(24px, 3vw, 36px);
+  }
+
+  /* ２. サマーシトラス部分 (右上)dounts_line_2 */
+  .dounts_line_2 {
+    flex-basis: 36%;
   }
 
   .dounts_img02 img {
@@ -366,65 +407,76 @@ f
     margin-left: min(1.6666vw, 20px);
   }
 
+  /* ３. 商品紹介部分 (下)dounts_line_3 */
+  .dounts_line_3 {
+    width: min(86.6666vw, 1040px);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
   .product_img {
     margin: 0;
   }
 
   .product_img img {
+    margin-top: 40px;
     width: min(86.6666vw, 1040px);
-    margin: 40px auto 0 auto;
   }
 
-  .dounts_line {
-    flex-basis: 36%
-  }
-
-  .dounts_line_2 {
-    flex-basis: 36%;
-  }
-
-  .dounts_img01 {
-    width: 100%;
-  }
-
-  dounts_line p:nth-of-type(2) {
+  /* ・商品一覧の文字設定 */
+  .dounts_line_3 p:nth-of-type(2) {
     position: absolute;
-    top: 156px;
-    right: 3px;
-
+    font-size: clamp(24px, 3vw, 36px);
   }
+
 
   /********** cont-2 (PC)********** /
-/*=== サマーシトラス部分 ===*/
-  /* 新商品文字設定 */
-  .dounts_line p:nth-of-type(3) {
-    font-size: 32px;
-    font-weight: 500;
+/* 画像に文字を重ねる　文字列① */
+  .philosophy_text p:nth-of-type(1) {
     position: absolute;
-    top: 66.67px;
-    left: 33.33px;
-    color: #fff;
-    z-index: 1;
+    top: min(16.6666vw, 200px);
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    font-size: min(3vw, 36px);
+    font-weight: 900;
+    line-height: 1.5;
+    text-align: center;
   }
 
-  /* 新商品の背景の〇設定 */
-  .dounts_line p:nth-of-type(4) {
+  /* 画像に文字を重ねる　文字列②*/
+  .philosophy_text p:nth-of-type(2) {
     position: absolute;
-    top: 10.42px;
-    left: 10.42px;
-    width: 145.83px;
-    height: 145.83px;
+    top: min(21.3333vw, 256px);
+    right: 0;
+    left: 0;
+    text-align: center;
+    line-height: 1.5;
+    font-size: min(1.6666vw, 20px);
   }
 
-  /* サマーシトラス文字設定 */
-  .dounts_line_2 p:nth-of-type(2),
-  .dounts_line p:nth-of-type(2) {
-    font-size: 36px;
+  /* 画像に文字を重ねる　文字列③*/
+  .philosophy_text p:nth-of-type(3) {
     position: absolute;
-    bottom: 10.42px;
-    right: min(1.6666vw, 10.42px);
+    top: min(26.3333vw, 316px);
+    right: 0;
+    left: 0;
+    text-align: center;
+    line-height: 1.5;
+    font-size: min(2vw, 24px);
   }
 
+  /* 画像に文字を重ねる　文字列④ */
+  .philosophy_text p:last-of-type {
+    position: absolute;
+    top: min(30vw, 360px);
+    right: 0;
+    left: 0;
+    text-align: center;
+    line-height: 1.5;
+    font-size: min(2vw, 24px);
+  }
 
   /********** cont-3 (PC)********** /
 /* .ranking > .ranking_item > .ranking_wrap */
@@ -444,7 +496,7 @@ f
   }
 
   .ranking_wrap {
-    width: min(320px);
+    width: min(26.6666vw, 320px);
     margin-left: auto;
     margin-right: auto;
   }
@@ -468,6 +520,14 @@ f
     line-height: 2.5;
   }
 
+  /* ランキング画像 */
+  .product_photo {
+    width: min(26.6666vw, 320px);
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   /* ランキング商品名 */
   .ranking_text {
     font-size: 24px;
@@ -478,8 +538,22 @@ f
     text-align: center;
   }
 
+  /* 金額＆お気に入り */
+  .inner_flex {
+    width: min(26.6666vw, 320px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 20px;
+    /* padding-left: 5px;
+    padding-right: 5px; */
+  }
+
   /* カートボタン作成・調整 */
-  .btn_cart {
+  .ranking .ranking_item .btn_cart[type="submit"] {
     width: min(21.6666vw, 260px);
     height: 52px;
     font-size: 20px;
@@ -487,7 +561,6 @@ f
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-
   }
 
 
