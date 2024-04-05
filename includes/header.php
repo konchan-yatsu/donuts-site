@@ -89,7 +89,8 @@
 
       </div>
     </div><!--header_content1  -->
-    <div class="header_content1">
+    
+    <div class="header_content2">
       <div id="header_search">
 
 
@@ -107,6 +108,8 @@
 
 
     </div><!--header_content2  -->
+
+
   </header>
 
 </body>
