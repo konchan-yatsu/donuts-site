@@ -3,7 +3,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
   <meta charset="UTF-8">
@@ -14,6 +14,31 @@
 </head>
 
 <body>
+<main>
+
+    <ul>
+        <li><a href="index.php">top</a></li>
+        <li>></li>
+        <li>カート</li>
+    </ul>
+
+<hr>
+<?php
+
+if (isset($_SESSION['customer'])) {
+// ログインしている
+
+
+    echo '<p>ようこそ　',$_SESSION['customer']['name'],'様</p> ';
+}else{
+
+    echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
+}
+
+
+?>
+    <hr>
+
   <h1>商品一覧</h1>
 
   <!-- donuts単体グループの表示 -->
@@ -29,25 +54,43 @@
       // imgパス用の番号を配列用に調整
       $imgId = $i - 1;
 
+
       $sql = $pdo->prepare('select * from product where id=?');
       $sql->execute([$i]);
 
+
+
       foreach ($sql as $row) {
         echo <<<END
+
 <div class="flex_item">
-  <p><a href="detail-1.php?id={$row['id']}"><img src="common/images/{$img1[$imgId]}" alt="商品画像"></a></p>
-<p class="flex_name"><a href="detail-1.php?id={$row['id']}">{$row['name']}</a></p>
-<div class="inner_flex">
-<p><a href="detail-1.php?id={$row['id']}">税込&nbsp;￥{$row['price']}</a></p>
-<p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
-</div>
-<form action="cart-input.php" method="post" class="btn_cart" >
-<input type="hidden" name="id" value =" {$row['id']} " >
-<input type="hidden" name="count" value=1>
-<input type="submit" value="カートに入れる">
-</form>
+
+  <p>
+    <a href="detail-1.php?id={$row['id']}"><img src="common/images/{$img1[$imgId]}" alt="商品画像"></a>
+  </p>
+
+  <p class="flex_name">
+    <a href="detail-1.php?id={$row['id']}">{$row['name']}</a>
+  </p>
+
+  <div class="inner_flex">
+    <p>
+      <a href="detail-1.php?id={$row['id']}">税込&nbsp;￥{$row['price']}</a>
+    </p>
+
+    <p class="inner_heart">
+      <img src="common/images/heart.svg" alt="heart">
+    </p>
+  </div>
+
+  <form action="cart-input.php" method="post" class="btn_cart" >
+    <input type="hidden" name="id" value ="{$row['id']}">
+    <input type="hidden" name="count" value=1>
+    <input type="submit" value="カートに入れる">
+  </form>
 
 </div>
+
 END;
       }
     }
@@ -73,8 +116,10 @@ END;
       $sql = $pdo->prepare('select * from product where id=?');
       $sql->execute([$i]);
 
+
       foreach ($sql as $row) {
         echo <<<END
+
 <div class="flex_item">
   <p><a href="detail-2.php?id={$row['id']}"><img src="common/images/{$img2[$imgId]}" alt="商品画像"></a></p>
 <p class="flex_name"><a href="detail-2.php?id={$row['id']}">{$row['name']}</a></p>
@@ -83,18 +128,21 @@ END;
 <p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
 </div>
 <form action="cart-input.php" method="post" class="btn_cart" >
-<input type="hidden" name="id" value =" {$row['id']} " >
+<input type="hidden" name="id" value ="{$row['id']}">
 <input type="hidden" name="count" value=1>
 <input type="submit" value="カートに入れる">
 </form>
 </div>
+
 END;
+
+
       }
     }
     ?>
   </div>
 
-
+  </main>
 </body>
 
 </html>

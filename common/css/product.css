@@ -1,11 +1,28 @@
 @charset "UTF-8";
 
-* {
-  outline: 1px solid #e3343a;
-}
+/* * { */
+/* outline: 1px solid #e3343a; */
+/* } */
 
 body {
   font-family: Noto sans JP, sans-serif;
+
+  color: #7F5539;
+  font-size: 12px;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+main ul {
+  display: flex;
+  margin: 12px 0 12px 20px;
+
+  color: #7F5539;
+}
+
+main p.id_name_no_cart {
+  margin: 12px 0 12px 20px;
 }
 
 /* 商品画像を2カラムに*/
@@ -27,6 +44,7 @@ body {
 .flex_item p img {
   max-width: 100%;
 }
+
 
 /*説明文上部に余白  */
 .flex_name {
@@ -58,8 +76,29 @@ h1 {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .inner_heart {
   margin-left: auto;
+}
+
+@media screen and (min-width: 767px) {
+
+  /* 1200px以上に適用（PC固定用） */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  main ul {
+    margin: 12px 0 12px 103px;
+  }
+
+  main p.id_name_no_cart {
+    margin: 12px 0 12px 103px;
+  }
 }

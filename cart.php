@@ -29,7 +29,7 @@ if (!empty($_SESSION['product'])) {
 
         echo <<< END
 <div id="merchandise">
-        <img src="common/images/top_cont3_No{$id_number}_pc.png" alt="商品画像">
+        <img src="common/images/{$id_number}_sp.png" alt="商品画像">
     
         <div id="detail">
             <p id="name">{$product['name']}</p>
@@ -39,7 +39,7 @@ if (!empty($_SESSION['product'])) {
                 <p  id="count">個数　　 {$product['count']}個</p>
             </div>
             <div id="delete">
-                <a href="cart-delete.php?id={$id}">削除する</a>
+                <a href="cart-delete.php?id={$id_number}">削除する</a>
             </div>
         </div>
 </div>

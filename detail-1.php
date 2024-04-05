@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <link rel="stylesheet" href="common/css/detail.css">
 <title>Customer-input | donuts-site</title>
 
@@ -48,7 +48,7 @@ foreach ($sql as $row) {
   echo '</main>';
 }
 
-var_dump ($_REQUEST['id']);
+// var_dump ($_REQUEST['id']);
 
 ?>
 <?php require 'includes/footer.php'; ?>
