@@ -25,7 +25,7 @@ if (!empty($_SESSION['product'])) {
         $id_number=intval($id);
         // var_dump($id_number);
 
-        $id_kana=mb_convert_kana($id_number,'A');
+        // $id_kana=mb_convert_kana($id_number,'A');
 
         echo <<< END
 <div id="merchandise">
@@ -39,7 +39,7 @@ if (!empty($_SESSION['product'])) {
                 <p  id="count">個数　　 {$product['count']}個</p>
             </div>
             <div id="delete">
-                <a href="cart-delete.php?id={$id_kana}">削除する</a>
+                <a href="cart-delete.php?id={$id}">削除する</a>
             </div>
         </div>
 </div>

@@ -1,6 +1,5 @@
 <?php require 'includes/header.php' ?>
 
-<?php session_start(); ?>
 
 
 <!DOCTYPE html>
@@ -85,7 +84,7 @@ echo '<hr>';
     $_SESSION['product'][$id] = [
       'name' => $cart['name'],
       'price' => $cart['price'],
-      'count' => $count + $_REQUEST['count']
+      'count' => $count+$_REQUEST['count']
     ];
   }
 
@@ -94,6 +93,9 @@ echo '<hr>';
   echo '<main>';
   require 'cart.php';
   echo '<main>';
+
+
+  var_dump ($_REQUEST['id']);
   ?>
 
 
