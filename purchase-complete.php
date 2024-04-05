@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -28,15 +29,8 @@
       $sql->execute([$purchase_id, $product_id, $product['count']]);
     }
     unset($_SESSION['product']);
-    echo '購入手続きが完了しました。ありがとうございます。';
-  } else {
-    echo '購入手続き中にエラーが発生しました。申し訳ございません。';
-  }
-
-  ?>
-
-
-  <main>
+    echo <<<END
+    <main>
     <img src="common/images/logo_sp.png" alt="ロゴ">
     <h1>ご購入完了</h1>
     <div class="content">
@@ -47,10 +41,16 @@
       <div class="textalign_right">
         <a class="memo" href="">TOPページへ戻る</a>
       </div>
-
     </div><!-- /content -->
 
-  </main>
+  </main>        
+  END;
+  } else {
+    echo '購入手続き中にエラーが発生しました。申し訳ございません。';
+  }
+
+  ?>
+
 </body>
 
 </html>
