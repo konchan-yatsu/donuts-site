@@ -18,13 +18,16 @@ header {
     background-color: #EDE0D4;
 }
 
-.header_content {
+.header_content1 {
     max-width: 1200px;
     margin: 0 auto;
 }
 
 header div#header_top {
     max-width: 1200px;
+    margin: 0 auto;
+
+    position: relative;
 }
 
 
@@ -284,7 +287,7 @@ header div#header_search ul li input {
 @media screen and (min-width: 767px) {
 
     header {
-        max-width: 1200px;
+        /* max-width: 1200px; */
         margin: 0 auto;
         position: relative;
     }
@@ -292,7 +295,7 @@ header div#header_search ul li input {
 
 
     header a.logo {
-        width: 6%;
+        width: 5%;
         /*80/1366= 0.058*/
         margin: 0 auto;
         padding: 26px 0 26px 0;
@@ -495,9 +498,10 @@ header div#header_search ul li input {
     }
 
     header div#header_search ul {
-        width: 100%;
+        max-width: 1200px;
         height: 100%;
         list-style: none;
+        margin: 0 auto;
 
         display: flex;
         align-items: center;
@@ -631,7 +635,7 @@ footer div#footer_copyright p {
 @media screen and (min-width: 767px) {
 
     footer {
-        max-width: 1200px;
+        /* max-width: 1200px; */
     }
 
     footer div#footer_content {
