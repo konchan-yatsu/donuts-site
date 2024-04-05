@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="common/css/reset.css">
+  <link rel="stylesheet" href="common/css/common.css">
   <link rel="stylesheet" href="common/css/purchase.css">
   <title>Purchase-confirm | donuts-site</title>
 </head>
@@ -27,41 +28,45 @@
           if (empty($_SESSION['product'])) {
         echo 'カートに商品がありません。';
       } else {
+        echo '<section>';
         echo '<h2>ご購入商品</h2>';
-        echo '<hr>';
         // $\SESSION['product']の情報から引用する、CSS装飾も必要なため、要素設定も考える必要あり
         $total = 0;
         foreach ($_SESSION['product'] as $id => $product) {
           $subtotal = $product['count'] * $product['price'];
+          $subtotal = number_format($subtotal);
+
           echo <<<END
             <table>
-<tr><td>商品名</td><td>{$product['name']}</td></tr>
-<tr><td>数量</td><td>{$product['count']}</td></tr>
-<tr><td>小計</td><td>{$subtotal}</td></tr>
+<tr><th>商品名</th><td><span>{$product['name']}</span></td></tr>
+<tr><th>数量</th><td><span>{$product['count']}個</span></td></tr>
+<tr><th>小計</th><td><span>税込&emsp;&yen;{$subtotal}</span></td></tr>
 </table>
 END;
           $total += $product['count'] * $product['price'];
         }
-
+        $total = number_format($total);
         echo <<<END
-<tr><td>合計</td><td>$total</td></tr>
-
+        <table class="total">
+<tr><th class="bold">合計</th><td class="bold"><span>税込&emsp;{$total}</span></td></tr>
+</table>
 
 END;
-        echo '<hr>';
 
+        echo '</section>';
 
-
+        echo '<section>';
         echo '<h2>お届け先</h2>';
-        echo '<hr>';
+
         // $\SESSION['customer']の情報から引用する、CSS装飾も必要なため、要素設定も考える必要あり
         echo <<<END
           <table>
-        <tr><td>お名前</td><td>{$_SESSION['customer']['name']}<td></tr>
-        <tr><td>住所</td><td>{$_SESSION['customer']['address']}<td></tr>
+        <tr><th>お名前</th><td><span>{$_SESSION['customer']['name']}</span><td></tr>
+        <tr><th>住所</th><td><span>{$_SESSION['customer']['address']}</span><td></tr>
         </table>
    END;
-        echo '<hr>';
+
+        echo '</section>';
       }
       ?>
 
@@ -77,11 +82,14 @@ END;
         $sql = $pdo->prepare('select * from card where id=?');
         $sql->execute([$id]);
 
+        echo '<section>';
         if (empty($sql->fetchAll())) {
           echo <<<END
-          <h2>お支払方法</h2>
-          <p>お支払方法が登録されていません<br>
+          <h2 id="pay">お支払方法</h2>
+          <hr class="red">
+          <p class="red caution">お支払方法が登録されていません<br>
           クレジットカード情報を登録してください</p>
+          <hr class="red">
 
             <form action="card-input.php" method="post">
             <input class="login_btn" type="submit" value="カード情報を登録する">
@@ -92,17 +100,18 @@ END;
           echo <<<END
           <h2>お支払方法</h2>
           <table>
-          <tr><td>お支払い</td><td>クレジットカード</td></tr>
+          <tr><th>お支払い</th><td>クレジットカード</td></tr>
     END;
           $sql = $pdo->prepare('select * from card where id=?');
           $sql->execute([$id]);
           foreach ($sql as $row) {
             echo <<<END
-                <tr><td>カード種類</td><td>{$row['card_type']}</td></tr>
-                <tr><td>カード番号</td><td>{$row['card_no']}</td></tr>
+                <tr><th>カード種類</th><td><span>{$row['card_type']}</span></td></tr>
+                <tr><th>カード番号</th><td><span>{$row['card_no']}</span></td></tr>
                 </table>
           END;
           }
+          echo '</section>';
 
           echo <<<END
             <form action="purchase-complete.php" method="post">

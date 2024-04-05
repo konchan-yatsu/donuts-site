@@ -73,7 +73,7 @@
         <?php
         if (isset($_SESSION['customer'])) {
           // ログインしてる
-          echo '<a class="login" href="login-inout.php"><img src="common/images/icon_logout_sp.svg" alt="ログインアイコン"></a>';
+          echo '<a class="login" href="logout-input.php"><img src="common/images/icon_logout_sp.svg" alt="ログアウトアイコン"></a>';
         } else {
           // ログインしてない
           echo '<a class="login" href="login-input.php"><img src="common/images/icon_login_sp.svg" alt="ログインアイコン"></a>';
@@ -84,7 +84,7 @@
 
       </div>
     </div><!--header_content1  -->
-    
+
     <div class="header_content2">
       <div id="header_search">
 
