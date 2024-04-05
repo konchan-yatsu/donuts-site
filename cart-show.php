@@ -41,7 +41,7 @@ if (isset($_SESSION['customer'])) {
 // ログインしている
 
 
-    echo '<p>ようこそ　',$_SESSION['customer']['name'],'様</p> ';
+    echo '<p class="id_name_no_cart">ようこそ　',$_SESSION['customer']['name'],'様</p> ';
 }else{
 
     echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
