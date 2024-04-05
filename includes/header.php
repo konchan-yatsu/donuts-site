@@ -85,7 +85,7 @@
         }
         ?>
 
-        <a class="cart" href="cart.php"><img src="common/images/icon_cart_sp.svg" alt="カートアイコン"></a>
+        <a class="cart" href="cart-show.php"><img src="common/images/icon_cart_sp.svg" alt="カートアイコン"></a>
 
       </div>
     </div><!--header_content1  -->

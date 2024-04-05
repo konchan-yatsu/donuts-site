@@ -284,7 +284,7 @@ header div#header_search ul li input {
 @media screen and (min-width: 767px) {
 
     header {
-        /* max-width: 1200px; */
+        max-width: 1200px;
         margin: 0 auto;
         position: relative;
     }
@@ -629,6 +629,10 @@ footer div#footer_copyright p {
 
 
 @media screen and (min-width: 767px) {
+
+    footer {
+        max-width: 1200px;
+    }
 
     footer div#footer_content {
         padding: 12px 95px;
