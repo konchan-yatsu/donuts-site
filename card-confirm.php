@@ -45,12 +45,13 @@
     $card_name = $_REQUEST['card_name'];
     $card_type = $_REQUEST['card_type'];
     $card_no = $_REQUEST['card_no'];
-    $card_month = $_REQUEST['card_month'];
-    $card_year = $_REQUEST['card_year'];
-    $card_security_code = $_REQUEST['card_security_code'];
+    $card_month = (int)$_REQUEST['card_month'];
+    $card_year = (int) $_REQUEST['card_year'];
+    $card_security_code = (int)$_REQUEST['card_security_code'];
 
     //要素の出力をする
 
+    // 入力情報を出力する
     echo <<<END
 <img src="common/images/logo_sp.png" alt="ロゴ">
 <h1>ご入力内容の確認</h1>

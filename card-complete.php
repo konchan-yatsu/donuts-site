@@ -16,6 +16,16 @@
 
 <body>
   <main>
+
+    <?php
+
+    // ログインの確認し、カード情報の登録
+  if(isset($_SESSION['customer'])){
+      require 'includes/database.php';
+      $sql = $pdo->prepare('insert into card values(?,?,?,?,?,?,?)');
+      $sql->execute([$_SESSION['customer']['id'], $_REQUEST['card_name'], $_REQUEST['card_type'], $_REQUEST['card_no'], (int)$_REQUEST['card_month'], (int)$_REQUEST['card_year'], (int)$_REQUEST['card_security_code']]);
+    
+    echo <<< END
     <p class="img_logo">
       <img src="common/images/logo_sp.png" alt="ロゴ">
     </p>
@@ -24,22 +34,20 @@
       <div class="content_inner complete_content_inner textalign_center">
         <p class="message">クレジットカード情報を登録しました。</p>
         <div class="textalign_center">
-          <a class="memo" href="">購入手続きを続ける</a>
+          <a class="memo" href="purchase-confirm.php">購入手続きを続ける</a>
         </div>
       </div><!-- /content_inner -->
     </div><!-- /content -->
-    <?php
-
-    // ログインの確認
-    if (isset($_SESSION['cusutomer'])) {
-      require 'includes/database.php';
-      $sql = $pdo->prepare('insert into card values(?,?,?,?,?,?,?)');
-      $sql->execute([$_SESSION['customer']['id'], $_REQUEST['card_name'], $_REQUEST['card_type'], $_REQUEST['card_no'], $_REQUEST['card_month'], $_REQUEST['card_year'], $_REQUEST['card_security_code']]);
-      echo '追加成功しました。';
-    }
-    echo <<< END
-    {$_SESSION['customer']['id']},{$_REQUEST['card_name']},{$_REQUEST['card_type']}, {$_REQUEST['card_no']},{$_REQUEST['card_month']},{$_REQUEST['card_year']},{$_REQUEST['card_security_code']}
 END;
+  
+}
+
+//検証用
+// var_dump($_SESSION['customer']['id']);
+//     var_dump((int)$_REQUEST['card_month']);
+//     var_dump((int)$_REQUEST['card_year']);
+//     var_dump((int)$_REQUEST['card_security_code']);
+//     var_dump($_REQUEST['card_no']);
     ?>
 
   </main>
