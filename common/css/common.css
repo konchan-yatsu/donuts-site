@@ -551,7 +551,6 @@ header div#header_search ul li input {
 
 footer {
     background: #EDE0D4;
-    /* max-width: 1200px; */
     margin: 0 auto;
 }
 
@@ -634,13 +633,13 @@ footer div#footer_copyright p {
 
 @media screen and (min-width: 767px) {
 
-    footer {
-        /* max-width: 1200px; */
-    }
 
     footer div#footer_content {
         padding: 12px 95px;
         padding-bottom: 65.4px;
+
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     footer div#footer_nav {
@@ -700,6 +699,10 @@ footer div#footer_copyright p {
         text-align: center;
 
         padding-bottom: 26.7px;
+
+
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     footer div#footer_copyright p {
