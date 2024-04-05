@@ -42,7 +42,7 @@ echo '<p>ようこそ　',$_SESSION['customer']['name'],'様</p> ';
 
 }else{
   // ログアウトしている
-echo '<p id="id_name">ようこそ　ゲスト様</p> ';
+echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
 }
 
 echo '<hr>';
@@ -95,7 +95,7 @@ echo '<hr>';
   echo '<main>';
 
 
-  var_dump ($_REQUEST['id']);
+  // var_dump ($_REQUEST['id']);
   ?>
 
 

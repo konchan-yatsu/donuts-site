@@ -45,8 +45,8 @@ if (!empty($_SESSION['product'])) {
 </div>
 END;
 
-var_dump($id);
-var_dump($id_number);
+// var_dump($id);
+// var_dump($id_number);
     }
 
     echo <<< END
@@ -66,8 +66,8 @@ END;
 } else {
 
     // 商品データがない場合
-    echo 'カートに商品がありません。';
+    echo '<p class="id_name_no_cart">カートに商品がありません。</p>';
 }
-var_dump($_SESSION['product']);
+// var_dump($_SESSION['product']);
 
 ?>

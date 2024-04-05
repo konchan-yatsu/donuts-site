@@ -43,7 +43,7 @@ echo '<p>ようこそ　',$_SESSION['customer']['name'],'様</p> ';
 
 }else{
   // ログアウトしている
-echo '<p id="id_name">ようこそ　ゲスト様</p> ';
+echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
 }
 
 echo '<hr>';
@@ -61,8 +61,8 @@ echo '<hr>';
 unset($_SESSION['product'][$_REQUEST['id']]);
 // unset($_SESSION['product']);
 
-var_dump ($_SESSION['product']);
-var_dump ($_REQUEST['id']);
+// var_dump ($_SESSION['product']);
+// var_dump ($_REQUEST['id']);
 
 echo '<p id="input_delete">カートから商品を削除しました。</p>';
 
