@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -15,10 +17,7 @@
 <body>
   <main>
 
-    <?php session_start();?>
-    <?php require 'includes/header.php'; ?>
-    
-    <?php
+<?php
     // echo '<img src="common/images/logo_sp.png" alt="ロゴ">';
     // echo '<h1>ご入力内容の確認</h1>';
     // echo '<div class="content">';
@@ -36,24 +35,50 @@
     // echo '<input class="login_btn" type="submit" value="ご入力内容を確認する">';
     // echo '</div>';
     // echo '</div><!-- /content -->';
+    // p要素に定数を代入
+    // const pragraph_start='<p>';
+    // const pragraph_end='</p>';
+    // const span_start='<span>';
+    // const spam_end='</span>';
 
+    //変数に受け取った値を代入する
+    $card_name = $_REQUEST['card_name'];
+    $card_type = $_REQUEST['card_type'];
+    $card_no = $_REQUEST['card_no'];
+    $card_month = $_REQUEST['card_month'];
+    $card_year = $_REQUEST['card_year'];
+    $card_security_code = $_REQUEST['card_security_code'];
 
-// ログインの確認
-if(isset($_SESSION['cusutomer'])){
-  $pdo=new PDO(
-    'mysql:host=localhost;dbname=shop;charest=utf8',
-    'staff',
-    'password'
-  );
-  $sql=$pdo->prepare('insert into card valuse(?,?,?,?,?,?,?)');
+    //要素の出力をする
 
-  $sql->execute([$_SESSION['id'],$_REQUEST['card_name'],$_REQUEST['card_type'],$_REQUEST['']]);
-}
+    echo <<<END
+<img src="common/images/logo_sp.png" alt="ロゴ">
+<h1>ご入力内容の確認</h1>
+<div class="content">
+<p>お名前</p>
+<p class="input_result">{$card_name}</p>
+<p>カード会社</p>
+<p class="input_result">{$card_type}</p>
+<p>カード番号</p>
+<p class="input_result">{$card_no}</p>
+<p>有効期限</p>
+<span class="input_result">{$card_month}/{$card_year}</span>
+<p>セキュリティコード</p>
+<p class="input_result">{$card_security_code}</p>
 
+<form action="card-complete.php" method="post">
+<input type="hidden" name="name" value="$card_name">
+<input type="hidden" name="" value="$card_type">
+<input type="hidden" name="" value="$card_no">
+<input type="hidden" name="" value="$card_month"/"$card_year">
+<input type="hidden" name="" value="$card_security_code">
+<input class="login_btn" type="submit" value="この内容で登録する">
+</form>
+</div>
+END;
 
-
-
-    ?> 
+    ?>
+    
 
   </main>
 </body>

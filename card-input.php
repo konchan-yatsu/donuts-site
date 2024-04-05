@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -11,14 +13,16 @@
   <link rel="stylesheet" href="common/css/card.css">
   <title>Card-input | donuts-site</title>
 </head>
-
+<?php
+if (isset($_SESSION['customer'])) {
+  echo <<< END
 <body>
   <main>
     <img src="common/images/logo_sp.png" alt="ロゴ">
     <h1>カード情報登録</h1>
     <div class="content">
       <!-- <div class="content_inner"> -->
-      <form action="customer-confirm.php" method="post">
+      <form action="card-confirm.php" method="post">
         <h2>お名前<span class="must">（必須）</span></h2>
         <input class="input_wide" type="text" name="card_name" required><br>
         <h2>カード会社<span class="must">（必須）</span></h2>
@@ -44,11 +48,15 @@
         </div>
 
       </form>
-      <!-- </div>/content_inner -->
-    </div><!-- /content -->
 
   </main>
 </body>
+END;
+} else {
+  echo 'ログインしてください';
+}
+
+?>
 
 </html>
 
