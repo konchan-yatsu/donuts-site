@@ -88,7 +88,7 @@ echo '<hr>';
     ];
   }
 
-  echo '<p>カートに追加しました。</p>';
+  echo '<p class="id_name_no_cart">カートに追加しました。</p>';
 
   echo '<main>';
   require 'cart.php';

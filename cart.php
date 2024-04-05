@@ -29,7 +29,7 @@ if (!empty($_SESSION['product'])) {
 
         echo <<< END
 <div id="merchandise">
-        <img src="common/images/top_cont3_No{$id_number}_pc.png" alt="商品画像">
+        <img src="common/images/{$id_number}_sp.png" alt="商品画像">
     
         <div id="detail">
             <p id="name">{$product['name']}</p>
