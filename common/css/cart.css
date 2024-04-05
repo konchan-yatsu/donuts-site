@@ -23,7 +23,7 @@ main ul {
   color: #7F5539;
 }
 
-main p#id_name {
+main p.id_name_no_cart {
   margin: 12px 0 12px 20px;
 }
 
@@ -138,7 +138,7 @@ main p#continue a {
     margin: 12px 0 12px 103px;
   }
 
-  main p#id_name {
+  main p.id_name_no_cart {
     margin: 12px 0 12px 103px;
   }
 
