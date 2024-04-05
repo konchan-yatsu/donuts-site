@@ -14,6 +14,7 @@
   <title>Card-input | donuts-site</title>
 </head>
 <?php
+//ログイン確認
 if (isset($_SESSION['customer'])) {
   echo <<< END
 <body>

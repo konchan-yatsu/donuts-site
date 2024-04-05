@@ -88,6 +88,8 @@ h1 {
 @media screen and (min-width: 767px) {
 
   /* 1200px以上に適用（PC固定用） */
+
+
   main {
     max-width: 1200px;
     margin: 0 auto;
@@ -101,4 +103,17 @@ h1 {
   main p.id_name_no_cart {
     margin: 12px 0 12px 103px;
   }
+
+
+  .flex_item {
+    flex-basis: 27%;
+  }
+
+
+  .flex_content2 {
+    margin-bottom: 90px;
+  }
+
+
+
 }
