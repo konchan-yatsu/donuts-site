@@ -22,7 +22,6 @@
 
 <html>
 <body>
-<?php session_start();?>
 
 <?php
 echo <<<END
@@ -60,6 +59,7 @@ echo '<hr>';
 
 // 指定idの勝因をカートから削除
 unset($_SESSION['product'][$_REQUEST['id']]);
+// unset($_SESSION['product']);
 
 var_dump ($_SESSION['product']);
 var_dump ($_REQUEST['id']);
