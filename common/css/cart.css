@@ -120,7 +120,7 @@ main p#continue a {
 
 
 
-@media screen and (min-width: 734px) {
+@media screen and (min-width: 767px) {
 
   p#input_delete {
     font-weight: medium;
