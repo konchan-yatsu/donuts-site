@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 body {
-  max-width: 1200px;
   margin: 0 auto;
   color: #7F5539;
 
@@ -14,6 +13,12 @@ body {
 
 .pc_only {
   display: none;
+}
+
+main {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .content {
