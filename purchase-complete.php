@@ -31,7 +31,7 @@
     unset($_SESSION['product']);
     echo <<<END
     <main>
-    <img src="common/images/logo_sp.png" alt="ロゴ">
+    <a href="index.php"><img src="common/images/logo_sp.png" alt="ロゴ"></a>
     <h1>ご購入完了</h1>
     <div class="content content_complete">
       <div class="content_inner complete_content_inner textalign_center">

@@ -10,14 +10,14 @@ body {
 }
 
 /* ロゴの設定 */
-img {
+main img {
   width: 70px;
   padding-left: 17px;
   padding-top: 14px;
 }
 
 /* 見出しの設定 */
-h1 {
+main h1 {
   font-size: 20px;
   text-align: center;
   margin-top: 40px;

@@ -31,7 +31,7 @@
     echo '<h1>ログアウト</h1>';
     echo '<div class="content_inner complete_content_inner textalign_center">';
     echo '<p class="message">ログアウトしますか？</p>';
-    echo '<form action="logout-complete.php" method="post">';
+    echo '<form action="logout-complete.php?logout=1" method="post">';
     echo '<div class="textalign_center">';
     echo '<input class="logout_btn" type="submit" value="ログアウトする">';
     echo '</div>';
@@ -41,7 +41,6 @@
   } else {
     echo '<p class="user_name">ようこそ&emsp;ゲスト様</p>';
     echo '<hr>';
-    echo '<p>セッションなし</p>';
     echo '<h1>ログイン</h1>';
     echo '<div class="content">';
     echo '<div class="content_inner complete_content_inner textalign_center">';

@@ -66,6 +66,13 @@ main input {
   font-size: 12px;
 }
 
+.display_btn {
+  font-size: 10px;
+  padding: 1px 4px;
+  border: 1px solid #7F5539;
+  border-radius: 2px;
+}
+
 /* 内容：ログインボタンの設定 */
 .login_btn {
   width: 80%;
