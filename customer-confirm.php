@@ -32,7 +32,6 @@
       $id = $_SESSION['customer']['id'];
     } else {
       // false セットされていない＝ログインしてない
-      echo 'セッションなし';
       // 条件：メールアドレスが一致するデータを取得するSQL
       $sql = $pdo->prepare('SELECT * FROM customer WHERE mail=?');
       $sql->execute([htmlspecialchars($_REQUEST['mail'])]);
@@ -112,17 +111,17 @@
       echo '</div>';
     }
     ?>
-
-    <script>
-      function toggleDisplay() {
-        var password = document.querySelector('.password');
-        var password2 = document.querySelector('.mask_off');
-        password.classList.toggle('pass_display');
-        password2.classList.toggle('pass_display');
-      }
-    </script>
-
   </main>
+
+  <script>
+    function toggleDisplay() {
+      let password = document.querySelector('.password');
+      let password2 = document.querySelector('.mask_off');
+      password.classList.toggle('pass_display');
+      password2.classList.toggle('pass_display');
+    }
+  </script>
+
 </body>
 
 </html>

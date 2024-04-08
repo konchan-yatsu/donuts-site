@@ -17,7 +17,7 @@
 
 <body>
   <main>
-    <img src="common/images/logo_sp.png" alt="ロゴ">
+    <a href="index.php"><img src="common/images/logo_sp.png" alt="ロゴ"></a>
     <h1>ご購入確認</h1>
     <div class="content">
 

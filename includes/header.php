@@ -69,18 +69,36 @@
           </nav>
         </div>
 
+        <!-- <?php
+              echo basename((empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '<br>';
+              $basename = basename((empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+              if ($basename == 'login-complete.php?login=1') {
+                echo 'login-complete.php?login=1と一致　ログアウトのロゴ';
+              } else {
+                echo 'login-complete.php?login=1と一致しない';
+              }
 
-        
+              ?> -->
+
+
         <?php
         if (isset($_SESSION['customer'])) {
           // ログインしてる
-          echo '<a class="login" href="logout-input.php"><img src="common/images/icon_logout_sp.svg" alt="ログアウトアイコン"></a>';
+          $basename = basename((empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+          if ($basename == 'logout-complete.php?logout=1') {
+            echo  '<a class="login" href="login-input.php"><img src="common/images/icon_login_sp.svg" alt="ログインアイコン"></a>';
+          } else {
+            echo '<a class="login" href="logout-input.php"><img src="common/images/icon_logout_sp.svg" alt="ログアウトアイコン"></a>';
+          }
         } else {
           // ログインしてない
-          echo '<a class="login" href="login-input.php"><img src="common/images/icon_login_sp.svg" alt="ログインアイコン"></a>';
+          if ($basename == 'login-complete.php?login=1') {
+            echo '<a class="login" href="logout-input.php"><img src="common/images/icon_logout_sp.svg" alt="ログアウトアイコン"></a>';
+          } else {
+            echo '<a class="login" href="login-input.php"><img src="common/images/icon_login_sp.svg" alt="ログインアイコン"></a>';
+          }
         }
         ?>
-
         <a class="cart" href="cart-show.php"><img src="common/images/icon_cart_sp.svg" alt="カートアイコン"></a>
 
       </div>
