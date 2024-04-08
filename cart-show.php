@@ -53,7 +53,9 @@ if (isset($_SESSION['customer'])) {
 
 
 <?php
-require 'cart.php';
+  echo '<main>';
+  require 'cart.php';
+  echo '</main>';
 ?>
 
 
