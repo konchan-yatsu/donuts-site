@@ -90,9 +90,9 @@ echo '<hr>';
 
   echo '<p class="id_name_no_cart">カートに追加しました。</p>';
 
-  echo '<main>';
+
   require 'cart.php';
-  echo '<main>';
+  echo '</main>';
 
 
   // var_dump ($_REQUEST['id']);
