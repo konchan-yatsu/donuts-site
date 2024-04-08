@@ -71,20 +71,25 @@ END;
     echo '<p>カード番号</p>';
     echo '<p class="input_result">', $card_no, '</p>';
     //jcb,visa,masterカード番号の判別
-    if (!preg_match('/^(?:2131|1800|35[0-9]{3})[0-9]{11}|4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}$/', $card_no)) {
-      // error
+    if (!preg_match('/^(?:2131|1800|35[0-9]{3})[0-9]{11}|4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}\z/', $card_no)) {
+      echo $card_no . '正しいカード番号です';
+    } else {
+      echo $card_no . '正しいカード番号を入力してください';
     }
     // echo '正しいカード番号です';
     // else  echo '正しいカード番号を入力してください';
     echo '<p>有効期限</p>';
     echo '<span class="input_result">', $card_month, '/', $card_year, '</span>';
-    if (!preg_match('/^[0-9]{2},[0-9]{2}$/', $card_month, '/', $card_year,)) {
+    if (preg_match('/^([0-9]{2})([0-9]{2})\z/', $card_month, $card_year,)) {
+      echo '有効期限内です';
     } else {
+      $month=$matchrs[1];
+      $year=sprintf()
     }
     echo '<p>セキュリティコード</p>';
     echo '<p class="input_result">', $card_security_code, '</p>';
-    if (!preg_match('/^[0-9]{4}$/', $card_security_code)) {
-      // error
+    if (preg_match('/^[0-9]{4}\z/', $card_security_code)) {
+      echo '正しいセキュリティコードです';
     }
 
     echo <<<END
