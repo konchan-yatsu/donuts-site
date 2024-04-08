@@ -11,14 +11,14 @@ body {
 }
 
 /* ロゴの設定 */
-img {
+main img {
   width: 60px;
   padding-left: 12px;
   padding-top: 12px;
 }
 
 /* 見出しの設定 */
-h1 {
+main h1 {
   font-size: 20px;
   text-align: center;
   margin-top: 60px;
@@ -30,6 +30,8 @@ h1 {
   width: 295px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 336px;
+
 }
 
 /* 内容：フォーム内の設定 */
@@ -43,21 +45,21 @@ h1 {
 
 /* セクション（購入・お届け先・お支払方法）共通設定 */
 /*セクション名の設定 */
-h2 {
+main h2 {
   text-align: center;
   font-size: 12px;
   padding-bottom: 20px;
 }
 
-table {
+main table {
   border-top: 1px solid #E8C2CA;
   border-bottom: 1px solid #E8C2CA;
   margin-bottom: 20px;
   width: 335px;
 }
 
-td,
-th {
+main td,
+main th {
   /* border: 1px solid #E8C2CA; */
 
   margin-top: 12px;
@@ -66,13 +68,13 @@ th {
 }
 
 /* テーブルの見出し */
-th {
+main th {
   width: 56px;
   padding-left: 4px;
   font-weight: 400;
 }
 
-td span {
+main td span {
   border-left: 2px solid #E8C2CA;
   color: #333333;
   padding-left: 12px;
@@ -93,7 +95,7 @@ td span {
   padding-bottom: 20px;
 }
 
-form {
+main form {
   text-align: center;
 }
 
@@ -119,6 +121,22 @@ form {
   text-align: center;
 }
 
+/* 購入完了ページ complete */
+.complete_content_inner {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.message {
+  color: #333333;
+  padding-bottom: 20px;
+}
+
+.memo {
+  border-bottom: 1px solid #7F5539;
+  padding-bottom: 4px;
+}
 
 @media screen and (min-width: 1200px) {
 
@@ -126,10 +144,7 @@ form {
   main {
     max-width: 1200px;
     margin: 0 auto;
-  }
-
-  main {
-    max-width: 1200px;
     padding: 0;
   }
+
 }

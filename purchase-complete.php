@@ -39,7 +39,7 @@
         <p class="sub-message">今後ともご愛顧の程、宜しくお願いいたします。</p>
       </div><!-- /content_inner -->
       <div class="textalign_right">
-        <a class="memo" href="">TOPページへ戻る</a>
+        <a class="memo" href="index.php">TOPページへ戻る</a>
       </div>
     </div><!-- /content -->
 
@@ -50,6 +50,7 @@
   }
 
   ?>
+
 
 </body>
 
