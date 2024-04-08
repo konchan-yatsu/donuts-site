@@ -45,11 +45,6 @@
     $card_name = $_REQUEST['card_name'];
     $card_type = $_REQUEST['card_type'];
     $card_no = $_REQUEST['card_no'];
-    // if (preg_match('/^[0-9]{16}$/', $card_no)) {
-    //   echo 'カード番号', $card_no, 'を確認しました。';
-    // } else {
-    //   echo $card_no, 'は適切なカード番号ではありません。';
-    // }
     $card_month = (int)$_REQUEST['card_month'];
     $card_year = (int) $_REQUEST['card_year'];
     $card_security_code = (int)$_REQUEST['card_security_code'];
@@ -71,25 +66,52 @@ END;
     echo '<p>カード番号</p>';
     echo '<p class="input_result">', $card_no, '</p>';
     //jcb,visa,masterカード番号の判別
-    if (!preg_match('/^(?:2131|1800|35[0-9]{3})[0-9]{11}|4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}\z/', $card_no)) {
-      echo $card_no . '正しいカード番号です';
+    // if (!preg_match('/^(?:2131|1800|35[0-9]{3})[0-9]{11}|4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}\z/', $card_no)) {
+    //   echo $card_no . '間違っています';
+    // } else {
+    //   echo $card_no . '正しいカード番号です';
+    // }
+    if (preg_match('/^[0-9]{16}$/', $card_no)) {
+      echo 'カード番号を確認しました。';
     } else {
-      echo $card_no . '正しいカード番号を入力してください';
+      echo 'は適切なカード番号ではありません。';
     }
-    // echo '正しいカード番号です';
-    // else  echo '正しいカード番号を入力してください';
+
+    //日付の判別
     echo '<p>有効期限</p>';
     echo '<span class="input_result">', $card_month, '/', $card_year, '</span>';
-    if (preg_match('/^([0-9]{2})([0-9]{2})\z/', $card_month, $card_year,)) {
-      echo '有効期限内です';
+    // if (preg_match('/^[0-9]{2}$/', $card_month)) {
+    //   echo '登録可能';
+    // } else {
+    //   echo '登録不可';
+    
+    if (preg_match('/^[0-9]{2}$/', $card_month)&&preg_match('/^[0-9]{2}$/',$card_year)) {
+      echo '登録可能';
     } else {
-      $month=$matchrs[1];
-      $year=sprintf()
+      echo '登録不可';
     }
+
+    var_dump($card_month, $card_year);
+    // if (preg_match('/^([0-9]{2}[0-9]{2})\z/', $card_month, $card_year)) {
+    //   echo '有効期限内です';
+    // } else {
+
+    //   checkdate(int $month,int $year)
+    // $expiration = mktime(0, 0, 0, $month, 1, $year);
+    // //過去
+    // $today = mktime(0, 0, 0, date('m'), 1, date('Y'));
+    // if ($expiration < $today) {
+    // }
+    // //未来
+    // $future = mktime(0, 0, 0, date('m'), 1, date('Y') + 10);
+    // if ($expiration > $future) {
+
     echo '<p>セキュリティコード</p>';
     echo '<p class="input_result">', $card_security_code, '</p>';
-    if (preg_match('/^[0-9]{4}\z/', $card_security_code)) {
+    if (preg_match('/^[0-9]{4}$/', $card_security_code)) {
       echo '正しいセキュリティコードです';
+    } else {
+      echo 'もう一度入力してください';
     }
 
     echo <<<END
