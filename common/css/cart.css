@@ -30,10 +30,11 @@ main p.id_name_no_cart {
 
 
 main div#merchandise {
-  width: 89%;
+  width: 89.5%;
   /* 335/375=0.89 */
   text-align: center;
   margin: 20px auto 60px auto;
+
 }
 
 main div#merchandise a#img_link {
@@ -151,8 +152,8 @@ main p#continue a {
   }
 
   main div#merchandise {
-    width: 76%;
-    /* 1040/1366=0.76 */
+    width: 87%;
+    /* 1040/1200-=0.866 */
     text-align: center;
     margin: 80px auto 80px auto;
 
@@ -160,8 +161,8 @@ main p#continue a {
   }
 
   main div#merchandise a#img_link {
-    width: 37%;
-    /* 335/912=0.367 */
+    width: 47.5%;
+
   }
 
   main div#merchandise a#img_link img {
