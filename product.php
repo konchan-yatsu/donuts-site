@@ -20,7 +20,7 @@
     <ul>
       <li><a href="index.php">top</a></li>
       <li>></li>
-      <li>カート</li>
+      <li>商品一覧</li>
     </ul>
 
     <hr>
