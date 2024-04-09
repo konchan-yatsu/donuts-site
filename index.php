@@ -102,7 +102,7 @@ if (isset($_SESSION['customer'])) {
         <a  href="detail-{$category}.php?id={$id}"><p class="ranking_text">{$n}</p></a>
         <div class="inner_flex">
         <a  href="detail-{$category}.php?id={$id}"><p class="ranking_text price">{$p}</p></a>
-        <p><a  href="detail-{$category}.php?id={$id}"><img src="common/images/heart.svg" alt="heart"></a></p>
+        <p><a  href="detail-{$category}.php?id={$id}"><a href="favorite-insert.php?id={$id}"><img src="common/images/heart.svg" alt="heart"></a></a></p>
         </div>
         <form action="cart-input.php">
         <input type="hidden" name="id" value="{$id}">
