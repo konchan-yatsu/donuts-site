@@ -80,7 +80,7 @@
     </p>
 
     <p class="inner_heart">
-      <img src="common/images/heart.svg" alt="heart">
+      <a href="favorite-insert.php?id={$row['id']}"><img src="common/images/heart.svg" alt="heart"></a>
     </p>
   </div>
 
