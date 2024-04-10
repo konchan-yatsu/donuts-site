@@ -36,7 +36,7 @@
           echo '<p class="product_name">', $row['name'], '</p>';
           echo '<div class="content_2_inner">';
           echo '<p class="product_price">税込&emsp;&yen;', $price, '</p>';
-          echo '<form action="cart-input.php?id="', $id, '" method="post"">';
+          echo '<form action="cart-input.php?id=', $id, '" method="post"">';
           echo '<input type="hidden" name="count" value=1>';
           echo '<input class="btn_cart" type="submit" value="カートに入れる "><br>';
           echo '</form>';
