@@ -36,21 +36,23 @@ main h1 {
 }
 
 /* 内容部分の設定 */
-/* メールアドレス・パスワード・ボタン・メモ */
-/* .content {
+.content {
   width: 295px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 80px;
-} */
+}
 
-/* 内容：フォーム内の設定 */
-/* メールアドレス・パスワード・ボタン */
+/* 内容：フレーム内の設定 */
 .content_inner {
-  width: 89.5%;
+  width: min(100%, 420px);
   text-align: center;
-  /* padding: 20px 12px; */
+  padding: 20px 12px;
   margin: 20px auto 60px auto;
+}
+
+.content_flame {
+  border: 1px solid#E8C2CA;
 }
 
 /* お気に入り一覧 */
@@ -60,7 +62,7 @@ main h1 {
 }
 
 .product_photo {
-  width: 100%;
+  width: min(100%, 420px);
   margin-bottom: 20px;
 }
 
@@ -78,16 +80,37 @@ main h1 {
   display: inline-block;
   background: #7F5539;
   color: #fff;
-  width: 60%;
+  width: 200px;
   height: 36px;
   font-size: 12px;
   text-align: center;
   margin-top: 20px;
 }
 
+/* お気に入り登録　favorite-insert */
+/* お気に入り一覧を見る */
+.message {
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.message a {
+  border-bottom: 1px solid #7F5539;
+  padding-bottom: 4px;
+}
+
+.memo {
+  font-size: 14px;
+  border-bottom: 1px solid #7F5539;
+  padding-bottom: 4px;
+  width: min(89.5%, 420px);
+}
+
 /* お気に入りから削除 */
 .favorite_delete {
-  /* color: #BF0000; */
+  width: 200px;
+  text-align: center;
   display: inline-block;
   border-bottom: 1px solid #7F5539;
   padding-bottom: 4px;
@@ -122,16 +145,16 @@ main h1 {
   }
 
   .content {
-    max-width: 1040px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 420px;
   }
 
   .content_1 {
     width: min(32.2115vw, 335px);
   }
 
-  .content_2 {}
+  .content_2 {
+    flex-grow: 1
+  }
 
   .content_2_inner {
     padding-top: 20px;
@@ -140,18 +163,28 @@ main h1 {
     border-bottom: 1px solid #E8C2CA;
   }
 
-  /* .product_photo {
-    width: 100%;
+  .product_photo {
+    width: min(100%, 300px);
     margin-bottom: 20px;
-  } */
+  }
 
   .product_name {
-    font-size: 24px;
+    font-size: (3.0379vw, 24px);
     font-weight: 700;
     margin-bottom: 20px;
   }
 
   .product_price {
     font-size: 24px;
+  }
+
+  /* カートボタン作成・調整 */
+  .btn_cart[type="submit"] {
+    width: 200px;
+    height: 52px;
+    font-size: 20px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-top: 20px;
   }
 }

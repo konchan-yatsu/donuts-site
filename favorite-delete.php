@@ -25,23 +25,18 @@
 
 
   <?php
-  echo $_SESSION['customer']['id'];
-  echo $_REQUEST['id'];
-
-
-
   if (isset($_SESSION['customer'])) {
     echo '<p class="user_name">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p>';
     echo '<hr>';
     echo '<div class="content">';
     echo '<h1>削除成功</h1>';
-    echo '<div class="content_inner complete_content_inner textalign_center">';
+    echo '<div class="content_inner content_flame textalign_center">';
     $sql = $pdo->prepare('DELETE FROM favorite WHERE customer_id=? AND product_id=?');
     $sql->execute([$_SESSION['customer']['id'], $_REQUEST['id']]);
 
-    echo '<p class="message">お気に入りの削除に成功しました。</p>';
+    echo '<p>お気に入りの削除に成功しました。</p>';
     echo '<div class="textalign_center">';
-    echo '<a href="favorite-list.php">お気に入り一覧に戻る</a>';
+    echo '<p class="message"><a href="favorite-list.php?">お気に入り一覧に戻る</a></p>';
     echo '</div>';
     echo '</div><!-- /content_inner -->';
     echo '</div><!-- /content -->';
