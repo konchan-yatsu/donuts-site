@@ -302,7 +302,10 @@ main h1 {
   margin-bottom: 24px;
 }
 
-
+/* ハートの設定 */
+.favorite_icon {
+  width: 28px;
+}
 
 /* カートボタン作成・調整 */
 .ranking .ranking_item .btn_cart[type="submit"] {

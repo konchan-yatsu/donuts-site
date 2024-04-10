@@ -5,13 +5,11 @@
 <?php require 'includes/database.php'; ?>
 
 <?php
-// $id = $_REQUEST['id'];
-
 $sql = $pdo->prepare('select * from product where id=?');
 $sql->execute([$_REQUEST['id']]);
 foreach ($sql as $row) {
   echo '<main>';
-  echo '<p class="breadcrumb">&nbsp;<a href="index.php">TOP</a>&nbsp;&gt;&nbsp;商品一覧&nbsp;&gt;&nbsp;', $row['name'], '</p>';
+  echo '<p class="breadcrumb">&nbsp;<a href="index.php">TOP</a>&nbsp;&gt;&nbsp;<a href="product.php">商品一覧</a>&nbsp;&gt;&nbsp;', $row['name'], '</p>';
   echo '<hr>';
 
   if (isset($_SESSION['customer'])) {
@@ -37,7 +35,15 @@ foreach ($sql as $row) {
   echo '<div class="group_right">';
   echo '<p class="product_name">', $row['name'], '</p>';
   echo '<p class="product_info">', $row['description'], '</p>';
-  echo '<p class="price">税込&emsp;&yen;', number_format($row['price']), '&emsp;<button><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></button></p>';
+
+  $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
+  $favorite->execute([$_SESSION['customer']['id'], $_REQUEST['id']]);
+  if (empty($favorite->fetchAll())) {
+    echo '<p class="price">税込&emsp;&yen;', number_format($row['price']), '&emsp;<button><a href="favorite-insert.php?id=', $_REQUEST['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></button></p>';
+  } else {
+    echo '<p class="price">税込&emsp;&yen;', number_format($row['price']), '&emsp;<button><a href="favorite-insert.php?id=', $_REQUEST['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></button></p>';
+  }
+
   echo '<form action="cart-input.php"  method="post">';
   echo '<input type="hidden" name="id" value ="', $row['id'], '" >';
   echo '<input class="product_count" type="number" min="0" max="99" name="count"  required>';

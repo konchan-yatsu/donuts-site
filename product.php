@@ -1,5 +1,5 @@
 <?php require 'includes/header.php'; ?>
-
+<?php require 'includes/database.php'; ?>
 
 
 <!DOCTYPE html>
@@ -78,10 +78,18 @@
     <p>
       <a href="detail-1.php?id={$row['id']}">税込&nbsp;￥{$row['price']}</a>
     </p>
+END;
 
-    <p class="inner_heart">
-      <a href="favorite-insert.php?id={$row['id']}"><img src="common/images/heart.svg" alt="heart"></a>
-    </p>
+          $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
+          $favorite->execute([$_SESSION['customer']['id'], $row['id']]);
+          if (empty($favorite->fetchAll())) {
+            echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></p>';
+          } else {
+            echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></p>';
+          }
+
+
+          echo <<< END
   </div>
 
   <form action="cart-input.php" method="post" class="btn_cart" >
@@ -126,7 +134,20 @@ END;
 <p class="flex_name"><a href="detail-2.php?id={$row['id']}">{$row['name']}</a></p>
 <div class="inner_flex">
 <p><a href="detail-2.php?id={$row['id']}">税込&nbsp;￥{$row['price']}</a></p>
-<p class="inner_heart"><img src="common/images/heart.svg" alt="heart"></p>
+
+END;
+
+          $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
+          $favorite->execute([$_SESSION['customer']['id'], $row['id']]);
+          if (empty($favorite->fetchAll())) {
+            echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></p>';
+          } else {
+            echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></p>';
+          }
+
+
+          echo <<< END
+
 </div>
 <form action="cart-input.php" method="post" class="btn_cart" >
 <input type="hidden" name="id" value ="{$row['id']}">
