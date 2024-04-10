@@ -24,79 +24,78 @@
 
 
 
-<main>
+  <main>
 
-<ul>
-<li><a href="index.php">top</a></li>
-<li>></li>
-<li>カート</li>
-</ul>
+    <ul>
+      <li><a href="index.php">top</a></li>
+      <li>></li>
+      <li>カート</li>
+    </ul>
 
-<hr>
+    <hr>
 
-<?php
-if (isset($_SESSION['customer'])) {
-// ログインしている
+    <?php
+    if (isset($_SESSION['customer'])) {
+      // ログインしている
 
-echo '<p class="id_name_no_cart">ようこそ　',$_SESSION['customer']['name'],'様</p> ';
+      echo '<p class="id_name_no_cart">ようこそ　', $_SESSION['customer']['name'], '様</p> ';
+    } else {
+      // ログアウトしている
+      echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
+    }
 
-}else{
-  // ログアウトしている
-echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
-}
-
-echo '<hr>';
-
+    echo '<hr>';
 
 
 
-  $id = $_REQUEST['id'];
+
+    $id = $_REQUEST['id'];
 
 
-  // セッションにproductがセットされているか判定
-  if (!isset($_SESSION['product'])) {
-    // セットされていない場合
+    // セッションにproductがセットされているか判定
+    if (!isset($_SESSION['product'])) {
+      // セットされていない場合
 
-    $_REQUEST['product'] = [];
-  }
+      $_REQUEST['product'] = [];
+    }
 
-  // 初期個数設定
-  $count = 0;
+    // 初期個数設定
+    $count = 0;
 
-  // データベースとidが同じ商品がセッションのproductに入っているか確認
-  if (isset($_SESSION['product'][$id])) {
-    // 同じidの商品が入っている場合
+    // データベースとidが同じ商品がセッションのproductに入っているか確認
+    if (isset($_SESSION['product'][$id])) {
+      // 同じidの商品が入っている場合
 
-    // セッションのproduct内　idとリンクする個数のデータを$countに登録
-    $count = $_SESSION['product'][$id]['count'];
-  }
+      // セッションのproduct内　idとリンクする個数のデータを$countに登録
+      $count = $_SESSION['product'][$id]['count'];
+    }
 
-  // セッションのproductにカートにつかする情報を登録
-  $_SESSION['product'][$id] = ['count' => $count + $_REQUEST['count']];
+    // セッションのproductにカートにつかする情報を登録
+    $_SESSION['product'][$id] = ['count' => $count + $_REQUEST['count']];
 
-  require 'includes/database.php';
+    require 'includes/database.php';
 
-  $sql = $pdo->prepare('select * from product where id=?');
-  $sql->execute([$_REQUEST['id']]);
+    $sql = $pdo->prepare('select * from product where id=?');
+    $sql->execute([$_REQUEST['id']]);
 
-  foreach ($sql as $cart) {
+    foreach ($sql as $cart) {
 
-    $_SESSION['product'][$id] = [
-      'name' => $cart['name'],
-      'price' => $cart['price'],
-      'count' => $count+$_REQUEST['count']
-    ];
-  }
+      $_SESSION['product'][$id] = [
+        'name' => $cart['name'],
+        'price' => $cart['price'],
+        'count' => $count + $_REQUEST['count']
+      ];
+    }
 
-  echo '<p class="id_name_no_cart">カートに追加しました。</p>';
-
-
-  require 'cart.php';
-  echo '</main>';
+    echo '<p class="id_name_no_cart">カートに追加しました。</p>';
 
 
-  // var_dump ($_REQUEST['id']);
-  ?>
+    require 'cart.php';
+    echo '</main>';
+
+
+    // var_dump ($_REQUEST['id']);
+    ?>
 
 
 

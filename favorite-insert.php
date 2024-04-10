@@ -1,10 +1,10 @@
 <?php require 'includes/header.php'; ?>
 <?php require 'includes/database.php'; ?>
 
-<?php
-$favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? and product_id=?');
-$favorite->execute([$_SESSION['customer']['id'], $_REQUEST['id']]);
-?>
+<!-- <?php
+      $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? and product_id=?');
+      $favorite->execute([$_SESSION['customer']['id'], $_REQUEST['id']]);
+      ?> -->
 
 
 <link rel="stylesheet" href="common/css/reset.css">
@@ -21,12 +21,14 @@ $favorite->execute([$_SESSION['customer']['id'], $_REQUEST['id']]);
     if (isset($_SESSION['customer'])) {
       echo '<p class="user_name">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p>';
       echo '<hr>';
+      $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? and product_id=?');
+      $favorite->execute([$_SESSION['customer']['id'], $_REQUEST['id']]);
       if (!empty($favorite->fetchAll())) {
         echo '<div class="content">';
         echo '<h1>登録済み</h1>';
-        echo '<div class="content_inner textalign_center">';
+        echo '<div class="content_inner content_flame textalign_center">';
         echo '<p>既にお気に入りに登録済です。</p>';
-        echo '<p><a href="favorite-list.php?id=', $_REQUEST['id'], '">お気に入り一覧を見る</a></p>';
+        echo '<p class="message"><a href="favorite-list.php?id=', $_REQUEST['id'], '">お気に入り一覧を見る</a></p>';
         echo '</div><!-- /content_inner -->';
         echo '<div class="textalign_right">';
         echo '<button onclick="goBack()"><span class="memo" >前のページに戻る<span></button>';
@@ -37,9 +39,9 @@ $favorite->execute([$_SESSION['customer']['id'], $_REQUEST['id']]);
         $sql->execute([$_SESSION['customer']['id'], $_REQUEST['id']]);
         echo '<div class="content">';
         echo '<h1>登録成功</h1>';
-        echo '<div class="content_inner textalign_center">';
+        echo '<div class="content_inner content_flame textalign_center">';
         echo '<p>お気に入りに商品を追加しました。</p>';
-        echo '<a href="favorite-list.php?id=', $_REQUEST['id'], '">お気に入り一覧を見る</a>';
+        echo '<p class="message"><a href="favorite-list.php?id=', $_REQUEST['id'], '">お気に入り一覧を見る</a></p>';
         echo '</div><!-- /content_inner -->';
         echo '<div class="textalign_right">';
         echo '<button onclick="goBack()"><span class="memo" >前のページに戻る<span></button>';
@@ -49,8 +51,13 @@ $favorite->execute([$_SESSION['customer']['id'], $_REQUEST['id']]);
     } else {
       echo '<p class="user_name">ようこそ&emsp;ゲスト様</p>';
       echo '<hr>';
-      echo '<p>お気に入りに商品を追加するには、ログインしてください。</p>';
-      echo '<a href="login-input.php">ログインページへ</a>';
+      echo '<div class="content">';
+      echo '<h1>ご案内</h1>';
+      echo '<div class="content_inner content_flame textalign_center">';
+      echo '<p>お気に入りに商品を追加するには<br>ログインしてください。</p>';
+      echo '<p class="message"><a href="login-input.php">ログインページへ</a></p>';
+      echo '</div><!-- /content_inner -->';
+      echo '<div class="content">';
     }
     ?>
   </main>
