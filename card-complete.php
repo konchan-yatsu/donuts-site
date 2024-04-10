@@ -20,35 +20,36 @@
     <?php
 
     // ログインの確認し、カード情報の登録
-  if(isset($_SESSION['customer'])){
+    if (isset($_SESSION['customer'])) {
       require 'includes/database.php';
       $sql = $pdo->prepare('insert into card values(?,?,?,?,?,?,?)');
       $sql->execute([$_SESSION['customer']['id'], $_REQUEST['card_name'], $_REQUEST['card_type'], $_REQUEST['card_no'], (int)$_REQUEST['card_month'], (int)$_REQUEST['card_year'], (int)$_REQUEST['card_security_code']]);
-    
-    echo <<< END
-    <p class="img_logo">
-      <img src="common/images/logo_sp.png" alt="ロゴ">
-    </p>
-    <h1>カード情報登録完了</h1>
-    <div class="content">
-      <div class="content_inner complete_content_inner textalign_center">
-        <p class="message">クレジットカード情報を登録しました。</p>
-        <div class="textalign_center">
-          <a class="memo" href="purchase-confirm.php">購入手続きを続ける</a>
-        </div>
-      </div><!-- /content_inner -->
-    </div><!-- /content -->
-END;
-  
-}
 
-//検証用
-// var_dump($_SESSION['customer']['id']);
-//     var_dump((int)$_REQUEST['card_month']);
-//     var_dump((int)$_REQUEST['card_year']);
-//     var_dump((int)$_REQUEST['card_security_code']);
-//     var_dump($_REQUEST['card_no']);
+      echo <<< END
+      <p class="img_logo">
+        <img src="common/images/logo_sp.png" alt="ロゴ">
+      </p>
+      <h1>カード情報登録完了</h1>
+      <div class="content">
+        <div class="content_inner complete_content_inner textalign_center">
+          <p class="message">クレジットカード情報を登録しました。</p>
+          <div class="textalign_center">
+            <a class="memo" href="purchase-confirm.php">購入手続きを続ける</a>
+          </div>
+        </div><!-- /content_inner -->
+      </div><!-- /content -->
+    END;
+    } elseif(empty($sql)) {
+      echo  '失敗しました';
+    }
+    //検証用
+    // var_dump($_SESSION['customer']['id']);
+    //     var_dump((int)$_REQUEST['card_month']);
+    //     var_dump((int)$_REQUEST['card_year']);
+    //     var_dump((int)$_REQUEST['card_security_code']);
+    //     var_dump($_REQUEST['card_no']);
     ?>
+
 
   </main>
 </body>
