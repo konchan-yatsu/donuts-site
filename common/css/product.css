@@ -58,7 +58,7 @@ main p.id_name_no_cart {
   margin: 20px 0;
 }
 
-h1 {
+main h1 {
   font-size: 20px;
   text-align: center;
   text-decoration: underline 4px #FFD233;
@@ -83,6 +83,11 @@ h1 {
 
 .inner_heart {
   margin-left: auto;
+}
+
+/* ハートの設定 */
+.inner_heart .favorite_icon {
+  width: 28px;
 }
 
 @media screen and (min-width: 767px) {

@@ -30,9 +30,9 @@
         echo '<p>既にお気に入りに登録済です。</p>';
         echo '<p class="message"><a href="favorite-list.php?id=', $_REQUEST['id'], '">お気に入り一覧を見る</a></p>';
         echo '</div><!-- /content_inner -->';
-        echo '<div class="textalign_right">';
+        // echo '<div class="textalign_right">';
         echo '<button onclick="goBack()"><span class="memo" >前のページに戻る<span></button>';
-        echo '</div>';
+        // echo '</div>';
         echo '<div class="content">';
       } else {
         $sql = $pdo->prepare('INSERT INTO favorite VALUES(?,?)');
@@ -43,9 +43,9 @@
         echo '<p>お気に入りに商品を追加しました。</p>';
         echo '<p class="message"><a href="favorite-list.php?id=', $_REQUEST['id'], '">お気に入り一覧を見る</a></p>';
         echo '</div><!-- /content_inner -->';
-        echo '<div class="textalign_right">';
+        // echo '<div class="textalign_right">';
         echo '<button onclick="goBack()"><span class="memo" >前のページに戻る<span></button>';
-        echo '</div>';
+        // echo '</div>';
         echo '<div class="content">';
       }
     } else {

@@ -10,6 +10,8 @@
   <main>
 
     <?php
+    echo '<p class="breadcrumb">&nbsp;<a href="index.php">TOP</a>&nbsp;&gt;&nbsp;<a href="product.php">商品一覧</a>&nbsp;&gt;&nbsp;お気に入り一覧</p>';
+    echo '<hr>';
     if (isset($_SESSION['customer'])) {
       echo '<p class="user_name">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p>';
       echo '<hr>';
@@ -19,6 +21,7 @@
       $favorite->execute([$_SESSION['customer']['id']]);
 
       if (!empty($favorite->fetchAll())) {
+
         $favorite = $pdo->prepare('SELECT * FROM favorite ,product WHERE customer_id=? AND product_id=id');
         $favorite->execute([$_SESSION['customer']['id']]);
         foreach ($favorite as $row) {
@@ -27,7 +30,7 @@
           $price = number_format($row['price']);
 
           echo '<div class="content">';
-          echo '<div class="content_inner  content_flex">';
+          echo '<div class="content_inner content_flex">';
           echo '<div class="content_1">';
           echo '<a  href="detail-', $row['category'], '.php?id=', $id, '" class=img_link><img class="product_photo sp_only" src="common/images/', $id, '_sp.png" alt="商品画像"></a>';
           echo '<a  href="detail-', $row['category'], '.php?id=', $id, '" class=img_link><img class="product_photo pc_only" src="common/images/', $id, '_pc.png" alt="商品画像"></a>';

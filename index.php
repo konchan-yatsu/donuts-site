@@ -95,14 +95,25 @@ if (isset($_SESSION['customer'])) {
           echo <<< END
       <div class="ranking_item slideIn">
       <div class="ranking_wrap">
-        <div class="ranking_h5">
-        <h5>{$num}</h5>
+      <div class="ranking_h5">
+      <h5>{$num}</h5>
         </div>
         <p><a  href="detail-{$category}.php?id={$id}"><img class="product_photo" src="common/images/{$i}" alt="商品画像"></a></p>
         <a  href="detail-{$category}.php?id={$id}"><p class="ranking_text">{$n}</p></a>
         <div class="inner_flex">
         <a  href="detail-{$category}.php?id={$id}"><p class="ranking_text price">{$p}</p></a>
-        <p><a  href="detail-{$category}.php?id={$id}"><a href="favorite-insert.php?id={$id}"><img src="common/images/heart.svg" alt="heart"></a></a></p>
+END;
+
+          $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
+          $favorite->execute([$_SESSION['customer']['id'], $id]);
+          if (empty($favorite->fetchAll())) {
+            echo '<p><a  href="detail-', $category, '.php?id=', $id, '"><a href="favorite-insert.php?id=', $id, '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></a></p>';
+          } else {
+            echo '<p><a  href="detail-', $category, '.php?id=', $id, '"><a href="favorite-insert.php?id=', $id, '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></a></p>';
+          }
+
+          echo <<<END
+
         </div>
         <form action="cart-input.php">
         <input type="hidden" name="id" value="{$id}">
