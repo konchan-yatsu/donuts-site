@@ -62,73 +62,106 @@
 <p class="input_result">{$card_type}</p>
 END;
 
-
     echo '<p>カード番号</p>';
     echo '<p class="input_result">', $card_no, '</p>';
-    //jcb,visa,masterカード番号の判別
-    // if (!preg_match('/^(?:2131|1800|35[0-9]{3})[0-9]{11}|4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}\z/', $card_no)) {
-    //   echo $card_no . '間違っています';
-    // } else {
-    //   echo $card_no . '正しいカード番号です';
-    // }
-    if (preg_match('/^[0-9]{16}$/', $card_no)) {
+
+    if (preg_match('/^[0-9]{14,16}$/', $card_no)) {
       echo 'カード番号を確認しました。';
     } else {
-      echo 'は適切なカード番号ではありません。';
+      echo '適切なカード番号ではありません。';
     }
 
     //日付の判別
     echo '<p>有効期限</p>';
     echo '<span class="input_result">', $card_month, '/', $card_year, '</span>';
-    // if (preg_match('/^[0-9]{2}$/', $card_month)) {
-    //   echo '登録可能';
-    // } else {
-    //   echo '登録不可';
-    
-    if (preg_match('/^[0-9]{2}$/', $card_month)&&preg_match('/^[0-9]{2}$/',$card_year)) {
-      echo '登録可能';
-    } else {
-      echo '登録不可';
-    }
 
-    var_dump($card_month, $card_year);
-    // if (preg_match('/^([0-9]{2}[0-9]{2})\z/', $card_month, $card_year)) {
-    //   echo '有効期限内です';
-    // } else {
+    if (preg_match('/^[0-9]{2}$/', $card_month)) {
+      $month = $card_month;
+      $year = $card_year;
+      if (checkdate($card_month, 1, $card_year) === true) {
+        echo '正しい日付です';
+        // echo '登録可能';
+        $past = mktime(0, 0, 0, $month, 1, $year);
+        $today = mktime(0, 0, 0, date('m'), 1, date('Y'));
+        if ($past < $today) {
+          echo '過去の日付を使用しています';
+        }
+        $future = mktime(0, 0, 0, date('m'), 1, date('Y') + 10);
+        if ($past >  $future) {
+          echo '有効期限外です';
+        }else{
 
-    //   checkdate(int $month,int $year)
-    // $expiration = mktime(0, 0, 0, $month, 1, $year);
-    // //過去
-    // $today = mktime(0, 0, 0, date('m'), 1, date('Y'));
-    // if ($expiration < $today) {
-    // }
-    // //未来
-    // $future = mktime(0, 0, 0, date('m'), 1, date('Y') + 10);
-    // if ($expiration > $future) {
+        }
+      }else{
+        
+      }
+    }echo'登録可能です';
 
+    // var_dump($card_month, $card_year);z
+    // && preg_match('/^[0-9]{2}$/', $card_year)
     echo '<p>セキュリティコード</p>';
     echo '<p class="input_result">', $card_security_code, '</p>';
-    if (preg_match('/^[0-9]{4}$/', $card_security_code)) {
+    if (preg_match('/^[0-9]{3,4}$/', $card_security_code)) {
       echo '正しいセキュリティコードです';
     } else {
-      echo 'もう一度入力してください';
+      echo '誤ったセキュリティコードです';
     }
+    // var_dump($card_security_code);
 
-    echo <<<END
-<form action="card-complete.php" method="post">
-<input type="hidden" name="card_name" value="{$card_name}">
-<input type="hidden" name="card_type" value="{$card_type}">
-<input type="hidden" name="card_no" value="{$card_no}">
-<input type="hidden" name="card_month" value="{$card_month}">
-<input type="hidden" name="card_year" value="{$card_year}">
-<input type="hidden" name="card_security_code" value="{$card_security_code}">
-<input class="login_btn" type="submit" value="この内容で登録する">
-</form>
-</div>
-END;
+
+    //出力時の登録可能・不可能時での動作ーーーーーーー↓ーーーーー
+
+    $pattern = '/^[0-9]{14,16}|[0-9]{2}|[0-9]{2}|[0-9]{3,4}$/';
+    // $input = [$card_no, $card_month, $card_year, $card_year];
+
+
+
+    if (preg_match('/[0-9]{14,16}/', $card_no)) {
+      // echo 'AAAAAAAAAAAAAAAAAAAAAAAA';
+      if (preg_match('/[0-9]{2}/', $card_month)) {
+        // echo 'BBBBBBBBBBBBBBBBBBBBBBBBB';
+
+        if (preg_match('/[0-9]{2}/', $card_year)) {
+          // echo 'CCCCCCCCCCCCCCCCCCCCCC';
+          if (preg_match('/[0-9]{3,4}/', $card_security_code)) {
+            echo '正解だよおおおおおおおおおお';
+          } else {
+            echo '戻れええええええええええええ';
+            //   echo <<< END
+            //   <form action="card-input.php" method="post">
+            //   <label>クレジットカード登録できません。やり直して下さい。</label>
+            //         <input type="submit" value="戻る" >
+            //   </form>
+            // END;
+          }
+        } else {
+          echo '年が間違っています';
+        }
+      } else {
+        echo '月が間違っています';
+      }
+    } else {
+      echo 'カード番号が間違っています';
+    }
     ?>
-
-
+    <!-- echo <<< END
+      <form action="card-input.php" method="post">
+      <label>クレジットカード登録できません。やり直して下さい。</label>
+            <input type="submit" value="戻る" >
+      </form>
+    END;
+    echo <<<END
+      <form action="card-complete.php" method="post">
+      <input type="hidden" name="card_name" value="{$card_name}">
+      <input type="hidden" name="card_type" value="{$card_type}">
+      <input type="hidden" name="card_no" value="{$card_no}">
+      <input type="hidden" name="card_month" value="{$card_month}">
+      <input type="hidden" name="card_year" value="{$card_year}">
+      <input type="hidden" name="card_security_code" value="{$card_security_code}">
+      <input class="login_btn" type="submit" value="この内容で登録する">
+      </form>
+      </div>
+      END; -->
   </main>
 </body>
 
