@@ -242,7 +242,11 @@ header div#header_search {
     width: 100%;
 }
 
-header div#header_search ul {
+header div#header_search form {
+    height: 100%;
+}
+
+header div#header_search form ul {
     width: 100%;
     list-style: none;
 
@@ -258,12 +262,12 @@ header div#header_search ul {
     padding-bottom: 12px;
 }
 
-header div#header_search ul li:first-of-type {
+header div#header_search form ul li:first-of-type {
     margin-left: 12px;
 
 }
 
-header div#header_search ul li button {
+header div#header_search form ul li button {
     width: 100%;
     padding: 7.5px 8px;
     background-color: #D9D9D9;
