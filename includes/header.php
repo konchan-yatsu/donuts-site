@@ -54,6 +54,9 @@
                 <li><a href="product.php">商品一覧</a></li>
 
 
+                <li><a href="favorite-list.php">お気に入り商品一覧</a></li>
+
+
                 <li><a href="#">よくある質問</a></li>
 
 
@@ -70,7 +73,7 @@
         </div>
 
 
-        
+
         <?php
         if (isset($_SESSION['customer'])) {
           // ログインしてる
@@ -90,15 +93,15 @@
       <div id="header_search">
 
         <form action="search.php" method="post">
-        <ul>
-          <li>
-            <button type="submit"><img src="common/images/icon_search_sp.svg" alt="🔍"></button>
-          </li>
-          <li id=text>
-            <input type="text" name="keyword">
-          </li>
+          <ul>
+            <li>
+              <button type="submit"><img src="common/images/icon_search_sp.svg" alt="🔍"></button>
+            </li>
+            <li id=text>
+              <input type="text" name="keyword">
+            </li>
 
-        </ul>
+          </ul>
         </form>
       </div>
 
