@@ -73,11 +73,26 @@
         </div>
 
 
+      <?php
 
-        <?php
+        if (isset($_SESSION['customer'])) {
+          // ログインしている
+
+
+          echo '<a class="heart" href="favorite-list.php"><img src="common/images/heart.svg" width=4% alt="お気に入りアイコン"></a>';
+
+          // お気に入りに商品がある場合♡表示
+        }
+
+
+      ?>
+
+
+      <?php
         if (isset($_SESSION['customer'])) {
           // ログインしてる
           echo '<a class="login" href="logout-input.php"><img src="common/images/icon_logout_sp.svg" alt="ログアウトアイコン"></a>';
+
         } else {
           // ログインしてない
           echo '<a class="login" href="login-input.php"><img src="common/images/icon_login_sp.svg" alt="ログインアイコン"></a>';
