@@ -240,7 +240,6 @@ body {
 }
 
 main h1 {
-  display: inline-block;
   font-size: 20px;
   text-align: center;
   margin-top: 32px;
@@ -248,7 +247,9 @@ main h1 {
   margin-left: auto;
   margin-right: auto;
   padding: 0 6px 8px 6px;
-  border-bottom: 4px solid #FFD233;
+
+  text-decoration: underline 4px #FFD233;
+  text-underline-offset: 8px;
 }
 
 /* ランキング数字 */
@@ -505,12 +506,13 @@ main h1 {
   }
 
   /* 人気ランキング 見出し*/
-  h1 {
+  main h1 {
     font-size: 32px;
     margin-top: 80px;
     margin-bottom: 80px;
     padding: 0 8px 12px 8px;
-    border-bottom: 8px solid #FFD233;
+    text-decoration: underline 4px #FFD233;
+    text-underline-offset: 16px;
   }
 
   /* ランキング数字 */
