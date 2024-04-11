@@ -14,10 +14,6 @@ body {
   font-style: normal;
 }
 
-main .content {
-  padding-top: 32px;
-}
-
 main ul {
   display: flex;
   margin: 12px 0 12px 20px;
@@ -63,6 +59,7 @@ main p.id_name_no_cart {
 }
 
 main h1 {
+  padding-top: 32px;
   font-size: 20px;
   text-align: center;
   text-decoration: underline 4px #FFD233;
@@ -116,9 +113,7 @@ main h1 {
     font-size: 32px;
     text-decoration: underline 4px #FFD233;
     text-underline-offset: 16px;
-    margin-top: 32px;
     padding-top: 48px;
-    margin-bottom: 48px;
   }
 
   .flex_item {

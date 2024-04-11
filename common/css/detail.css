@@ -72,6 +72,10 @@ main img {
   width: 20px;
 }
 
+.form_inner {
+  position: relative;
+}
+
 /* 個数 */
 .product_count {
   width: 56px;
@@ -81,10 +85,15 @@ main img {
   text-align: center;
 }
 
+
+
 .bottom_align {
   font-weight: 500;
   line-height: 2;
   vertical-align: text-bottom;
+
+  position: absolute;
+  bottom: -7;
 }
 
 /* カートに入れるボタン */
@@ -97,7 +106,7 @@ main img {
   background-color: #7F5539;
   /* margin-top: 20px; */
   /* margin-bottom: 80px; */
-  margin-left: 12px;
+  margin-left: 24px;
 }
 
 @media screen and (min-width: 768px) {
@@ -186,6 +195,8 @@ main img {
     line-height: 2;
     vertical-align: text-bottom;
     transform: translate(0, 5px);
+
+    bottom: -3;
   }
 
   /* カートに入れるボタン */
@@ -195,7 +206,7 @@ main img {
     height: min(4.3333vw, 52px);
     /* margin-top: 20px; */
     /* margin-bottom: 80px; */
-    margin-left: 20px;
+    margin-left: min(2.6666vw, 32px);
   }
 }
 
