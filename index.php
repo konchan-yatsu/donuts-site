@@ -103,13 +103,16 @@ if (isset($_SESSION['customer'])) {
         <div class="inner_flex">
         <a  href="detail-{$category}.php?id={$id}"><p class="ranking_text price">{$p}</p></a>
 END;
-
-          $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
-          $favorite->execute([$_SESSION['customer']['id'], $id]);
-          if (empty($favorite->fetchAll())) {
-            echo '<p><a  href="detail-', $category, '.php?id=', $id, '"><a href="favorite-insert.php?id=', $id, '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></a></p>';
+          if (isset($_SESSION['customer'])) {
+            $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
+            $favorite->execute([$_SESSION['customer']['id'], $id]);
+            if (empty($favorite->fetchAll())) {
+              echo '<p><a  href="detail-', $category, '.php?id=', $id, '"><a href="favorite-insert.php?id=', $id, '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></a></p>';
+            } else {
+              echo '<p><a  href="detail-', $category, '.php?id=', $id, '"><a href="favorite-insert.php?id=', $id, '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></a></p>';
+            }
           } else {
-            echo '<p><a  href="detail-', $category, '.php?id=', $id, '"><a href="favorite-insert.php?id=', $id, '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></a></p>';
+            echo '<p><a  href="detail-', $category, '.php?id=', $id, '"><a href="favorite-insert.php?id=', $id, '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></a></p>';
           }
 
           echo <<<END
