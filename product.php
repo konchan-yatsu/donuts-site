@@ -80,12 +80,16 @@
     </p>
 END;
 
-          $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
-          $favorite->execute([$_SESSION['customer']['id'], $row['id']]);
-          if (empty($favorite->fetchAll())) {
-            echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></p>';
+          if (isset($_SESSION['customer'])) {
+            $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
+            $favorite->execute([$_SESSION['customer']['id'], $row['id']]);
+            if (empty($favorite->fetchAll())) {
+              echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></p>';
+            } else {
+              echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></p>';
+            }
           } else {
-            echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></p>';
+            echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></p>';
           }
 
 
