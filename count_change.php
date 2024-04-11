@@ -54,10 +54,7 @@ $id=$_REQUEST['id'];
 
     $count = $_SESSION['product'][$id]['count'];
 
-   
-    $_SESSION['product'][$id] = [
-      'count' => $count+$_REQUEST['add']
-    ];
+
 
 
 
