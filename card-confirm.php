@@ -58,16 +58,16 @@ END;
 
       if (checkdate($m, 1, $y)) {
         if ($inputdate > $currenttime) {
-          echo '正しい日付です';
+          echo '<p>正しい日付です</p>';
         } else {
-          echo '古い日付です';
+          echo '<p>古い日付です</p>';
         }
         echo $m, '/', $y;
       } else {
-        echo $month, '月', $year, '年', 'は正しい日付ではありません';
+        echo '<p>正しい日付ではありません</p>';
       }
     } else {
-      echo '2桁の正しい年月をご入力ください';
+      echo '<p>2桁の正しい年月をご入力ください</p>';
     }
 
 
@@ -75,9 +75,9 @@ END;
     echo '<p>セキュリティコード</p>';
     echo '<p class="input_result">', $security, '</p>';
     if (preg_match('/^[0-9]{3}$/', $security)) {
-      echo '正しいセキュリティコードです';
+      echo '<p>正しいセキュリティコードです</p>';
     } else {
-      echo '正しくありません。';
+      echo '<p>正しくありません。</p>';
     }
 
 

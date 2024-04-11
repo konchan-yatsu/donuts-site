@@ -22,10 +22,16 @@
     // ログインの確認し、カード情報の登録
     if (isset($_SESSION['customer'])) {
       require 'includes/database.php';
-      $sql = $pdo->prepare('insert into card values(?,?,?,?,?,?,?)');
-      $sql->execute([$_SESSION['customer']['id'], $_REQUEST['card_name'], $_REQUEST['card_type'], $_REQUEST['card_no'], (int)$_REQUEST['card_month'], (int)$_REQUEST['card_year'], (int)$_REQUEST['card_security_code']]);
+      $sql = $pdo->prepare('select * from card where id=?');
+      $sql->execute([$_SESSION['customer']['id']]);
 
-      echo <<< END
+      if (empty($sql->fetchAll())) {
+
+
+        $sql = $pdo->prepare('insert into card values(?,?,?,?,?,?,?)');
+        $sql->execute([$_SESSION['customer']['id'], $_REQUEST['card_name'], $_REQUEST['card_type'], $_REQUEST['card_no'], (int)$_REQUEST['card_month'], (int)$_REQUEST['card_year'], (int)$_REQUEST['card_security_code']]);
+
+        echo <<< END
       <p class="img_logo">
         <img src="common/images/logo_sp.png" alt="ロゴ">
       </p>
@@ -39,8 +45,11 @@
         </div><!-- /content_inner -->
       </div><!-- /content -->
     END;
+      } else {
+        echo  '<p>既に登録されています。</p>';
+      }
     } else {
-      echo  'ログインしてください';
+      echo  '<p>ログインしてください</p>';
     }
     //検証用
     // var_dump($_SESSION['customer']['id']);
