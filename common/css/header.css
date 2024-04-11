@@ -78,7 +78,6 @@ nav input.menu_botan {
 }
 
 nav label.menu_icon {
-    width: 100%;
 
     position: absolute;
     left: 12.5px;
@@ -195,6 +194,7 @@ nav input.menu_botan:checked~ul.nav_menu li img {
 
 /* メニューのバツ表示 */
 nav input.menu_botan:checked~label.menu_icon {
+    width: 100%;
     position: absolute;
     left: 0;
     top: 0px;
@@ -360,8 +360,6 @@ header div#header_search form ul li input {
     }
 
     nav label.menu_icon {
-        width: 44%;
-        /* 600/1366=0.439 */
         margin: 0 auto 0 0;
 
 
@@ -461,6 +459,8 @@ header div#header_search form ul li input {
 
     /* メニューのバツ表示 */
     nav input.menu_botan:checked~label.menu_icon {
+        width: 44%;
+        /* 600/1366=0.439 */
         left: 0;
     }
 
