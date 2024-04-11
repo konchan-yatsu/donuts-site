@@ -14,6 +14,10 @@ body {
   font-style: normal;
 }
 
+main .content {
+  padding-top: 32px;
+}
+
 main ul {
   display: flex;
   margin: 12px 0 12px 20px;
@@ -37,7 +41,7 @@ main p.id_name_no_cart {
 /*  アイテムサイズ指定*/
 .flex_item {
   flex-basis: 42%;
-  margin-top: 80px;
+  /* margin-bottom: 80px; */
 }
 
 /* 画像size調整 */
@@ -62,9 +66,8 @@ main h1 {
   font-size: 20px;
   text-align: center;
   text-decoration: underline 4px #FFD233;
-  margin-top: 32px;
-  padding-top: 48px;
-  margin-bottom: 48px;
+  text-underline-offset: 8px;
+  margin-bottom: 40px;
 }
 
 /* カートボタン作成・調整 */
@@ -87,7 +90,7 @@ main h1 {
 
 /* ハートの設定 */
 .inner_heart .favorite_icon {
-  width: 28px;
+  width: 20px;
 }
 
 @media screen and (min-width: 767px) {
@@ -109,9 +112,25 @@ main h1 {
     margin: 12px 0 12px 103px;
   }
 
+  main h1 {
+    font-size: 32px;
+    text-decoration: underline 4px #FFD233;
+    text-underline-offset: 16px;
+    margin-top: 32px;
+    padding-top: 48px;
+    margin-bottom: 48px;
+  }
 
   .flex_item {
     flex-basis: 27%;
+  }
+
+  .flex_name a {
+    font-size: 24px;
+  }
+
+  .inner_flex p {
+    font-size: 24px;
   }
 
 
@@ -119,6 +138,13 @@ main h1 {
     margin-bottom: 90px;
   }
 
+  input[type="submit"] {
+    font-size: 20px;
+  }
 
+  /* ハートの設定 */
+  .inner_heart .favorite_icon {
+    width: 28px;
+  }
 
 }

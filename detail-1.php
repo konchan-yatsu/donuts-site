@@ -14,11 +14,11 @@ foreach ($sql as $row) {
 
   if (isset($_SESSION['customer'])) {
     // ログインしてる
-    echo '<p class="user_name">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p>';
+    echo '<p class="user_name">ようこそ&nbsp;', $_SESSION['customer']['name'], '様</p>';
     echo '<hr>';
   } else {
     // ログインしてない
-    echo '<p class="user_name">ようこそ&emsp;ゲスト様</p>';
+    echo '<p class="user_name">ようこそ&nbsp;ゲスト様</p>';
     echo '<hr>';
   }
   echo '<div class="content">';
@@ -40,12 +40,12 @@ foreach ($sql as $row) {
     $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
     $favorite->execute([$_SESSION['customer']['id'], $_REQUEST['id']]);
     if (empty($favorite->fetchAll())) {
-      echo '<p class="price">税込&emsp;&yen;', number_format($row['price']), '&emsp;<button><a href="favorite-insert.php?id=', $_REQUEST['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></button></p>';
+      echo '<p class="price">税込&nbsp;&yen;', number_format($row['price']), '&nbsp;<button><a href="favorite-insert.php?id=', $_REQUEST['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></button></p>';
     } else {
-      echo '<p class="price">税込&emsp;&yen;', number_format($row['price']), '&emsp;<button><a href="favorite-insert.php?id=', $_REQUEST['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></button></p>';
+      echo '<p class="price">税込&nbsp;&yen;', number_format($row['price']), '&nbsp;<button><a href="favorite-insert.php?id=', $_REQUEST['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></button></p>';
     }
   } else {
-    echo '<p class="price">税込&emsp;&yen;', number_format($row['price']), '&emsp;<button><a href="favorite-insert.php?id=', $_REQUEST['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></button></p>';
+    echo '<p class="price">税込&nbsp;&yen;', number_format($row['price']), '&nbsp;<button><a href="favorite-insert.php?id=', $_REQUEST['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></button></p>';
   }
 
   echo '<form action="cart-input.php"  method="post">';
