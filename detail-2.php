@@ -47,13 +47,14 @@ foreach ($sql as $row) {
   } else {
     echo '<p class="price">税込&emsp;&yen;', number_format($row['price']), '&emsp;<button><a href="favorite-insert.php?id=', $_REQUEST['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></button></p>';
   }
-
+  echo '<div class="form_inner">';
   echo '<form action="cart-input.php" method="post">';
   echo '<input class="product_count" type="number" min="0" max="99" name="count"  required>';
   echo '<input type="hidden" name="id" value ="', $row['id'], '" >';
   echo '<span class="bottom_align">個</span>';
   echo '<input class="cartin_btn" type="submit" value="カートに入れる ">';
   echo '</form>';
+  echo '</div><!-- /form_inner -->';
   echo '</div>';
   echo '</div><!-- /content -->';
   echo '</main>';

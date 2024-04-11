@@ -39,30 +39,30 @@
 
     ?>
     <hr>
-    <div class="content">
-      <h1>&emsp;商品一覧&emsp;</h1>
 
-      <!-- donuts単体グループの表示 -->
-      <div class="flex_content">
-        <?php require  'includes/database.php';
+    <h1>&emsp;商品一覧&emsp;</h1>
 
-        $img1 = ['goodslist_cont1_no1_pc.png', 'goodslist_cont1_no2_pc.png', 'goodslist_cont1_no3_pc.png', 'goodslist_cont1_no4_pc.png', 'goodslist_cont1_no5_pc.png', 'goodslist_cont1_no6_pc.png'];
+    <!-- donuts単体グループの表示 -->
+    <div class="flex_content">
+      <?php require  'includes/database.php';
 
-        $img2 = ['goodslist_cont2_no1_pc.png', 'goodslist_cont2_no2_pc.png', 'goodslist_cont2_no3_pc.png', 'goodslist_cont2_no4_pc.png', 'goodslist_cont2_no5_pc.png', 'goodslist_cont2_no6_pc.png'];
+      $img1 = ['goodslist_cont1_no1_pc.png', 'goodslist_cont1_no2_pc.png', 'goodslist_cont1_no3_pc.png', 'goodslist_cont1_no4_pc.png', 'goodslist_cont1_no5_pc.png', 'goodslist_cont1_no6_pc.png'];
 
-
-        for ($i = 1; $i < 7; $i++) {
-          // imgパス用の番号を配列用に調整
-          $imgId = $i - 1;
+      $img2 = ['goodslist_cont2_no1_pc.png', 'goodslist_cont2_no2_pc.png', 'goodslist_cont2_no3_pc.png', 'goodslist_cont2_no4_pc.png', 'goodslist_cont2_no5_pc.png', 'goodslist_cont2_no6_pc.png'];
 
 
-          $sql = $pdo->prepare('select * from product where id=?');
-          $sql->execute([$i]);
+      for ($i = 1; $i < 7; $i++) {
+        // imgパス用の番号を配列用に調整
+        $imgId = $i - 1;
+
+
+        $sql = $pdo->prepare('select * from product where id=?');
+        $sql->execute([$i]);
 
 
 
-          foreach ($sql as $row) {
-            echo <<<END
+        foreach ($sql as $row) {
+          echo <<<END
 
 <div class="flex_item slideIn">
 
@@ -74,26 +74,26 @@
     <a href="detail-1.php?id={$row['id']}">{$row['name']}</a>
   </p>
 END;
-            echo '<div class="inner_flex">';
-            echo '<p>';
-            echo '<a href="detail-1.php?id=', $row['id'], '">税込&ensp;&yen;', number_format($row['price']), '</a>';
-            echo '</p>';
+          echo '<div class="inner_flex">';
+          echo '<p>';
+          echo '<a href="detail-1.php?id=', $row['id'], '">税込&ensp;&yen;', number_format($row['price']), '</a>';
+          echo '</p>';
 
 
-            if (isset($_SESSION['customer'])) {
-              $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
-              $favorite->execute([$_SESSION['customer']['id'], $row['id']]);
-              if (empty($favorite->fetchAll())) {
-                echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></p>';
-              } else {
-                echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></p>';
-              }
-            } else {
+          if (isset($_SESSION['customer'])) {
+            $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
+            $favorite->execute([$_SESSION['customer']['id'], $row['id']]);
+            if (empty($favorite->fetchAll())) {
               echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></p>';
+            } else {
+              echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></p>';
             }
+          } else {
+            echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></p>';
+          }
 
 
-            echo <<< END
+          echo <<< END
   </div>
 
   <form action="cart-input.php" method="post" class="btn_cart" >
@@ -105,33 +105,33 @@ END;
 </div>
 
 END;
-          }
         }
-        ?>
-      </div>
+      }
+      ?>
+    </div>
 
-      <h1>バラエティセット</h1>
+    <h1>バラエティセット</h1>
 
-      <!-- donutsセットグループの表示 -->
-      <div class="flex_content2">
-        <?php require  'includes/database.php';
+    <!-- donutsセットグループの表示 -->
+    <div class="flex_content2">
+      <?php require  'includes/database.php';
 
-        $img1 = ['goodslist_cont1_no1_pc.png', 'goodslist_cont1_no2_pc.png', 'goodslist_cont1_no3_pc.png', 'goodslist_cont1_no4_pc.png', 'goodslist_cont1_no5_pc.png', 'goodslist_cont1_no6_pc.png'];
+      $img1 = ['goodslist_cont1_no1_pc.png', 'goodslist_cont1_no2_pc.png', 'goodslist_cont1_no3_pc.png', 'goodslist_cont1_no4_pc.png', 'goodslist_cont1_no5_pc.png', 'goodslist_cont1_no6_pc.png'];
 
-        $img2 = ['goodslist_cont2_no1_pc.png', 'goodslist_cont2_no2_pc.png', 'goodslist_cont2_no3_pc.png', 'goodslist_cont2_no4_pc.png', 'goodslist_cont2_no5_pc.png', 'goodslist_cont2_no6_pc.png'];
-
-
-        // 途中からの7番目から出力
-        for ($i = 7; $i < 13; $i++) {
-          // imgパス用の番号を配列用に調整
-          $imgId = $i - 7;
-
-          $sql = $pdo->prepare('select * from product where id=?');
-          $sql->execute([$i]);
+      $img2 = ['goodslist_cont2_no1_pc.png', 'goodslist_cont2_no2_pc.png', 'goodslist_cont2_no3_pc.png', 'goodslist_cont2_no4_pc.png', 'goodslist_cont2_no5_pc.png', 'goodslist_cont2_no6_pc.png'];
 
 
-          foreach ($sql as $row) {
-            echo <<<END
+      // 途中からの7番目から出力
+      for ($i = 7; $i < 13; $i++) {
+        // imgパス用の番号を配列用に調整
+        $imgId = $i - 7;
+
+        $sql = $pdo->prepare('select * from product where id=?');
+        $sql->execute([$i]);
+
+
+        foreach ($sql as $row) {
+          echo <<<END
 
 <div class="flex_item slideIn">
   <p><a href="detail-2.php?id={$row['id']}"><img src="common/images/{$img2[$imgId]}" alt="商品画像"></a></p>
@@ -139,23 +139,23 @@ END;
 <div class="inner_flex">
 END;
 
-            echo '<p><a href="detail-2.php?id=', $row['id'], '">税込&ensp;&yen;', number_format($row['price']), '</a></p>';
+          echo '<p><a href="detail-2.php?id=', $row['id'], '">税込&ensp;&yen;', number_format($row['price']), '</a></p>';
 
 
-            if (isset($_SESSION['customer'])) {
-              $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
-              $favorite->execute([$_SESSION['customer']['id'], $row['id']]);
-              if (empty($favorite->fetchAll())) {
-                echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></p>';
-              } else {
-                echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></p>';
-              }
-            } else {
+          if (isset($_SESSION['customer'])) {
+            $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
+            $favorite->execute([$_SESSION['customer']['id'], $row['id']]);
+            if (empty($favorite->fetchAll())) {
               echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></p>';
+            } else {
+              echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></p>';
             }
+          } else {
+            echo '<p class="inner_heart"><a href="favorite-insert.php?id=',  $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></p>';
+          }
 
 
-            echo <<< END
+          echo <<< END
 
 </div>
 <form action="cart-input.php" method="post" class="btn_cart" >
@@ -166,11 +166,10 @@ END;
 </div>
 
 END;
-          }
         }
-        ?>
-      </div>
-    </div><!-- /content -->
+      }
+      ?>
+    </div>
 
   </main>
   <script src="common/js/common.js"> </script>

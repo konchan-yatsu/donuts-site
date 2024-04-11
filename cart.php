@@ -24,14 +24,14 @@ if (!empty($_SESSION['product'])) {
         // var_dump($_SESSION['product']);
         // var_dump($_SESSION['product'][$id]);
 
-        $id_number=intval($id);
+        $id_number = intval($id);
         // 文字情報を数字情報に変換
 
         // var_dump($id_number);
 
         // $id_kana=mb_convert_kana($id_number,'A');
 
-        $count_change=$product['count']-1;
+        $count_change = $product['count'] - 1;
         // 個数変更のminの数値決め
 
 
@@ -56,7 +56,9 @@ if (!empty($_SESSION['product'])) {
 
             <div class="price">
                 <a href="detail-1.php?id={$id}" id="price_link">
-                    <p id="price">税込　￥{$product['price']}</p>
+END;
+        echo '<p id="price">税込&ensp;&yen;', number_format($product['price']), '</p>';
+        echo <<<END
                 </a>
 
                 <p  class="count">数量
@@ -90,13 +92,13 @@ if (!empty($_SESSION['product'])) {
     </form>
 END;
 
-// <a href="count_change.php?id={$id_number}" id="delete">更新する</a>
+        // <a href="count_change.php?id={$id_number}" id="delete">更新する</a>
 
 
 
-// var_dump($id);
-// var_dump($id_number);
-// var_dump($_SESSION['product'][$id]['count'] );
+        // var_dump($id);
+        // var_dump($id_number);
+        // var_dump($_SESSION['product'][$id]['count'] );
     }
 
     echo <<< END
@@ -104,7 +106,10 @@ END;
     <div id="total">
         <ul>
             <li> ご注文合計：</li>
-            <li>税込み￥{$total}</li>
+END;
+    echo '<li>税込み&nbsp;&yen;', number_format($total), '</li>';
+
+    echo <<< END
         </ul>
     
     
@@ -121,9 +126,6 @@ END;
 
     
 END;
-
-
-
 } else {
 
     // 商品データがない場合
