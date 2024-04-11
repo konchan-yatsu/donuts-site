@@ -118,6 +118,11 @@ input[type="radio"] {
   margin-bottom: 20px;
 }
 
+.redtext {
+  color: #ff0000;
+  margin-bottom: 10px;
+}
+
 /* 内容：テキストの設定 */
 .message {
   color: #333333;
