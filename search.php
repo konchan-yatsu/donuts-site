@@ -8,19 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="common/css/reset.css">
-  <link rel="stylesheet" href="common/css/common.css">
-  <link rel="stylesheet" href="common/css/product.css">
-  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="common/css/reset.css">
+    <link rel="stylesheet" href="common/css/common.css">
+    <link rel="stylesheet" href="common/css/product.css">
+
     <title>Search page</title>
+
 <body>
 
-<main>
-<ul>
+    <main>
+        <ul>
             <li><a href="index.php">top</a></li>
-            <li>></li>
+            <li>&nbsp;>&nbsp;</li>
             <li>検索</li>
         </ul>
 
@@ -42,20 +43,21 @@
 
         ?>
         <hr>
-<div class="flex_content">
+        <h1>検索結果</h1>
+        <div class="flex_content">
 
-<?php
+            <?php
 
-require 'includes/database.php';
+            require 'includes/database.php';
 
-$sql=$pdo->prepare('select * from product where name like ?');
+            $sql = $pdo->prepare('select * from product where name like ?');
 
-$sql->execute(['%'.$_REQUEST['keyword'].'%']);
+            $sql->execute(['%' . $_REQUEST['keyword'] . '%']);
 
 
-foreach($sql as $row){
+            foreach ($sql as $row) {
 
-echo <<<END
+                echo <<<END
 
     <div class="flex_item">
 
@@ -69,11 +71,25 @@ echo <<<END
 
         <div class="inner_flex">
             <p>
-                <a href="detail-1.php?id={$row['id']}">税込&nbsp;￥{$row['price']}</a>
+END;
+                echo '<a href="detail-1.php?id=', $row['id'], '">税込&nbsp;&yen', number_format($row['price']), '</a>';
+                echo <<<END
             </p>
 
             <p class="inner_heart">
-                <img src="common/images/heart.svg" alt="heart">
+            END;
+                if (isset($_SESSION['customer'])) {
+                    $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
+                    $favorite->execute([$_SESSION['customer']['id'], $row['id']]);
+                    if (empty($favorite->fetchAll())) {
+                        echo '<button><a href="favorite-insert.php?id=', $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></button>';
+                    } else {
+                        echo '<button><a href="favorite-insert.php?id=', $row['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></button>';
+                    }
+                } else {
+                    echo '<button><a href="favorite-insert.php?id=', $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></button>';
+                }
+                echo <<<END
             </p>
         </div>
 
@@ -84,14 +100,14 @@ echo <<<END
         </form>
     </div>
 END;
+            }
 
-}
+            ?>
+        </div>
+    </main>
 
-?>
-</div>
-</main>
-    
 </body>
+
 </html>
 
 <?php require 'includes/footer.php'; ?>
