@@ -38,6 +38,7 @@
 <p class="input_result">{$type}</p>
 END;
 
+    echo '<div class="input_group">';
     echo '<p>カード番号</p>';
     echo '<p class="input_result">', $cardno, '</p>';
     if (preg_match('/^[0-9]{14}$|^[0-9]{16}$/', $cardno)) {
@@ -45,10 +46,12 @@ END;
     } else {
       echo '<p>誤ったカード番号です</p>';
     }
+    echo '</div>';
 
     //日付の判別
+    echo '<div class="input_group">';
     echo '<p>有効期限</p>';
-    echo '<span class="input_result">', $month, '/', $year, '</span>';
+    echo '<p class="input_result">', $month, '/', $year, '</p>';
     if (preg_match('/^[1-9]{1}$|^[1-9]{1}[0-2]{1}$/', $month) && preg_match('/^[0-9]{2}$/', $year)) {
       date_default_timezone_set('Asia/Tokyo');
       $currenttime = mktime(0, 0, 0, date('m'), 1, date('Y'));
@@ -58,28 +61,28 @@ END;
 
       if (checkdate($m, 1, $y)) {
         if ($inputdate > $currenttime) {
-          echo '<p>正しい日付です</p>';
+          echo '<p>正しい有効期限年月です</p>';
         } else {
-          echo '<p>古い日付です</p>';
+          echo '<p>古い有効期限年月です</p>';
         }
-        echo $m, '/', $y;
       } else {
-        echo '<p>正しい日付ではありません</p>';
+        echo '<p>正しい有効期限年月ではありません</p>';
       }
     } else {
       echo '<p>2桁の正しい年月をご入力ください</p>';
     }
+    echo '</div>';
 
 
-
+    echo '<div class="input_group">';
     echo '<p>セキュリティコード</p>';
     echo '<p class="input_result">', $security, '</p>';
     if (preg_match('/^[0-9]{3}$/', $security)) {
       echo '<p>正しいセキュリティコードです</p>';
     } else {
-      echo '<p>正しくありません。</p>';
+      echo '<p>セキュリティコードは正しくありません。</p>';
     }
-
+    echo '</div>';
 
     if (preg_match('/^[0-9]{14}$|^[0-9]{16}$/', $cardno) && preg_match('/^[1-9]{1}$|^[1-9]{1}[0-2]{1}$/', $month) && preg_match('/^[0-9]{2}$/', $year) && preg_match('/^[0-9]{3}$/', $security) && checkdate($m, 1, $y) && $inputdate > $currenttime) {
       echo <<<END
@@ -97,8 +100,8 @@ END;
     } else {
       echo <<< END
   <form action="card-input.php" method="post">
-  <label>クレジットカード登録できません。やり直して下さい。</label>
-        <input type="submit" value="戻る" >
+  <p>登録できません。やり直して下さい。</p>
+        <input class="login_btn" type="submit" value="戻る" >
   </form>
 END;
     }
