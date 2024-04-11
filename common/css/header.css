@@ -68,7 +68,7 @@ header nav div.nav {
 }
 
 header nav img {
-    width: 16%;
+    width: 15%;
     /*58.95/375= 0.157*/
 }
 
@@ -78,6 +78,8 @@ nav input.menu_botan {
 }
 
 nav label.menu_icon {
+    width: 100%;
+
     position: absolute;
     left: 12.5px;
     top: 31px;
@@ -192,9 +194,9 @@ nav input.menu_botan:checked~ul.nav_menu li img {
 }
 
 /* メニューのバツ表示 */
-nav input.menu_botan:checked~label {
+nav input.menu_botan:checked~label.menu_icon {
     position: absolute;
-    right: 0px;
+    left: 0;
     top: 0px;
 
 }
@@ -251,10 +253,6 @@ header div#header_search form ul {
     list-style: none;
 
     display: flex;
-    /* align-items: center; */
-    /* justify-content: left; */
-
-    /* padding: 0 12px 12px 12px; */
 
     padding: 0;
     margin: 0;
@@ -293,7 +291,6 @@ header div#header_search form ul li input {
 @media screen and (min-width: 767px) {
 
     header {
-        /* max-width: 1200px; */
         margin: 0 auto;
         position: relative;
     }
@@ -363,6 +360,11 @@ header div#header_search form ul li input {
     }
 
     nav label.menu_icon {
+        width: 44%;
+        /* 600/1366=0.439 */
+        margin: 0 auto 0 0;
+
+
         position: absolute;
         left: 95px;
         top: 30px;
@@ -377,7 +379,7 @@ header div#header_search form ul li input {
         display: block;
         width: 48px;
         height: 3px;
-        /* position: relative; */
+        position: relative;
 
     }
 
@@ -446,7 +448,7 @@ header div#header_search form ul li input {
     nav input.menu_botan:checked~ul.nav_menu {
         /* メニューボタンをチェックした際の設定 */
         max-width: 44%;
-        /* 最大幅設定 */
+        /* 600/1366=0.439 */
         max-height: 100%;
 
     }
@@ -454,21 +456,19 @@ header div#header_search form ul li input {
     nav input.menu_botan:checked~ul.nav_menu li img {
         /* メニューボタンをチェックした際の設定 */
         max-width: 44%;
-
-        /* 86.93/1366=0.063
-    = */
         /* 最大幅設定 */
     }
 
     /* メニューのバツ表示 */
+    nav input.menu_botan:checked~label.menu_icon {
+        left: 0;
+    }
 
     nav input.menu_botan:checked~label.menu_icon span.nav_icon {
 
         background: transparent;
 
         position: absolute;
-        left: 34%;
-        /* 534/600=0.439 */
         top: 42px;
         /* 54-12=42 */
     }
