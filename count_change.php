@@ -38,11 +38,11 @@
 if (isset($_SESSION['customer'])) {
 // ログインしている
 
-echo '<p class="id_name_no_cart">ようこそ　',$_SESSION['customer']['name'],'様</p> ';
+  echo '<p class="id_name_no_cart">ようこそ　',$_SESSION['customer']['name'],'様</p> ';
 
 }else{
   // ログアウトしている
-echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
+  echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
 }
 
 echo '<hr>';
@@ -50,36 +50,91 @@ echo '<hr>';
 
 $id=$_REQUEST['id'];
 
+$count = $_SESSION['product'][$id]['count'];
+
+if($_SESSION['product'][$id]['count'] > 0){
+// 数量が0より大きい場合　true
+// ??????????????????????????????????????????????
 
 
-    $count = $_SESSION['product'][$id]['count'];
+  $count = $_SESSION['product'][$id]['count'];
 
+  require 'includes/database.php';
 
-
-
-
-        require 'includes/database.php';
+    if($_REQUEST['add'] - $count < 1){
+        // ($_REQUEST['add'] - $count が0以下の場合　true
+        
+        $_SESSION['product'][$id]['count']=1;
 
         $sql = $pdo->prepare('select * from product where id=?');
         $sql->execute([$_REQUEST['id']]);
-      
+        
         foreach ($sql as $cart) {
-      
+        
           $_SESSION['product'][$id] = [
-            'name' => $cart['name'],
-            'price' => $cart['price'],
-            'count' => $count+$_REQUEST['add']
+          'name' => $cart['name'],
+          'price' => $cart['price'],
+          'count' => $count
           ];
-        }
+
+    }
 
 
+  }
 
+
+      $sql = $pdo->prepare('select * from product where id=?');
+      $sql->execute([$_REQUEST['id']]);
+      
+      foreach ($sql as $cart) {
+      
+        $_SESSION['product'][$id] = [
+        'name' => $cart['name'],
+        'price' => $cart['price'],
+        'count' => $count+$_REQUEST['add']
+        ];
+  }
 
   echo '<p class="id_name_no_cart">',$_SESSION['product'][$id]['name'],'の数量を変更しました。</p>';
   echo '<hr>';
   require 'cart.php';
   echo '</main>';
+
+
+
+
+}else {
+// 数量がマイナスの場合　false　
+
+$_SESSION['product'][$id]['count']=1;
+
+$count = $_SESSION['product'][$id]['count'];
+
+
+
+$sql = $pdo->prepare('select * from product where id=?');
+$sql->execute([$_REQUEST['id']]);
+    
+foreach ($sql as $cart) {
+    
+  $_SESSION['product'][$id] = [
+    'name' => $cart['name'],
+    'price' => $cart['price'],
+    'count' => $count
+  ];
+}
+
+
+echo '<p class="id_name_no_cart">',$_SESSION['product'][$id]['name'],'の数量を　1　に変更しました。</p>';
+echo '<hr>';
+require 'cart.php';
+echo '</main>';
+
+
+}
+
   ?>
+
 
 
 
