@@ -40,45 +40,70 @@ END;
 
     echo '<p>カード番号</p>';
     echo '<p class="input_result">', $cardno, '</p>';
+    if (preg_match('/^[0-9]{14}$|^[0-9]{16}$/', $cardno)) {
+      echo '<p>正しいカード番号です</p>';
+    } else {
+      echo '<p>誤ったカード番号です</p>';
+    }
 
     //日付の判別
     echo '<p>有効期限</p>';
     echo '<span class="input_result">', $month, '/', $year, '</span>';
+    if (preg_match('/^[1-9]{1}$|^[1-9]{1}[0-2]{1}$/', $month) && preg_match('/^[0-9]{2}$/', $year)) {
+      date_default_timezone_set('Asia/Tokyo');
+      $currenttime = mktime(0, 0, 0, date('m'), 1, date('Y'));
+      $inputdate = mktime(0, 0, 0, $month, 28, $year);
+      $y = date('Y', $inputdate);
+      $m = date('m', $inputdate);
+
+      if (checkdate($m, 1, $y)) {
+        if ($inputdate > $currenttime) {
+          echo '正しい日付です';
+        } else {
+          echo '古い日付です';
+        }
+        echo $m, '/', $y;
+      } else {
+        echo $month, '月', $year, '年', 'は正しい日付ではありません';
+      }
+    } else {
+      echo '2桁の正しい年月をご入力ください';
+    }
+
+
 
     echo '<p>セキュリティコード</p>';
     echo '<p class="input_result">', $security, '</p>';
-
-    var_dump($cardno);
-    echo '<br>';
-    var_dump($month);
-    echo '<br>';
-    var_dump($year);
-    echo '<br>';
-    var_dump($security);
-    echo '<br>';
+    if (preg_match('/^[0-9]{3}$/', $security)) {
+      echo '正しいセキュリティコードです';
+    } else {
+      echo '正しくありません。';
+    }
 
 
-
-    ?>
-
-    <!-- echo <<< END
-      <form action="card-input.php" method="post">
-      <label>クレジットカード登録できません。やり直して下さい。</label>
-            <input type="submit" value="戻る" >
-      </form>
-    END;
-    echo <<<END
+    if (preg_match('/^[0-9]{14}$|^[0-9]{16}$/', $cardno) && preg_match('/^[1-9]{1}$|^[1-9]{1}[0-2]{1}$/', $month) && preg_match('/^[0-9]{2}$/', $year) && preg_match('/^[0-9]{3}$/', $security) && checkdate($m, 1, $y) && $inputdate > $currenttime) {
+      echo <<<END
       <form action="card-complete.php" method="post">
-      <input type="hidden" name="card_name" value="{$card_name}">
-      <input type="hidden" name="card_type" value="{$card_type}">
-      <input type="hidden" name="card_no" value="{$card_no}">
-      <input type="hidden" name="card_month" value="{$card_month}">
-      <input type="hidden" name="card_year" value="{$card_year}">
-      <input type="hidden" name="card_security_code" value="{$card_security_code}">
+      <input type="hidden" name="card_name" value="{$name}">
+      <input type="hidden" name="card_type" value="{$type}">
+      <input type="hidden" name="card_no" value="{$cardno}">
+      <input type="hidden" name="card_month" value="{$month}">
+      <input type="hidden" name="card_year" value="{$year}">
+      <input type="hidden" name="card_security_code" value="{$security}">
       <input class="login_btn" type="submit" value="この内容で登録する">
       </form>
       </div>
-      END; -->
+      END;
+    } else {
+      echo <<< END
+  <form action="card-input.php" method="post">
+  <label>クレジットカード登録できません。やり直して下さい。</label>
+        <input type="submit" value="戻る" >
+  </form>
+END;
+    }
+
+    ?>
   </main>
 </body>
 

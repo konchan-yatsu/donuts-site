@@ -39,8 +39,8 @@
         </div><!-- /content_inner -->
       </div><!-- /content -->
     END;
-    } elseif(empty($sql)) {
-      echo  '失敗しました';
+    } else {
+      echo  'ログインしてください';
     }
     //検証用
     // var_dump($_SESSION['customer']['id']);
