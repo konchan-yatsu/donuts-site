@@ -18,6 +18,30 @@
 <body>
 
 <main>
+<ul>
+            <li><a href="index.php">top</a></li>
+            <li>></li>
+            <li>検索</li>
+        </ul>
+
+
+        <hr>
+
+        <?php
+
+        if (isset($_SESSION['customer'])) {
+            // ログインしている
+
+
+            echo '<p class="id_name_no_cart">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p> ';
+        } else {
+
+            echo '<p class="id_name_no_cart">ようこそ&emspゲスト様</p> ';
+        }
+
+
+        ?>
+        <hr>
 <div class="flex_content">
 
 <?php

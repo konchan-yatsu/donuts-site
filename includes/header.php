@@ -72,12 +72,34 @@
           </nav>
         </div>
 
+        <?php require 'includes/database.php'; ?>
+
+      <?php
+
+        if (isset($_SESSION['customer'])) {
+          // ログインしている
 
 
-        <?php
+          $favorite = $pdo->prepare('SELECT * FROM favorite ,product WHERE customer_id=? AND product_id=id');
+          $favorite->execute([$_SESSION['customer']['id']]);
+    
+          if (!empty($favorite->fetchAll())) {
+          // お気に入りに商品がある場合　♡表示
+
+            echo '<a class="heart" href="favorite-list.php"><img src="common/images/heart.svg" width=4% alt="お気に入りアイコン"></a>';
+          }
+
+        }
+
+
+      ?>
+
+
+      <?php
         if (isset($_SESSION['customer'])) {
           // ログインしてる
           echo '<a class="login" href="logout-input.php"><img src="common/images/icon_logout_sp.svg" alt="ログアウトアイコン"></a>';
+
         } else {
           // ログインしてない
           echo '<a class="login" href="login-input.php"><img src="common/images/icon_login_sp.svg" alt="ログインアイコン"></a>';
