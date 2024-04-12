@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/card.css">
-  <title>Card-confirm | donuts-site</title>
+  <title>カード情報－入力確認 | c.c.donuts オンラインショップ</title>
 </head>
 
 <body>

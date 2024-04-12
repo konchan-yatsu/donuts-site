@@ -28,7 +28,7 @@ if (isset($_REQUEST['mail']) && isset($_REQUEST['password'])) {
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/login.css">
-  <title>Login completed | donuts-site</title>
+  <title>ログイン完了 | c.c.donuts オンラインショップ</title>
 </head>
 
 <body>

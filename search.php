@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="common/css/common.css">
     <link rel="stylesheet" href="common/css/product.css">
 
-    <title>Search page</title>
+    <title>検索ページ | c.c.donuts オンラインショップ</title>
 
 <body>
 

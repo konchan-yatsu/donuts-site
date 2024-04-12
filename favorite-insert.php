@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="common/css/reset.css">
 <link rel="stylesheet" href="common/css/favorite.css">
-<title>favorite | donuts-site</title>
+<title>お気に入り商品追加 | c.c.donuts オンラインショップ</title>
 <html>
 
 <body>

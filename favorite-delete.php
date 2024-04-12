@@ -2,7 +2,7 @@
 <?php require 'includes/database.php'; ?>
 
 <link rel="stylesheet" href="common/css/favorite.css">
-<title>Favorite-delete | donuts-site</title>
+<title>お気に入り商品削除 | c.c.donuts オンラインショップ</title>
 
 <main>
   <!-- <?php

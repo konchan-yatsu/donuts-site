@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/common.css">
   <link rel="stylesheet" href="common/css/product.css">
-  <title>商品一覧</title>
+  <title>商品一覧 | c.c.donuts オンラインショップ</title>
 </head>
 
 <body>

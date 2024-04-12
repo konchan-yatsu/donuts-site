@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/cart.css">
 
-  <title>Cart-Product list page</title>
+  <title>数量変更完了 | c.c.donuts オンラインショップ</title>
 
 </head>
 
@@ -24,65 +24,64 @@
 
 
 
-<main>
+  <main>
 
-<ul>
-<li><a href="index.php">top</a></li>
-<li>></li>
-<li>カート</li>
-</ul>
+    <ul>
+      <li><a href="index.php">top</a></li>
+      <li>></li>
+      <li>カート</li>
+    </ul>
 
-<hr>
+    <hr>
 
-<?php
-if (isset($_SESSION['customer'])) {
-// ログインしている
+    <?php
+    if (isset($_SESSION['customer'])) {
+      // ログインしている
 
-echo '<p class="id_name_no_cart">ようこそ　',$_SESSION['customer']['name'],'様</p> ';
+      echo '<p class="id_name_no_cart">ようこそ　', $_SESSION['customer']['name'], '様</p> ';
+    } else {
+      // ログアウトしている
+      echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
+    }
 
-}else{
-  // ログアウトしている
-echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
-}
-
-echo '<hr>';
+    echo '<hr>';
 
 
-$id=$_REQUEST['id'];
+    $id = $_REQUEST['id'];
 
 
 
     $count = $_SESSION['product'][$id]['count'];
 
-   
+
     $_SESSION['product'][$id] = [
-      'count' => $count+$_REQUEST['add']
+      'count' => $count + $_REQUEST['add']
     ];
 
 
 
-        require 'includes/database.php';
+    require 'includes/database.php';
 
-        $sql = $pdo->prepare('select * from product where id=?');
-        $sql->execute([$_REQUEST['id']]);
-      
-        foreach ($sql as $cart) {
-      
-          $_SESSION['product'][$id] = [
-            'name' => $cart['name'],
-            'price' => $cart['price'],
-            'count' => $count+$_REQUEST['add']
-          ];
-        }
+    $sql = $pdo->prepare('select * from product where id=?');
+    $sql->execute([$_REQUEST['id']]);
 
+    foreach ($sql as $cart) {
 
+      $_SESSION['product'][$id] = [
+        'name' => $cart['name'],
+        'price' => $cart['price'],
+        'count' => $count + $_REQUEST['add']
+      ];
+    }
 
 
-  echo '<p class="id_name_no_cart">',$_SESSION['product'][$id]['name'],'の数量を変更しました。</p>';
-  echo '<hr>';
-  require 'cart.php';
-  echo '</main>';
-  ?>
+
+
+    echo '<p class="id_name_no_cart">', $_SESSION['product'][$id]['name'], 'の数量を変更しました。</p>';
+    echo '<hr>';
+    require 'cart.php';
+    echo '</main>';
+    ?>
 
 
 
@@ -91,4 +90,4 @@ $id=$_REQUEST['id'];
 </html>
 
 
-  <?php require 'includes/footer.php'; ?>
+<?php require 'includes/footer.php'; ?>

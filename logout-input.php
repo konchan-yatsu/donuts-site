@@ -2,7 +2,7 @@
 <?php require 'includes/database.php'; ?>
 
 <link rel="stylesheet" href="common/css/logout.css">
-<title>Logout | donuts-site</title>
+<title>ログアウト | c.c.donuts オンラインショップ</title>
 
 <main>
   <?php

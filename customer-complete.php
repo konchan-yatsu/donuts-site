@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/customer.css">
-  <title>Customer-complete | donuts-site</title>
+  <title>会員登録完了 | c.c.donuts オンラインショップ</title>
 </head>
 
 <?php require 'includes/database.php'; ?>

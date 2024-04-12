@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/common.css">
   <link rel="stylesheet" href="common/css/customer.css">
-  <title>Customer-confirm | donuts-site</title>
+  <title>会員登録確認 | c.c.donuts オンラインショップ</title>
 </head>
 
 <body>

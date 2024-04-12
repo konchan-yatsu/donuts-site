@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/purchase.css">
-  <title>Purchase-complete | donuts-site</title>
+  <title>購入完了 | c.c.donuts オンラインショップ</title>
 </head>
 
 <body>
