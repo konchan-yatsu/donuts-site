@@ -159,7 +159,7 @@ if($_SESSION['product'][$id]['count'] > 0){
 
 }
 
-echo '<hr>';
+
 require 'cart.php';
 echo '</main>';
 
