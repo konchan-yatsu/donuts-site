@@ -110,17 +110,7 @@ if (isset($_SESSION['customer'])) {
         //         </div>
         //       </div>
         // END;
-        //       }
 
-        require 'includes/database.php';
-        foreach ($pdo->query('select product_id from purchase_detail group by product_id order by sum(count) desc') as $item) {;
-          // echo <<<END
-          // <p>{$item['product_id']}</p>
-          // END;
-          $ranking[] = $item['product_id'];
-        }
-        $ranking_number = 0;
-        for ($i = 0; $i <= 5; $i++) {
           $sql = $pdo->prepare('select * from product where id=?');
           $sql->execute([$ranking[$i]]);
 

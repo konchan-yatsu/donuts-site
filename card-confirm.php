@@ -41,10 +41,8 @@ END;
     echo '<div class="input_group">';
     echo '<p>カード番号</p>';
     echo '<p class="input_result">', $cardno, '</p>';
-    if (preg_match('/^[0-9]{14}$|^[0-9]{16}$/', $cardno)) {
-      echo '<p>正しいカード番号です</p>';
-    } else {
-      echo '<p>誤ったカード番号です</p>';
+    if (!preg_match('/^[0-9]{14}$|^[0-9]{16}$/', $cardno)) {
+      echo '<p class="redtext">誤ったカード番号です</p>';
     }
     echo '</div>';
 
@@ -60,16 +58,14 @@ END;
       $m = date('m', $inputdate);
 
       if (checkdate($m, 1, $y)) {
-        if ($inputdate > $currenttime) {
-          echo '<p>正しい有効期限年月です</p>';
-        } else {
-          echo '<p>古い有効期限年月です</p>';
+        if ($inputdate < $currenttime) {
+          echo '<p class="redtext" >古い有効期限年月です</p>';
         }
       } else {
-        echo '<p>正しい有効期限年月ではありません</p>';
+        echo '<p class="redtext" >正しい有効期限年月ではありません</p>';
       }
     } else {
-      echo '<p>2桁の正しい年月をご入力ください</p>';
+      echo '<p class="redtext" >2桁の正しい年月をご入力ください</p>';
     }
     echo '</div>';
 
@@ -77,10 +73,8 @@ END;
     echo '<div class="input_group">';
     echo '<p>セキュリティコード</p>';
     echo '<p class="input_result">', $security, '</p>';
-    if (preg_match('/^[0-9]{3}$/', $security)) {
-      echo '<p>正しいセキュリティコードです</p>';
-    } else {
-      echo '<p>セキュリティコードは正しくありません。</p>';
+    if (!preg_match('/^[0-9]{3}$/', $security)) {
+      echo '<p class="redtext" >セキュリティコードは正しくありません。</p>';
     }
     echo '</div>';
 

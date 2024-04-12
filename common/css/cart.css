@@ -83,8 +83,20 @@ main div#merchandise div#detail div.price input[type=number] {
 }
 
 main div#merchandise div#detail div.price input[type=submit] {
-  font-size: 12px;
-  padding-bottom: 5px;
+  padding: 2px 5px;
+
+  font-size: 10px;
+  margin-bottom: 5px;
+
+  background: rgba(141, 139, 139, 0.3);
+  border: 1px solid #8d8b8b;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px #989796,
+    -3px -3px 3px #989796,
+    -3px 3px 3px #989796,
+    3px -3px 3px #989796;
+
+
 }
 
 main div#merchandise a#delete {
@@ -211,8 +223,7 @@ main p#continue a {
   }
 
   main div#merchandise div#detail div.price input[type=submit] {
-    font-size: 20px;
-    padding-bottom: 5px;
+    font-size: 15px;
   }
 
   main div#merchandise a#name_link {
