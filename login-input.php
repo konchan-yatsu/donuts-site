@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="common/css/reset.css">
 <link rel="stylesheet" href="common/css/login.css">
-<title>Login | donuts-site</title>
+<title>ログイン | c.c.donuts オンラインショップ</title>
 <html>
 
 <body>

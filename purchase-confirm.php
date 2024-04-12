@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/common.css">
   <link rel="stylesheet" href="common/css/purchase.css">
-  <title>Purchase-confirm | donuts-site</title>
+  <title>購入内容確認 | c.c.donuts オンラインショップ</title>
 </head>
 
 <body>

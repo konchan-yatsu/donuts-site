@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/cart.css">
 
-  <title>Cart-Product list page</title>
+  <title>数量変更完了 | c.c.donuts オンラインショップ</title>
 
 </head>
 
@@ -24,31 +24,23 @@
 
 
 
-<main>
+  <main>
 
-<ul>
-<li><a href="index.php">top</a></li>
-<li>></li>
-<li>カート</li>
-</ul>
+    <ul>
+      <li><a href="index.php">top</a></li>
+      <li>></li>
+      <li>カート</li>
+    </ul>
 
-<hr>
+    <hr>
 
-<?php
-if (isset($_SESSION['customer'])) {
-// ログインしている
-
-  echo '<p class="id_name_no_cart">ようこそ　',$_SESSION['customer']['name'],'様</p> ';
-
-}else{
-  // ログアウトしている
-  echo '<p class="id_name_no_cart">ようこそ　ゲスト様</p> ';
-}
-
-echo '<hr>';
+    <?php
+    if (isset($_SESSION['customer'])) {
+      // ログインしている
 
 
-$id=$_REQUEST['id'];
+
+    $id = $_REQUEST['id'];
 
 $count = $_SESSION['product'][$id]['count'];
 
@@ -71,32 +63,8 @@ if($_SESSION['product'][$id]['count'] > 0){
 
 
 
-
-
-
-
-    if($_REQUEST['add'] + $count < 1){
-        // ($_REQUEST['add'] + $count が1未満の場合　true
         
-        $_SESSION['product'][$id]['count']=1;
-        // $_SESSION['product'][$id]['count']に「1」を代入
-
-        $sql = $pdo->prepare('select * from product where id=?');
-        // product内のidと　Web内idが同じものを確認
-
-        $sql->execute([$_REQUEST['id']]);
-        // データベースからいidを読み込み
-        
-        foreach ($sql as $cart) {
-        
-          $_SESSION['product'][$id] = [
-          'name' => $cart['name'],
-          'price' => $cart['price'],
-          'count' => $_SESSION['product'][$id]['count']
-          ];
-          // idが同じもののデータを読み込み
-
-        }
+ 
 
         echo '<p class="id_name_no_cart">',$_SESSION['product'][$id]['name'],'の数量　1　に変更しました。</p>';
 
@@ -127,50 +95,9 @@ if($_SESSION['product'][$id]['count'] > 0){
 
 
 
-
-
-
-
-
-}else {
-  // 数量がマイナスの場合　false　
-
-  $_SESSION['product'][$id]['count']=1;
-
-  $count = $_SESSION['product'][$id]['count'];
-
-
-
-  $sql = $pdo->prepare('select * from product where id=?');
-  $sql->execute([$_REQUEST['id']]);
-    
-  foreach ($sql as $cart) {
-    
-    $_SESSION['product'][$id] = [
-      'name' => $cart['name'],
-      'price' => $cart['price'],
-      'count' => $count
-      ];
- 
-  }
-
-  echo '<p class="id_name_no_cart">',$_SESSION['product'][$id]['name'],'の数量を　1　に変更しました。</p>';
-
-
-}
-
-
-require 'cart.php';
-echo '</main>';
-
-  ?>
-
-
-
-
 </body>
 
 </html>
 
 
-  <?php require 'includes/footer.php'; ?>
+<?php require 'includes/footer.php'; ?>

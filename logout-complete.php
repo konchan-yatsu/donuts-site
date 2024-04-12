@@ -1,7 +1,7 @@
 <?php require 'includes/header.php'; ?>
 
 <link rel="stylesheet" href="common/css/logout.css">
-<title>Logout-complete | donuts-site</title>
+<title>ログアウト完了 | c.c.donuts オンラインショップ</title>
 
 <main>
 

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/common.css">
   <link rel="stylesheet" href="common/css/customer.css">
-  <title>Customer-input | donuts-site</title>
+  <title>会員登録入力 | c.c.donuts オンラインショップ</title>
 </head>
 
 <?php
