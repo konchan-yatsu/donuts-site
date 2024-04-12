@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/cart.css">
 
-  <title>Cart-Delete page</title>
+  <title>ショッピングカート－削除完了 | c.c.donuts オンラインショップ</title>
 
 </head>
 
