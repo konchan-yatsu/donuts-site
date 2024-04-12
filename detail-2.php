@@ -51,8 +51,9 @@ foreach ($sql as $row) {
   echo '<form action="cart-input.php" method="post">';
   echo '<input class="product_count" type="number" min="0" max="99" name="count"  required>';
   echo '<input type="hidden" name="id" value ="', $row['id'], '" >';
-  echo '<span class="bottom_align">個</span>';
-  echo '<input class="cartin_btn" type="submit" value="カートに入れる ">';
+  echo '<p><input class="product_count" type="number" min="0" max="99" name="count"  required>個';
+  // echo '<span class="bottom_align">個</span>';
+  echo '<input class="cartin_btn" type="submit" value="カートに入れる "></p>';
   echo '</form>';
   echo '</div><!-- /form_inner -->';
   echo '</div>';
