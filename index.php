@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/common.css">
   <link rel="stylesheet" href="common/css/index.css">
-  <title>index | donuts-site</title>
+  <title>c.c.donuts オンラインショップ</title>
 </head>
 <?php
 if (isset($_SESSION['customer'])) {
@@ -120,20 +120,21 @@ if (isset($_SESSION['customer'])) {
       }
       $ranking_number = 0;
       for ($i = 0; $i <= 5; $i++) {
-        $sql = $pdo->prepare('select * from product where id=?');
-        $sql->execute([$ranking[$i]]);
+        if (isset($ranking[$i])) {
+          $sql = $pdo->prepare('select * from product where id=?');
+          $sql->execute([$ranking[$i]]);
 
-        $ranking_number += 1;
+          $ranking_number += 1;
 
-        foreach ($sql as $row) {
-          $price = number_format($row['price']);
-          //  detail.phpに飛ぶときのページ番号の判定
-          if ($row['id'] <= 6) {
-            $category = 1;
-          } else {
-            $category = 2;
-          }
-          echo <<<END
+          foreach ($sql as $row) {
+            $price = number_format($row['price']);
+            //  detail.phpに飛ぶときのページ番号の判定
+            if ($row['id'] <= 6) {
+              $category = 1;
+            } else {
+              $category = 2;
+            }
+            echo <<<END
         <div class="ranking_item slideIn">
               <div class="ranking_wrap">
                  <div class="ranking_h5">
@@ -145,19 +146,19 @@ if (isset($_SESSION['customer'])) {
                  <a  href="detail-{$category}.php?id={$row['id']}"><p class="ranking_text price">税込&nbsp;￥{$price}</p></a>
 END;
 
-          if (isset($_SESSION['customer'])) {
-            $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
-            $favorite->execute([$_SESSION['customer']['id'], $row['id']]);
-            if (empty($favorite->fetchAll())) {
-              echo '<p><a  href="detail-', $category, '.php?id=', $row['id'], '"><a href="favorite-insert.php?id=', $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></a></p>';
+            if (isset($_SESSION['customer'])) {
+              $favorite = $pdo->prepare('SELECT * FROM favorite WHERE customer_id=? AND product_id=?');
+              $favorite->execute([$_SESSION['customer']['id'], $row['id']]);
+              if (empty($favorite->fetchAll())) {
+                echo '<p><a  href="detail-', $category, '.php?id=', $row['id'], '"><a href="favorite-insert.php?id=', $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></a></p>';
+              } else {
+                echo '<p><a  href="detail-', $category, '.php?id=', $row['id'], '"><a href="favorite-insert.php?id=', $row['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></a></p>';
+              }
             } else {
-              echo '<p><a  href="detail-', $category, '.php?id=', $row['id'], '"><a href="favorite-insert.php?id=', $row['id'], '"><img class="favorite_icon" src="common/images/heart.png" alt="お気に入りボタン"></a></a></p>';
+              echo '<p><a  href="detail-', $category, '.php?id=', $row['id'], '"><a href="favorite-insert.php?id=', $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></a></p>';
             }
-          } else {
-            echo '<p><a  href="detail-', $category, '.php?id=', $row['id'], '"><a href="favorite-insert.php?id=', $row['id'], '"><img class="favorite_icon" src="common/images/heart.svg" alt="お気に入りボタン"></a></a></p>';
-          }
 
-          echo <<<END
+            echo <<<END
 </div>
 <form action="cart-input.php">
 <input type="hidden" name="id" value="{$row['id']}">
@@ -168,6 +169,7 @@ END;
 </div>
 
 END;
+          }
         }
       }
 
