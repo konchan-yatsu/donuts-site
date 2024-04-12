@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php require 'includes/database.php'; ?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -74,38 +75,38 @@
 
         <?php require 'includes/database.php'; ?>
 
-      <?php
-
-        if (isset($_SESSION['customer'])) {
-          // ログインしている
-
-
-          $favorite = $pdo->prepare('SELECT * FROM favorite ,product WHERE customer_id=? AND product_id=id');
-          $favorite->execute([$_SESSION['customer']['id']]);
-    
-          if (!empty($favorite->fetchAll())) {
-          // お気に入りに商品がある場合　♡表示
-
-            echo '<a class="heart" href="favorite-list.php"><img src="common/images/heart.svg" width=4% alt="お気に入りアイコン"></a>';
-          }
-
-        }
-
-
-      ?>
-
-
-      <?php
+        <?php
         if (isset($_SESSION['customer'])) {
           // ログインしてる
-          echo '<a class="login" href="logout-input.php"><img src="common/images/icon_logout_sp.svg" alt="ログアウトアイコン"></a>';
-
-        } else {
-          // ログインしてない
-          echo '<a class="login" href="login-input.php"><img src="common/images/icon_login_sp.svg" alt="ログインアイコン"></a>';
+          $favorite = $pdo->prepare('SELECT * FROM favorite ,product WHERE customer_id=? AND product_id=id');
+          $favorite->execute([$_SESSION['customer']['id']]);
+          if (!empty($favorite->fetchAll())) {
+            // お気に入りに商品がある場合　♡表示
+            echo '<a class="heart" href="favorite-list.php"><img src="common/images/heart.svg" width=4% alt="お気に入りアイコン"></a>';
+          }
         }
         ?>
 
+
+        <?php
+        $basename = basename((empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+        if (isset($_SESSION['customer'])) {
+          // ログインしてる
+
+          if ($basename == 'logout-complete.php?logout=1') {
+            echo  '<a class="login" href="login-input.php"><img src="common/images/icon_login_sp.svg" alt="ログインアイコン"></a>';
+          } else {
+            echo '<a class="login" href="logout-input.php"><img src="common/images/icon_logout_sp.svg" alt="ログアウトアイコン"></a>';
+          }
+        } else {
+          // ログインしてない
+          if ($basename == 'login-complete.php?login=1') {
+            echo '<a class="login" href="logout-input.php"><img src="common/images/icon_logout_sp.svg" alt="ログアウトアイコン"></a>';
+          } else {
+            echo '<a class="login" href="login-input.php"><img src="common/images/icon_login_sp.svg" alt="ログインアイコン"></a>';
+          }
+        }
+        ?>
         <a class="cart" href="cart-show.php"><img src="common/images/icon_cart_sp.svg" alt="カートアイコン"></a>
 
       </div>
