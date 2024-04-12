@@ -18,6 +18,7 @@
   <main>
 
     <?php
+    var_dump($_SESSION['customer']);
     //変数に受け取った値を代入する
 
     $name = htmlspecialchars($_REQUEST['card_name']);
@@ -29,7 +30,7 @@
 
     // 入力情報を出力する
     echo <<< END
-<img src="common/images/logo_sp.png" alt="ロゴ">
+<a href="index.php"><img src="common/images/logo_sp.png" alt="ロゴ"></a>
 <h1>ご入力内容の確認</h1>
 <div class="content">
 <p>お名前</p>
@@ -80,7 +81,7 @@ END;
 
     if (preg_match('/^[0-9]{14}$|^[0-9]{16}$/', $cardno) && preg_match('/^[1-9]{1}$|^[1-9]{1}[0-2]{1}$/', $month) && preg_match('/^[0-9]{2}$/', $year) && preg_match('/^[0-9]{3}$/', $security) && checkdate($m, 1, $y) && $inputdate > $currenttime) {
       echo <<<END
-      <form action="card-complete.php" method="post">
+      <form  class="form_inner" action="card-complete.php" method="post">
       <input type="hidden" name="card_name" value="{$name}">
       <input type="hidden" name="card_type" value="{$type}">
       <input type="hidden" name="card_no" value="{$cardno}">
