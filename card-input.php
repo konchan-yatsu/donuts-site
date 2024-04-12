@@ -19,7 +19,7 @@ if (isset($_SESSION['customer'])) {
   echo <<< END
 <body>
   <main>
-    <img src="common/images/logo_sp.png" alt="ロゴ">
+    <a href="index.php"><img src="common/images/logo_sp.png" alt="ロゴ"></a>
     <h1>カード情報登録</h1>
     <div class="content">
       <!-- <div class="content_inner"> -->
@@ -45,7 +45,7 @@ if (isset($_SESSION['customer'])) {
         </div>
         <div class="textalign_center">
 
-          <input class="login_btn" type="submit" value="ご入力内容を確認する">
+          <input class="login_btn confirm_btn" type="submit" value="ご入力内容を確認する">
         </div>
 
       </form>
