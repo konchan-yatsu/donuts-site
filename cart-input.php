@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="common/css/reset.css">
   <link rel="stylesheet" href="common/css/cart.css">
 
-  <title>Cart-Product list page</title>
+  <title>ショッピングカート－追加完了 | c.c.donuts オンラインショップ</title>
 
 </head>
 

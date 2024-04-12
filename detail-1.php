@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="common/css/detail.css">
-<title>Customer-input | donuts-site</title>
+<title>商品詳細 | c.c.donuts オンラインショップ</title>
 
 <?php require 'includes/header.php'; ?>
 <?php require 'includes/database.php'; ?>
