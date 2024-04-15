@@ -45,7 +45,7 @@
             echo '<p class="id_name_no_cart">ようこそ&emsp;', $_SESSION['customer']['name'], '様</p> ';
         } else {
 
-            echo '<p class="id_name_no_cart">ようこそ&emspゲスト様</p> ';
+            echo '<p class="id_name_no_cart">ようこそ&emsp;ゲスト様</p> ';
         }
 
 

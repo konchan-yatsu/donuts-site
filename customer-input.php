@@ -29,7 +29,7 @@ if (isset($_SESSION['customer'])) {
 
 <body>
   <main>
-    <img src="common/images/logo_sp.png" alt="ロゴ">
+    <a href="index.php"> <img src="common/images/logo_sp.png" alt="ロゴ"></a>
 
     <?php
     if (isset($_SESSION['customer'])) {
