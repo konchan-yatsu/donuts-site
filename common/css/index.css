@@ -154,6 +154,7 @@ body {
 /*  画像size調整*/
 .philosophy_img img {
   max-width: 100%;
+  width: 100%;
 }
 
 /* 画像文字色指定 */

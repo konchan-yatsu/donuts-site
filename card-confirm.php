@@ -18,7 +18,6 @@
   <main>
 
     <?php
-    var_dump($_SESSION['customer']);
     //変数に受け取った値を代入する
 
     $name = htmlspecialchars($_REQUEST['card_name']);
@@ -42,9 +41,15 @@ END;
     echo '<div class="input_group">';
     echo '<p>カード番号</p>';
     echo '<p class="input_result">', $cardno, '</p>';
+    require 'includes/database.php';
+    $sql = $pdo->prepare('select * from card where card_no=?');
+    $sql->execute([$cardno]);
     if (!preg_match('/^[0-9]{14}$|^[0-9]{16}$/', $cardno)) {
       echo '<p class="redtext">誤ったカード番号です</p>';
+    } elseif (!empty($sql->fetchAll())) {
+      echo '<p class="redtext">既に登録されているカード番号です</p>';
     }
+
     echo '</div>';
 
     //日付の判別
@@ -79,7 +84,12 @@ END;
     }
     echo '</div>';
 
-    if (preg_match('/^[0-9]{14}$|^[0-9]{16}$/', $cardno) && preg_match('/^[1-9]{1}$|^[1-9]{1}[0-2]{1}$/', $month) && preg_match('/^[0-9]{2}$/', $year) && preg_match('/^[0-9]{3}$/', $security) && checkdate($m, 1, $y) && $inputdate > $currenttime) {
+    // クレカ番号の重複確認用sql
+    $sql = $pdo->prepare('select * from card where card_no=?');
+    $sql->execute([$cardno]);
+
+    // 上記の各種条件を網羅している
+    if (preg_match('/^[0-9]{14}$|^[0-9]{16}$/', $cardno) && empty($sql->fetchAll()) && preg_match('/^[1-9]{1}$|^[1-9]{1}[0-2]{1}$/', $month) && preg_match('/^[0-9]{2}$/', $year) && preg_match('/^[0-9]{3}$/', $security) && checkdate($m, 1, $y) && $inputdate > $currenttime) {
       echo <<<END
       <form  class="form_inner" action="card-complete.php" method="post">
       <input type="hidden" name="card_name" value="{$name}">
